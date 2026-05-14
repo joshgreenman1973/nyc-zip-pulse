@@ -29,7 +29,8 @@ All datasets are queried live from the NYC Open Data SODA API, client-side, with
 | 311 complaints | 311 Service Requests | [erm2-nwe9](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9) | `created_date` | `incident_zip` | none |
 | Marshal evictions | Evictions | [6z8x-wfk4](https://data.cityofnewyork.us/City-Government/Evictions/6z8x-wfk4) | `executed_date` | `eviction_zip` | none |
 | Traffic crashes | Motor Vehicle Collisions — Crashes | [h9gi-nx95](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95) | `crash_date` | `zip_code` | `zip_code IS NOT NULL` |
-| Restaurant closures | DOHMH Restaurant Inspection Results | [43nn-pn8j](https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j) | `inspection_date` | `zipcode` | `action like '%Closed%'` |
+| DOHMH closures | DOHMH Restaurant Inspection Results | [43nn-pn8j](https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j) | `inspection_date` | `zipcode` | `action like 'Establishment Closed by DOHMH%'` — i.e. ordered-closure inspections only, not re-openings |
+| Construction (sheds/scaffolds) | DOB NOW: Build — Approved Permits | [rbx6-tga4](https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Build-Approved-Permits/rbx6-tga4) | `issued_date` | `zip_code` | `work_type in('Sidewalk Shed','Supported Scaffold','Suspended Scaffold')` |
 | HPD housing violations | Housing Maintenance Code Violations | [wvxf-dwi5](https://data.cityofnewyork.us/Housing-Development/Housing-Maintenance-Code-Violations/wvxf-dwi5) | `novissueddate` | `zip` | none |
 | OATH summonses | OATH Hearings Division Case Status | [6bgk-3dad](https://data.cityofnewyork.us/City-Government/OATH-Hearings-Division-Case-Status/6bgk-3dad) | `issue_date` | `respondent_zip` | none |
 | Rat sightings | 311 Service Requests (subset) | [erm2-nwe9](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9) | `created_date` | `incident_zip` | `complaint_type='Rodent' OR descriptor like '%Rat%'` |
@@ -40,6 +41,10 @@ All datasets are queried live from the NYC Open Data SODA API, client-side, with
 - For 311, a complaint and its updates may both produce rows in the source file; behavior follows whatever the source publishes.
 - For restaurant inspections, a single restaurant closed and re-inspected within the window will count once per closure-action inspection row.
 - For crashes, a single crash is one row regardless of how many people or vehicles were involved.
+
+### A note on cranes
+
+A "cranes per ZIP" layer was investigated and dropped. The only crane-specific NYC Open Data file (Street Construction Permits — Cranes, `hcv3-zacv`) has not been updated since 2018 and exposes no ZIP, lat/lng, or address. The DOB Crane Information Repository, where current crane device permits actually live, is not published to Open Data. The Construction layer above (sidewalk sheds + scaffolds) is the closest available proxy for "where is heavy construction happening" — most cranes operate at sites that also have a shed or scaffold permit.
 
 ### Crime is intentionally excluded
 

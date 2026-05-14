@@ -356,7 +356,8 @@
     <button class="pill active" data-layer="311">311 complaints</button>
     <button class="pill" data-layer="evictions">Marshal evictions</button>
     <button class="pill" data-layer="crashes">Traffic crashes</button>
-    <button class="pill" data-layer="closures">Restaurant closures</button>
+    <button class="pill" data-layer="closures">DOHMH closures</button>
+    <button class="pill" data-layer="construction">Construction</button>
     <button class="pill" data-layer="hpd">HPD violations</button>
     <button class="pill" data-layer="oath">OATH summonses</button>
     <button class="pill" data-layer="rats">Rat sightings</button>
@@ -442,18 +443,32 @@
       pointLabel: r => `${r.crash_date ? r.crash_date.slice(0,10) : ""}${r.number_of_persons_injured && parseInt(r.number_of_persons_injured)>0 ? " — " + r.number_of_persons_injured + " injured" : ""}${r.number_of_persons_killed && parseInt(r.number_of_persons_killed)>0 ? " — " + r.number_of_persons_killed + " killed" : ""}<br>${r.on_street_name || ""}${r.cross_street_name ? " at " + r.cross_street_name : ""}`,
     },
     closures: {
-      label: "Restaurant closures",
-      legend: "Closure inspections per sq mi",
+      label: "DOHMH closures",
+      legend: "Restaurants ordered closed per sq mi",
       endpoint: `${SODA}/43nn-pn8j.json`,
       zipField: "zipcode",
       dateField: "inspection_date",
       typeField: null,
-      extraWhere: "action like '%Closed%'",
+      extraWhere: "action like 'Establishment Closed by DOHMH%'",
       color: "#7a5a00",
       latField: "latitude",
       lngField: "longitude",
       pointFields: "dba,inspection_date,violation_description,building,street",
       pointLabel: r => `<b>${r.dba || "Restaurant"}</b><br>${r.inspection_date ? r.inspection_date.slice(0,10) : ""} — ${r.building || ""} ${r.street || ""}`,
+    },
+    construction: {
+      label: "Construction (sheds/scaffolds)",
+      legend: "Shed/scaffold permits per sq mi",
+      endpoint: `${SODA}/rbx6-tga4.json`,
+      zipField: "zip_code",
+      dateField: "issued_date",
+      typeField: null,
+      extraWhere: "work_type in('Sidewalk Shed','Supported Scaffold','Suspended Scaffold')",
+      color: "#b07000",
+      latField: "latitude",
+      lngField: "longitude",
+      pointFields: "work_type,job_description,house_no,street_name,issued_date",
+      pointLabel: r => `<b>${r.work_type || "Construction"}</b><br>${r.issued_date ? r.issued_date.slice(0,10) : ""} — ${r.house_no || ""} ${r.street_name || ""}`,
     },
     hpd: {
       label: "HPD violations",
@@ -495,7 +510,7 @@
     },
   };
 
-  const LAYER_ORDER = ["311", "rats", "evictions", "crashes", "closures", "hpd", "oath"];
+  const LAYER_ORDER = ["311", "rats", "evictions", "crashes", "closures", "hpd", "oath", "construction"];
 
   // NYC ZCTAs only: 100xx-104xx (Manhattan/Bronx + a sliver), 11xxx (Brooklyn/Queens/SI)
   function isNycZip(z) {
