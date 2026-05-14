@@ -355,6 +355,7 @@
   <div class="controls">
     <span class="group-label">Show</span>
     <button class="pill active" data-layer="311">311 complaints</button>
+    <button class="pill" data-layer="noise">Noise complaints</button>
     <button class="pill" data-layer="evictions">Marshal evictions</button>
     <button class="pill" data-layer="crashes">Traffic crashes</button>
     <button class="pill" data-layer="closures">DOHMH closures</button>
@@ -526,6 +527,20 @@
       pointFields: "result,inspection_date,house_number,street_name,inspection_type",
       pointLabel: r => `<b>${r.result || "Rat activity"}</b><br>${r.inspection_date ? r.inspection_date.slice(0,10) : ""} — ${r.house_number || ""} ${r.street_name || ""}`,
     },
+    noise: {
+      label: "Noise complaints",
+      legend: "Noise-related 311 calls per sq mi",
+      endpoint: `${SODA}/erm2-nwe9.json`,
+      zipField: "incident_zip",
+      dateField: "created_date",
+      typeField: "complaint_type",
+      extraWhere: "complaint_type like 'Noise%'",
+      color: "#7a2f7a",
+      latField: "latitude",
+      lngField: "longitude",
+      pointFields: "complaint_type,descriptor,created_date,incident_address",
+      pointLabel: r => `${r.complaint_type || "Noise"}${r.descriptor ? " — " + r.descriptor : ""}<br>${r.incident_address || ""}`,
+    },
     sanitation: {
       label: "Sanitation tickets",
       legend: "DSNY summonses per sq mi",
@@ -552,7 +567,7 @@
     },
   };
 
-  const LAYER_ORDER = ["311", "rats", "ratsConfirmed", "evictions", "crashes", "closures", "hpd", "oath", "sanitation", "construction", "newBusinesses"];
+  const LAYER_ORDER = ["311", "noise", "rats", "ratsConfirmed", "evictions", "crashes", "closures", "hpd", "oath", "sanitation", "construction", "newBusinesses"];
 
   // NYC ZCTAs only: 100xx-104xx (Manhattan/Bronx + a sliver), 11xxx (Brooklyn/Queens/SI)
   function isNycZip(z) {

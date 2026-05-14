@@ -23,8 +23,8 @@ fetch() {
   echo "  count: $key $days days"
   curl -sS "$url" > "data/${key}-${days}-counts.json"
 
-  # Type breakdown only for 311
-  if [ "$key" = "311" ]; then
+  # Type breakdown for 311 and noise (both expose complaint_type)
+  if [ "$key" = "311" ] || [ "$key" = "noise" ]; then
     local urlb="${endpoint}?\$select=${zipfield}%20as%20zip,complaint_type%20as%20t,count(*)%20as%20n&\$where=$(python3 -c "import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1]))" "$where")&\$group=${zipfield},complaint_type&\$order=n%20desc&\$limit=20000"
     echo "  breakdown: $key $days days"
     curl -sS "$urlb" > "data/${key}-${days}-breakdown.json"
@@ -33,6 +33,7 @@ fetch() {
 
 for d in 7 30 90; do
   fetch "311"        "https://data.cityofnewyork.us/resource/erm2-nwe9.json" incident_zip created_date "" "$d"
+  fetch "noise"      "https://data.cityofnewyork.us/resource/erm2-nwe9.json" incident_zip created_date "complaint_type like 'Noise%'" "$d"
   fetch "evictions"  "https://data.cityofnewyork.us/resource/6z8x-wfk4.json" eviction_zip executed_date "" "$d"
   fetch "crashes"    "https://data.cityofnewyork.us/resource/h9gi-nx95.json" zip_code crash_date "" "$d"
   fetch "closures"   "https://data.cityofnewyork.us/resource/43nn-pn8j.json" zipcode inspection_date "action like 'Establishment Closed by DOHMH%'" "$d"

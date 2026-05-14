@@ -27,6 +27,7 @@ All datasets are queried live from the NYC Open Data SODA API, client-side, with
 | Layer | Source | ID | Date field | ZIP field | Filter |
 |---|---|---|---|---|---|
 | 311 complaints | 311 Service Requests | [erm2-nwe9](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9) | `created_date` | `incident_zip` | none |
+| Noise complaints | 311 Service Requests (subset) | [erm2-nwe9](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9) | `created_date` | `incident_zip` | `complaint_type like 'Noise%'` — Residential, Street/Sidewalk, Commercial, Vehicle, Helicopter, Park, House of Worship, and the generic "Noise" type |
 | Marshal evictions | Evictions | [6z8x-wfk4](https://data.cityofnewyork.us/City-Government/Evictions/6z8x-wfk4) | `executed_date` | `eviction_zip` | none |
 | Traffic crashes | Motor Vehicle Collisions — Crashes | [h9gi-nx95](https://data.cityofnewyork.us/Public-Safety/Motor-Vehicle-Collisions-Crashes/h9gi-nx95) | `crash_date` | `zip_code` | `zip_code IS NOT NULL` |
 | DOHMH closures | DOHMH Restaurant Inspection Results | [43nn-pn8j](https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j) | `inspection_date` | `zipcode` | `action like 'Establishment Closed by DOHMH%'` — i.e. ordered-closure inspections only, not re-openings |
