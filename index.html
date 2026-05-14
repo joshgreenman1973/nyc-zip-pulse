@@ -327,7 +327,8 @@
     .delta-up { color: #8a2020; background: #fbeaea; }
     .delta-down { color: #1b5e2c; background: #e8f3eb; }
     .delta-flat { color: var(--muted); background: #ececec; }
-    .delta-na { color: var(--muted); }
+    .delta-na { color: var(--muted); background: #ececec; }
+    .delta-suffix { color: var(--muted); font-size: 10px; letter-spacing: 0.02em; }
     .points-note {
       font-size: 11px;
       color: var(--muted);
@@ -1019,23 +1020,24 @@
     loadPointsForSelection();
   }
 
-  function deltaBadge(cur, prior) {
+  function deltaBadge(cur, prior, days) {
+    const suffix = `<span class="delta-suffix">vs prior ${days}d</span>`;
     if (prior === null || prior === undefined) {
-      return `<span class="delta delta-na">…</span>`;
+      return `<span class="delta delta-na">loading</span> ${suffix}`;
     }
     if (prior === 0 && cur === 0) {
-      return `<span class="delta delta-flat">0</span>`;
+      return `<span class="delta delta-flat">0</span> ${suffix}`;
     }
     if (prior === 0) {
-      return `<span class="delta delta-up">new</span>`;
+      return `<span class="delta delta-up">new</span> ${suffix}`;
     }
     const pct = ((cur - prior) / prior) * 100;
-    if (Math.abs(pct) < 2) return `<span class="delta delta-flat">flat</span>`;
+    if (Math.abs(pct) < 2) return `<span class="delta delta-flat">flat</span> ${suffix}`;
     const arrow = pct > 0 ? "▲" : "▼";
     const cls = pct > 0 ? "delta-up" : "delta-down";
     const abs = Math.abs(pct);
     const label = abs >= 100 ? `${Math.round(abs)}%` : `${abs.toFixed(0)}%`;
-    return `<span class="delta ${cls}">${arrow} ${label}</span>`;
+    return `<span class="delta ${cls}">${arrow} ${label}</span> ${suffix}`;
   }
 
   function renderSide(z) {
@@ -1092,12 +1094,12 @@
         <div class="layer-card ${isActive ? 'active' : ''}" data-layer-card="${k}">
           <div class="layer-card-label"><span class="layer-swatch" style="background:${layer.color}"></span>${layer.label}</div>
           <div class="layer-card-value">${countDisplay}</div>
-          <div class="layer-card-meta">${densityDisplay} ${deltaBadge(c, prior === undefined ? null : prior)}</div>
+          <div class="layer-card-meta">${densityDisplay}</div>
+          <div class="layer-card-meta">${deltaBadge(c, prior === undefined ? null : prior, currentDays)}</div>
         </div>
       `;
     }
     html += `</div>`;
-    html += `<p class="points-note">Δ compares with the previous ${currentDays}-day window.</p>`;
 
     // 311 type breakdown (only when 311 or rats is active)
     if (activeL.typeField && breakdown[z] && breakdown[z].length) {
