@@ -266,6 +266,83 @@
       line-height: 1.35;
     }
     .tip b { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; }
+    .layer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 16px 0 8px;
+    }
+    .layer-card {
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 10px 12px;
+      background: var(--paper);
+      cursor: pointer;
+      transition: background 0.12s, border-color 0.12s;
+    }
+    .layer-card:hover { background: #f5f5f5; }
+    .layer-card.active {
+      border-color: var(--ink);
+      background: var(--bg);
+    }
+    .layer-card-label {
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .layer-swatch {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+    }
+    .layer-card-value {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 600;
+      font-size: 22px;
+      line-height: 1.05;
+      margin: 2px 0;
+    }
+    .layer-card-meta {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 4px;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .delta {
+      font-weight: 600;
+      font-size: 11px;
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+    .delta-up { color: #8a2020; background: #fbeaea; }
+    .delta-down { color: #1b5e2c; background: #e8f3eb; }
+    .delta-flat { color: var(--muted); background: #ececec; }
+    .delta-na { color: var(--muted); }
+    .points-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin: 6px 0 0;
+      font-style: italic;
+    }
+    .leaflet-tooltip.dot-tip {
+      font-size: 11px;
+      padding: 4px 7px;
+      background: rgba(0,0,0,0.85);
+      color: #fff;
+      border: none;
+      box-shadow: none;
+    }
+    .leaflet-tooltip.dot-tip::before { display: none; }
   </style>
 </head>
 <body>
@@ -310,7 +387,7 @@
   </main>
 
   <footer class="foot">
-    Data: <a href="https://data.cityofnewyork.us/" target="_blank" rel="noopener">NYC Open Data</a> — 311, marshal evictions, motor vehicle collisions, DOHMH restaurant inspections, and ZIP Code Tabulation Areas (35j5-n34v).
+    Data: <a href="https://data.cityofnewyork.us/" target="_blank" rel="noopener">NYC Open Data</a> — 311, marshal evictions, motor vehicle collisions, DOHMH restaurant inspections, HPD housing violations, OATH summonses, and ZIP Code Tabulation Areas (35j5-n34v).
     <a href="methodology.md" target="_blank" rel="noopener">Methodology</a>.
     <span class="updated" id="updated"></span>
   </footer>
@@ -331,6 +408,10 @@
       typeField: "complaint_type",
       extraWhere: null,
       color: "#1f3a93",
+      latField: "latitude",
+      lngField: "longitude",
+      pointFields: "complaint_type,descriptor,created_date,incident_address",
+      pointLabel: r => `${r.complaint_type || "311"}${r.descriptor ? " — " + r.descriptor : ""}<br>${r.incident_address || ""}`,
     },
     evictions: {
       label: "Marshal evictions",
@@ -341,6 +422,10 @@
       typeField: null,
       extraWhere: null,
       color: "#7a1f1f",
+      latField: "latitude",
+      lngField: "longitude",
+      pointFields: "executed_date,eviction_address,marshal_first_name,marshal_last_name,residential_commercial_ind",
+      pointLabel: r => `${r.executed_date ? r.executed_date.slice(0,10) : ""} — ${r.residential_commercial_ind || ""}<br>${r.eviction_address || ""}`,
     },
     crashes: {
       label: "Traffic crashes",
@@ -351,6 +436,10 @@
       typeField: null,
       extraWhere: "zip_code IS NOT NULL",
       color: "#0a6e3b",
+      latField: "latitude",
+      lngField: "longitude",
+      pointFields: "crash_date,number_of_persons_injured,number_of_persons_killed,on_street_name,cross_street_name",
+      pointLabel: r => `${r.crash_date ? r.crash_date.slice(0,10) : ""}${r.number_of_persons_injured && parseInt(r.number_of_persons_injured)>0 ? " — " + r.number_of_persons_injured + " injured" : ""}${r.number_of_persons_killed && parseInt(r.number_of_persons_killed)>0 ? " — " + r.number_of_persons_killed + " killed" : ""}<br>${r.on_street_name || ""}${r.cross_street_name ? " at " + r.cross_street_name : ""}`,
     },
     closures: {
       label: "Restaurant closures",
@@ -361,9 +450,13 @@
       typeField: null,
       extraWhere: "action like '%Closed%'",
       color: "#7a5a00",
+      latField: "latitude",
+      lngField: "longitude",
+      pointFields: "dba,inspection_date,violation_description,building,street",
+      pointLabel: r => `<b>${r.dba || "Restaurant"}</b><br>${r.inspection_date ? r.inspection_date.slice(0,10) : ""} — ${r.building || ""} ${r.street || ""}`,
     },
     hpd: {
-      label: "HPD housing violations",
+      label: "HPD violations",
       legend: "HPD violations per sq mi",
       endpoint: `${SODA}/wvxf-dwi5.json`,
       zipField: "zip",
@@ -371,9 +464,11 @@
       typeField: null,
       extraWhere: null,
       color: "#5e2a8f",
+      latField: null,
+      lngField: null,
     },
     oath: {
-      label: "OATH / DOB summonses",
+      label: "OATH summonses",
       legend: "Summonses per sq mi",
       endpoint: `${SODA}/6bgk-3dad.json`,
       zipField: "respondent_zip",
@@ -381,6 +476,8 @@
       typeField: null,
       extraWhere: null,
       color: "#a14d00",
+      latField: null,
+      lngField: null,
     },
     rats: {
       label: "Rat sightings",
@@ -391,8 +488,14 @@
       typeField: null,
       extraWhere: "(complaint_type='Rodent' OR descriptor like '%Rat%')",
       color: "#3a3a3a",
+      latField: "latitude",
+      lngField: "longitude",
+      pointFields: "complaint_type,descriptor,created_date,incident_address",
+      pointLabel: r => `${r.complaint_type || "Rat"}${r.descriptor ? " — " + r.descriptor : ""}<br>${r.incident_address || ""}`,
     },
   };
+
+  const LAYER_ORDER = ["311", "rats", "evictions", "crashes", "closures", "hpd", "oath"];
 
   // NYC ZCTAs only: 100xx-104xx (Manhattan/Bronx + a sliver), 11xxx (Brooklyn/Queens/SI)
   function isNycZip(z) {
@@ -406,6 +509,7 @@
   // ---- State ----
   let zctas = null;          // { zip: { feature, sqmi } }
   let zctaLayer = null;
+  let pointLayer = null;     // L.layerGroup() for selected-ZIP dots
   let currentLayer = "311";
   let currentDays = 30;
   let counts = {};           // zip -> count for current layer/window
@@ -413,6 +517,11 @@
   let breaks = [0, 0, 0, 0]; // quantile breaks for color scale
   let selectedZip = null;
   const cache = new Map();   // key: layer|days -> { counts, breakdown }
+  // For the side-panel grid we want counts for every layer at the current window.
+  // priorCountCache key: layer|days|zip -> integer (count in PRIOR same-length window)
+  const priorCountCache = new Map();
+  let pointsSeq = 0;         // increments on every selection/layer change to avoid stale renders
+  let pointsRenderedCount = null;  // last rendered point count for the active selection (null = loading)
 
   // ---- Map ----
   const map = L.map("map", { zoomControl: true, attributionControl: true })
@@ -423,6 +532,8 @@
     subdomains: "abcd",
     maxZoom: 18,
   }).addTo(map);
+
+  pointLayer = L.layerGroup().addTo(map);
 
   // ---- Helpers ----
   function setLoading(on, text) {
@@ -692,10 +803,147 @@
     counts = data.counts;
     breakdown = data.breakdown;
     restyle();
-    if (selectedZip) renderSide(selectedZip);
+    if (selectedZip) {
+      renderSide(selectedZip);
+      loadPointsForSelection();
+    }
     document.getElementById("updated").textContent =
       `Updated ${new Date().toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" })}`;
     setLoading(false);
+  }
+
+  // Preload counts for every layer at the current window so the side panel
+  // can show all 7 stats at a glance. Runs in the background.
+  async function preloadAllLayers(days) {
+    const others = LAYER_ORDER.filter(k => k !== currentLayer);
+    await Promise.all(others.map(k => fetchLayer(k, days).catch(e => console.warn("preload", k, e))));
+    if (selectedZip) renderSide(selectedZip);
+  }
+
+  // Helper: get current-window count for a (layer, zip) using whatever's in cache, else 0.
+  function getLayerCountForZip(layerKey, days, zip) {
+    const entry = cache.get(`${layerKey}|${days}`);
+    if (!entry) return null;
+    return entry.counts[zip] || 0;
+  }
+
+  // Query the prior-period count for a single ZIP on a single layer.
+  async function fetchPriorForZip(layerKey, days, zip) {
+    const key = `${layerKey}|${days}|${zip}`;
+    if (priorCountCache.has(key)) return priorCountCache.get(key);
+    const L = LAYERS[layerKey];
+    const start = isoDaysAgo(days * 2);
+    const end = isoDaysAgo(days);
+    const parts = [
+      `${L.dateField} > '${start}'`,
+      `${L.dateField} <= '${end}'`,
+      `${L.zipField} = '${zip}'`,
+    ];
+    if (L.extraWhere) parts.push(L.extraWhere);
+    const params = new URLSearchParams({
+      "$select": "count(*) as n",
+      "$where": parts.join(" AND "),
+    });
+    try {
+      const r = await fetch(`${L.endpoint}?${params}`);
+      const rows = await r.json();
+      const n = rows[0] ? parseInt(rows[0].n, 10) : 0;
+      priorCountCache.set(key, n);
+      return n;
+    } catch (e) {
+      console.warn("prior fetch failed", layerKey, zip, e);
+      return null;
+    }
+  }
+
+  async function fetchAllPriorForZip(zip, days) {
+    await Promise.all(LAYER_ORDER.map(async (k) => {
+      const n = await fetchPriorForZip(k, days, zip);
+      if (n !== null && selectedZip === zip) {
+        // Trigger re-render of just the affected card by re-rendering side.
+        // Renders are cheap; this is fine.
+        renderSide(zip);
+      }
+    }));
+  }
+
+  // Fetch up to N individual incident points for a (layer, zip) and render as dots.
+  async function fetchPointsForZip(layerKey, days, zip, maxPoints = 250) {
+    const L = LAYERS[layerKey];
+    if (!L.latField || !L.lngField) return null;
+    const since = isoDaysAgo(days);
+    const parts = [
+      `${L.dateField} > '${since}'`,
+      `${L.zipField} = '${zip}'`,
+      `${L.latField} IS NOT NULL`,
+    ];
+    if (L.extraWhere) parts.push(L.extraWhere);
+    const params = new URLSearchParams({
+      "$select": `${L.latField} as lat, ${L.lngField} as lng, ${L.pointFields || ""}`.replace(/,\s*$/, ""),
+      "$where": parts.join(" AND "),
+      "$order": `${L.dateField} desc`,
+      "$limit": String(maxPoints),
+    });
+    const r = await fetch(`${L.endpoint}?${params}`);
+    const rows = await r.json();
+    return rows;
+  }
+
+  function clearPoints() {
+    if (pointLayer) pointLayer.clearLayers();
+  }
+
+  function renderPoints(rows, layerKey) {
+    clearPoints();
+    if (!rows || !pointLayer) return;
+    const L = LAYERS[layerKey];
+    const color = L.color;
+    let drawn = 0;
+    for (const row of rows) {
+      const lat = parseFloat(row.lat);
+      const lng = parseFloat(row.lng);
+      if (!isFinite(lat) || !isFinite(lng)) continue;
+      if (lat === 0 || lng === 0) continue;
+      const m = L_circleMarker([lat, lng], {
+        radius: 4,
+        color: color,
+        weight: 1,
+        fillColor: color,
+        fillOpacity: 0.75,
+      });
+      if (L.pointLabel) m.bindTooltip(L.pointLabel(row), { className: "dot-tip", direction: "top", offset: [0, -4] });
+      m.addTo(pointLayer);
+      drawn++;
+    }
+    return drawn;
+  }
+
+  // Convenience alias (since `L` is shadowed inside several functions for the layer config).
+  const L_circleMarker = (latlng, opts) => window.L.circleMarker(latlng, opts);
+
+  async function loadPointsForSelection() {
+    if (!selectedZip) { clearPoints(); pointsRenderedCount = null; return; }
+    const mySeq = ++pointsSeq;
+    const layerKey = currentLayer;
+    const L = LAYERS[layerKey];
+    pointsRenderedCount = null;
+    if (!L.latField) {
+      clearPoints();
+      renderSide(selectedZip);
+      return;
+    }
+    renderSide(selectedZip);  // shows "Loading dots..." immediately
+    try {
+      const rows = await fetchPointsForZip(layerKey, currentDays, selectedZip, 250);
+      if (mySeq !== pointsSeq) return;        // selection changed mid-flight
+      const drawn = renderPoints(rows, layerKey);
+      pointsRenderedCount = drawn || 0;
+      renderSide(selectedZip);
+    } catch (e) {
+      console.warn("points load failed", e);
+      pointsRenderedCount = 0;
+      renderSide(selectedZip);
+    }
   }
 
   function renderLegend() {
@@ -723,19 +971,41 @@
       map.fitBounds(L.geoJSON(zctas[z].feature).getBounds(), { padding: [40, 40], maxZoom: 13 });
     }
     renderSide(z);
+    // Kick off async work: per-ZIP prior-period counts + active-layer points.
+    fetchAllPriorForZip(z, currentDays);
+    loadPointsForSelection();
+  }
+
+  function deltaBadge(cur, prior) {
+    if (prior === null || prior === undefined) {
+      return `<span class="delta delta-na">…</span>`;
+    }
+    if (prior === 0 && cur === 0) {
+      return `<span class="delta delta-flat">0</span>`;
+    }
+    if (prior === 0) {
+      return `<span class="delta delta-up">new</span>`;
+    }
+    const pct = ((cur - prior) / prior) * 100;
+    if (Math.abs(pct) < 2) return `<span class="delta delta-flat">flat</span>`;
+    const arrow = pct > 0 ? "▲" : "▼";
+    const cls = pct > 0 ? "delta-up" : "delta-down";
+    const abs = Math.abs(pct);
+    const label = abs >= 100 ? `${Math.round(abs)}%` : `${abs.toFixed(0)}%`;
+    return `<span class="delta ${cls}">${arrow} ${label}</span>`;
   }
 
   function renderSide(z) {
+    const pointsCount = pointsRenderedCount;
     const side = document.getElementById("side");
     if (!zctas[z]) {
       side.innerHTML = `<div class="panel-empty">ZIP ${z} isn't in the New York City ZCTA file. Try another.</div>`;
       return;
     }
-    const c = counts[z] || 0;
     const sqmi = zctas[z].sqmi;
-    const rate = sqmi ? c / sqmi : 0;
+    const activeL = LAYERS[currentLayer];
 
-    // Rank among NYC ZIPs (by rate)
+    // Rank for the currently-selected layer
     const rates = [];
     for (const k in zctas) {
       const cc = counts[k] || 0;
@@ -746,28 +1016,48 @@
     const rank = rates.findIndex(r => r.zip === z) + 1;
     const total = rates.length;
 
-    const L = LAYERS[currentLayer];
     let html = `
       <p class="zip-big">${z}</p>
       <p class="zip-meta">${fmt(sqmi)} sq mi land area</p>
 
-      <div class="stat-row">
-        <div>
-          <div class="stat-label">${L.label}</div>
-          <div class="stat-value">${fmt(c)}</div>
-          <div class="zip-meta" style="margin:6px 0 0">in last ${currentDays} days</div>
-        </div>
-        <div>
-          <div class="stat-label">Per sq mi</div>
-          <div class="stat-value">${fmt(rate)}</div>
-          <div class="zip-meta" style="margin:6px 0 0">density-normalized</div>
-        </div>
-      </div>
-
-      <p class="rank-line">Ranks <strong>#${rank} of ${total}</strong> New York City ZIPs by density for this metric.</p>
+      <p class="rank-line">For <strong>${activeL.label}</strong>, ranks <strong>#${rank} of ${total}</strong> New York City ZIPs by density (last ${currentDays} days).</p>
     `;
 
-    if (L.typeField && breakdown[z] && breakdown[z].length) {
+    // Points note for active layer
+    if (activeL.latField) {
+      if (pointsCount === null || pointsCount === undefined) {
+        html += `<p class="points-note">Loading dots for ${activeL.label}…</p>`;
+      } else {
+        const capped = pointsCount >= 250 ? " (showing most recent 250)" : "";
+        html += `<p class="points-note">${pointsCount.toLocaleString("en-US")} dot${pointsCount === 1 ? "" : "s"} on map${capped}.</p>`;
+      }
+    } else {
+      html += `<p class="points-note">No incident coordinates published for this layer.</p>`;
+    }
+
+    // Grid of all layers
+    html += `<div class="layer-grid">`;
+    for (const k of LAYER_ORDER) {
+      const layer = LAYERS[k];
+      const c = getLayerCountForZip(k, currentDays, z);
+      const prior = priorCountCache.get(`${k}|${currentDays}|${z}`);
+      const density = (c !== null && sqmi) ? c / sqmi : null;
+      const isActive = k === currentLayer;
+      const countDisplay = c === null ? "…" : fmt(c);
+      const densityDisplay = density === null ? "" : `${fmt(density)}/sq mi`;
+      html += `
+        <div class="layer-card ${isActive ? 'active' : ''}" data-layer-card="${k}">
+          <div class="layer-card-label"><span class="layer-swatch" style="background:${layer.color}"></span>${layer.label}</div>
+          <div class="layer-card-value">${countDisplay}</div>
+          <div class="layer-card-meta">${densityDisplay} ${deltaBadge(c, prior === undefined ? null : prior)}</div>
+        </div>
+      `;
+    }
+    html += `</div>`;
+    html += `<p class="points-note">Δ compares with the previous ${currentDays}-day window.</p>`;
+
+    // 311 type breakdown (only when 311 or rats is active)
+    if (activeL.typeField && breakdown[z] && breakdown[z].length) {
       const top = breakdown[z].slice(0, 8);
       const maxN = top[0].n;
       html += `<h3 class="section">Top complaint types</h3>`;
@@ -784,6 +1074,16 @@
     }
 
     side.innerHTML = html;
+
+    // Wire the layer-card clicks to switch the active layer.
+    side.querySelectorAll(".layer-card").forEach(card => {
+      card.addEventListener("click", () => {
+        const k = card.dataset.layerCard;
+        if (k === currentLayer) return;
+        const pill = document.querySelector(`.pill[data-layer="${k}"]`);
+        if (pill) pill.click();
+      });
+    });
   }
 
   // ---- Wiring ----
@@ -801,7 +1101,11 @@
       document.querySelectorAll(".window-pill").forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
       currentDays = parseInt(btn.dataset.days, 10);
+      // Prior comparisons depend on window length; drop the prior cache.
+      priorCountCache.clear();
       await refresh();
+      preloadAllLayers(currentDays);
+      if (selectedZip) fetchAllPriorForZip(selectedZip, currentDays);
     });
   });
 
@@ -829,6 +1133,8 @@
       await new Promise(r => setTimeout(r, 800));
       try { await refresh(); } catch (e2) { console.error("retry failed", e2); }
     }
+    // Preload all layer counts in the background so the side panel can show every stat instantly.
+    preloadAllLayers(currentDays);
   }
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", boot);
