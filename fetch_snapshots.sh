@@ -37,6 +37,8 @@ for d in 7 30 90; do
   fetch "crashes"    "https://data.cityofnewyork.us/resource/h9gi-nx95.json" zip_code crash_date "" "$d"
   fetch "closures"   "https://data.cityofnewyork.us/resource/43nn-pn8j.json" zipcode inspection_date "action like 'Establishment Closed by DOHMH%'" "$d"
   fetch "construction" "https://data.cityofnewyork.us/resource/rbx6-tga4.json" zip_code issued_date "work_type in('Sidewalk Shed','Supported Scaffold','Suspended Scaffold')" "$d"
+  fetch "ratsConfirmed" "https://data.cityofnewyork.us/resource/p937-wjvj.json" zip_code inspection_date "(result='Rat Activity' OR result like 'Failed for Rat Activity%')" "$d"
+  fetch "newBusinesses" "https://data.cityofnewyork.us/resource/ptev-4hud.json" zip submission_date "application_type='New'" "$d"
   fetch "hpd"        "https://data.cityofnewyork.us/resource/wvxf-dwi5.json" zip novissueddate "" "$d"
   fetch "oath"       "https://data.cityofnewyork.us/resource/6bgk-3dad.json" respondent_zip issue_date "" "$d"
   fetch "rats"       "https://data.cityofnewyork.us/resource/erm2-nwe9.json" incident_zip created_date "(complaint_type='Rodent' OR descriptor like '%Rat%')" "$d"

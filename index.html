@@ -360,7 +360,9 @@
     <button class="pill" data-layer="construction">Construction</button>
     <button class="pill" data-layer="hpd">HPD violations</button>
     <button class="pill" data-layer="oath">OATH summonses</button>
-    <button class="pill" data-layer="rats">Rat sightings</button>
+    <button class="pill" data-layer="rats">Rats (311)</button>
+    <button class="pill" data-layer="ratsConfirmed">Rats (DOHMH)</button>
+    <button class="pill" data-layer="newBusinesses">New businesses</button>
 
     <span class="group-label" style="margin-left:14px">Window</span>
     <button class="pill window-pill" data-days="7">7 days</button>
@@ -495,7 +497,7 @@
       lngField: null,
     },
     rats: {
-      label: "Rat sightings",
+      label: "Rat reports (311)",
       legend: "Rat-related 311 calls per sq mi",
       endpoint: `${SODA}/erm2-nwe9.json`,
       zipField: "incident_zip",
@@ -508,9 +510,35 @@
       pointFields: "complaint_type,descriptor,created_date,incident_address",
       pointLabel: r => `${r.complaint_type || "Rat"}${r.descriptor ? " — " + r.descriptor : ""}<br>${r.incident_address || ""}`,
     },
+    ratsConfirmed: {
+      label: "Rats confirmed (DOHMH)",
+      legend: "Inspector-confirmed rat activity per sq mi",
+      endpoint: `${SODA}/p937-wjvj.json`,
+      zipField: "zip_code",
+      dateField: "inspection_date",
+      typeField: null,
+      extraWhere: "(result='Rat Activity' OR result like 'Failed for Rat Activity%')",
+      color: "#7a3a3a",
+      latField: "latitude",
+      lngField: "longitude",
+      pointFields: "result,inspection_date,house_number,street_name,inspection_type",
+      pointLabel: r => `<b>${r.result || "Rat activity"}</b><br>${r.inspection_date ? r.inspection_date.slice(0,10) : ""} — ${r.house_number || ""} ${r.street_name || ""}`,
+    },
+    newBusinesses: {
+      label: "New business applications",
+      legend: "DCWP business license applications per sq mi",
+      endpoint: `${SODA}/ptev-4hud.json`,
+      zipField: "zip",
+      dateField: "submission_date",
+      typeField: null,
+      extraWhere: "application_type='New'",
+      color: "#0a5e7a",
+      latField: null,
+      lngField: null,
+    },
   };
 
-  const LAYER_ORDER = ["311", "rats", "evictions", "crashes", "closures", "hpd", "oath", "construction"];
+  const LAYER_ORDER = ["311", "rats", "ratsConfirmed", "evictions", "crashes", "closures", "hpd", "oath", "construction", "newBusinesses"];
 
   // NYC ZCTAs only: 100xx-104xx (Manhattan/Bronx + a sliver), 11xxx (Brooklyn/Queens/SI)
   function isNycZip(z) {
