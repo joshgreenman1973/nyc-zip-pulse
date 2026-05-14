@@ -44,7 +44,16 @@ for d in 7 30 90; do
   fetch "hpd"        "https://data.cityofnewyork.us/resource/wvxf-dwi5.json" zip novissueddate "" "$d"
   fetch "oath"       "https://data.cityofnewyork.us/resource/6bgk-3dad.json" respondent_zip issue_date "" "$d"
   fetch "rats"       "https://data.cityofnewyork.us/resource/erm2-nwe9.json" incident_zip created_date "(complaint_type='Rodent' OR descriptor like '%Rat%')" "$d"
+  fetch "hpdComplaints" "https://data.cityofnewyork.us/resource/ygpa-z7cr.json" post_code received_date "" "$d"
+  fetch "allInspections" "https://data.cityofnewyork.us/resource/43nn-pn8j.json" zipcode inspection_date "action IS NOT NULL" "$d"
+  fetch "realEstate" "https://data.cityofnewyork.us/resource/usep-8jbt.json" zip_code sale_date "" "$d"
 done
+
+# Subway snapshots are built by a separate Python script (point-in-polygon join).
+if [ -f fetch_subway.py ]; then
+  echo "subway snapshots..."
+  python3 fetch_subway.py
+fi
 
 # Snapshot manifest
 python3 -c "

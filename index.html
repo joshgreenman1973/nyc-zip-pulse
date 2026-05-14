@@ -329,6 +329,27 @@
     .delta-flat { color: var(--muted); background: #ececec; }
     .delta-na { color: var(--muted); background: #ececec; }
     .delta-suffix { color: var(--muted); font-size: 10px; letter-spacing: 0.02em; }
+    .lag-warning {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      color: #8a5a00;
+      background: #fff4d9;
+      border: 1px solid #f0d385;
+      border-radius: 3px;
+      padding: 1px 5px;
+      margin-top: 4px;
+    }
+    .lag-banner {
+      background: #fff4d9;
+      border: 1px solid #f0d385;
+      color: #6a4400;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      margin: 10px 0 6px;
+      line-height: 1.4;
+    }
     .points-note {
       font-size: 11px;
       color: var(--muted);
@@ -360,7 +381,11 @@
     <button class="pill" data-layer="crashes">Traffic crashes</button>
     <button class="pill" data-layer="closures">DOHMH closures</button>
     <button class="pill" data-layer="construction">Construction</button>
+    <button class="pill" data-layer="hpdComplaints">HPD complaints</button>
     <button class="pill" data-layer="hpd">HPD violations</button>
+    <button class="pill" data-layer="allInspections">Restaurant inspections</button>
+    <button class="pill" data-layer="subway">Subway ridership</button>
+    <button class="pill" data-layer="realEstate">Real estate sales</button>
     <button class="pill" data-layer="oath">OATH summonses</button>
     <button class="pill" data-layer="sanitation">Sanitation tickets</button>
     <button class="pill" data-layer="rats">Rats (311)</button>
@@ -418,6 +443,64 @@
       lngField: "longitude",
       pointFields: "complaint_type,descriptor,created_date,incident_address",
       pointLabel: r => `${r.complaint_type || "311"}${r.descriptor ? " — " + r.descriptor : ""}<br>${r.incident_address || ""}`,
+      lagDays: 1,
+    },
+    hpdComplaints: {
+      label: "HPD complaints (tenant)",
+      legend: "Tenant housing complaints per sq mi",
+      endpoint: `${SODA}/ygpa-z7cr.json`,
+      zipField: "post_code",
+      dateField: "received_date",
+      typeField: null,
+      extraWhere: null,
+      color: "#9c2667",
+      latField: "latitude",
+      lngField: "longitude",
+      pointFields: "major_category,minor_category,received_date,house_number,street_name",
+      pointLabel: r => `<b>${r.major_category || "Housing"}</b>${r.minor_category ? ": " + r.minor_category : ""}<br>${r.received_date ? r.received_date.slice(0,10) : ""} — ${r.house_number || ""} ${r.street_name || ""}`,
+      lagDays: 2,
+    },
+    allInspections: {
+      label: "Restaurant inspections (all)",
+      legend: "DOHMH restaurant inspections per sq mi",
+      endpoint: `${SODA}/43nn-pn8j.json`,
+      zipField: "zipcode",
+      dateField: "inspection_date",
+      typeField: null,
+      extraWhere: "action IS NOT NULL",
+      color: "#a06632",
+      latField: "latitude",
+      lngField: "longitude",
+      pointFields: "dba,inspection_date,action,building,street",
+      pointLabel: r => `<b>${r.dba || "Restaurant"}</b><br>${r.inspection_date ? r.inspection_date.slice(0,10) : ""}<br>${r.action ? r.action.slice(0,80) : ""}`,
+      lagDays: 3,
+    },
+    subway: {
+      label: "Subway ridership",
+      legend: "Subway rides per sq mi",
+      endpoint: null,
+      zipField: null,
+      dateField: null,
+      typeField: null,
+      extraWhere: null,
+      color: "#055f5b",
+      latField: null,
+      lngField: null,
+      lagDays: 10,
+      snapshotOnly: true,  // No live SODA query — depends on station→ZIP rollup built offline
+    },
+    realEstate: {
+      label: "Real estate sales",
+      legend: "Property sales per sq mi",
+      endpoint: `${SODA}/usep-8jbt.json`,
+      zipField: "zip_code",
+      dateField: "sale_date",
+      typeField: null,
+      extraWhere: "zip_code IS NOT NULL",
+      color: "#3a1f5e",
+      latField: null,
+      lngField: null,
+      lagDays: 45,
     },
     evictions: {
       label: "Marshal evictions",
@@ -432,6 +515,7 @@
       lngField: "longitude",
       pointFields: "executed_date,eviction_address,marshal_first_name,marshal_last_name,residential_commercial_ind",
       pointLabel: r => `${r.executed_date ? r.executed_date.slice(0,10) : ""} — ${r.residential_commercial_ind || ""}<br>${r.eviction_address || ""}`,
+      lagDays: 7,
     },
     crashes: {
       label: "Traffic crashes",
@@ -446,6 +530,7 @@
       lngField: "longitude",
       pointFields: "crash_date,number_of_persons_injured,number_of_persons_killed,on_street_name,cross_street_name",
       pointLabel: r => `${r.crash_date ? r.crash_date.slice(0,10) : ""}${r.number_of_persons_injured && parseInt(r.number_of_persons_injured)>0 ? " — " + r.number_of_persons_injured + " injured" : ""}${r.number_of_persons_killed && parseInt(r.number_of_persons_killed)>0 ? " — " + r.number_of_persons_killed + " killed" : ""}<br>${r.on_street_name || ""}${r.cross_street_name ? " at " + r.cross_street_name : ""}`,
+      lagDays: 3,
     },
     closures: {
       label: "DOHMH closures",
@@ -460,6 +545,7 @@
       lngField: "longitude",
       pointFields: "dba,inspection_date,violation_description,building,street",
       pointLabel: r => `<b>${r.dba || "Restaurant"}</b><br>${r.inspection_date ? r.inspection_date.slice(0,10) : ""} — ${r.building || ""} ${r.street || ""}`,
+      lagDays: 3,
     },
     construction: {
       label: "Construction (sheds/scaffolds)",
@@ -474,6 +560,7 @@
       lngField: "longitude",
       pointFields: "work_type,job_description,house_no,street_name,issued_date",
       pointLabel: r => `<b>${r.work_type || "Construction"}</b><br>${r.issued_date ? r.issued_date.slice(0,10) : ""} — ${r.house_no || ""} ${r.street_name || ""}`,
+      lagDays: 3,
     },
     hpd: {
       label: "HPD violations",
@@ -486,6 +573,7 @@
       color: "#5e2a8f",
       latField: null,
       lngField: null,
+      lagDays: 3,
     },
     oath: {
       label: "OATH summonses",
@@ -498,6 +586,7 @@
       color: "#a14d00",
       latField: null,
       lngField: null,
+      lagDays: 14,
     },
     rats: {
       label: "Rat reports (311)",
@@ -512,6 +601,7 @@
       lngField: "longitude",
       pointFields: "complaint_type,descriptor,created_date,incident_address",
       pointLabel: r => `${r.complaint_type || "Rat"}${r.descriptor ? " — " + r.descriptor : ""}<br>${r.incident_address || ""}`,
+      lagDays: 1,
     },
     ratsConfirmed: {
       label: "Rats confirmed (DOHMH)",
@@ -526,6 +616,7 @@
       lngField: "longitude",
       pointFields: "result,inspection_date,house_number,street_name,inspection_type",
       pointLabel: r => `<b>${r.result || "Rat activity"}</b><br>${r.inspection_date ? r.inspection_date.slice(0,10) : ""} — ${r.house_number || ""} ${r.street_name || ""}`,
+      lagDays: 2,
     },
     noise: {
       label: "Noise complaints",
@@ -540,6 +631,7 @@
       lngField: "longitude",
       pointFields: "complaint_type,descriptor,created_date,incident_address",
       pointLabel: r => `${r.complaint_type || "Noise"}${r.descriptor ? " — " + r.descriptor : ""}<br>${r.incident_address || ""}`,
+      lagDays: 1,
     },
     sanitation: {
       label: "Sanitation tickets",
@@ -552,6 +644,7 @@
       color: "#205e5e",
       latField: null,
       lngField: null,
+      lagDays: 14,
     },
     newBusinesses: {
       label: "New business applications",
@@ -564,10 +657,11 @@
       color: "#0a5e7a",
       latField: null,
       lngField: null,
+      lagDays: 3,
     },
   };
 
-  const LAYER_ORDER = ["311", "noise", "rats", "ratsConfirmed", "evictions", "crashes", "closures", "hpd", "oath", "sanitation", "construction", "newBusinesses"];
+  const LAYER_ORDER = ["311", "noise", "rats", "ratsConfirmed", "evictions", "crashes", "closures", "allInspections", "hpdComplaints", "hpd", "oath", "sanitation", "construction", "newBusinesses", "subway", "realEstate"];
 
   // NYC ZCTAs only: 100xx-104xx (Manhattan/Bronx + a sliver), 11xxx (Brooklyn/Queens/SI)
   function isNycZip(z) {
@@ -716,24 +810,26 @@
     let bdMap = {};
     let fromSnapshot = cMap !== null;
 
-    if (!fromSnapshot) {
+    if (!fromSnapshot && !L.snapshotOnly) {
       setLoading(true, "Fetching data");
       cMap = await fetchCountsLive(layerKey, days);
-    } else {
-      // Snapshot loaded; also try snapshot breakdown for 311.
+    } else if (fromSnapshot) {
+      // Snapshot loaded; also try snapshot breakdown for 311/noise/etc.
       if (L.typeField) {
         const snap = await tryLoadBreakdownSnapshot(layerKey, days);
         if (snap) bdMap = snap;
       }
+    } else {
+      cMap = {};  // snapshotOnly with no snapshot — empty
     }
 
     const result = { counts: cMap, breakdown: bdMap };
     cache.set(cacheKey, result);
 
-    // Always fetch live counts in the background to refresh the snapshot.
-    if (fromSnapshot) {
+    // Refresh live in background unless this is a snapshot-only layer.
+    if (fromSnapshot && !L.snapshotOnly) {
       refreshLive(layerKey, days, result);
-    } else if (L.typeField) {
+    } else if (!fromSnapshot && !L.snapshotOnly && L.typeField) {
       loadBreakdown(layerKey, days, buildWhere(layerKey, days), result);
     }
 
@@ -904,6 +1000,19 @@
     const key = `${layerKey}|${days}|${zip}`;
     if (priorCountCache.has(key)) return priorCountCache.get(key);
     const L = LAYERS[layerKey];
+
+    // First try a precomputed prior-window snapshot.
+    const snap = await tryLoadPriorSnapshot(layerKey, days);
+    if (snap) {
+      const n = snap[zip] || 0;
+      priorCountCache.set(key, n);
+      return n;
+    }
+    if (L.snapshotOnly) {
+      priorCountCache.set(key, 0);
+      return 0;
+    }
+
     const start = isoDaysAgo(days * 2);
     const end = isoDaysAgo(days);
     const parts = [
@@ -924,6 +1033,28 @@
       return n;
     } catch (e) {
       console.warn("prior fetch failed", layerKey, zip, e);
+      return null;
+    }
+  }
+
+  const priorSnapshotCache = new Map();
+  async function tryLoadPriorSnapshot(layerKey, days) {
+    const key = `${layerKey}|${days}`;
+    if (priorSnapshotCache.has(key)) return priorSnapshotCache.get(key);
+    try {
+      const r = await fetch(`data/${layerKey}-${days}-prior-counts.json`);
+      if (!r.ok) { priorSnapshotCache.set(key, null); return null; }
+      const rows = await r.json();
+      const cMap = {};
+      for (const row of rows) {
+        const z = (row.zip || "").trim();
+        if (!isNycZip(z)) continue;
+        cMap[z] = (cMap[z] || 0) + parseInt(row.n, 10);
+      }
+      priorSnapshotCache.set(key, cMap);
+      return cMap;
+    } catch (e) {
+      priorSnapshotCache.set(key, null);
       return null;
     }
   }
@@ -1096,6 +1227,14 @@
       <p class="rank-line">For <strong>${activeL.label}</strong>, ranks <strong>#${rank} of ${total}</strong> New York City ZIPs by density (last ${currentDays} days).</p>
     `;
 
+    // Banner if the active layer's lag is bigger than the chosen window.
+    const activeLag = activeL.lagDays || 0;
+    if (activeLag >= currentDays) {
+      html += `<div class="lag-banner"><strong>Heads up:</strong> ${activeL.label.toLowerCase()} typically lags ~${activeLag} days behind real time. The ${currentDays}-day window may show partial or empty data — 30 or 90 days is more reliable.</div>`;
+    } else if (activeLag >= currentDays / 2) {
+      html += `<div class="lag-banner"><strong>Heads up:</strong> ${activeL.label.toLowerCase()} typically lags ~${activeLag} days behind real time. Recent days in the ${currentDays}-day window may be undercounted.</div>`;
+    }
+
     // Points note for active layer
     if (activeL.latField) {
       if (pointsCount === null || pointsCount === undefined) {
@@ -1118,12 +1257,15 @@
       const isActive = k === currentLayer;
       const countDisplay = c === null ? "…" : fmt(c);
       const densityDisplay = density === null ? "" : `${fmt(density)}/sq mi`;
+      const lag = layer.lagDays || 0;
+      const lagWarn = lag >= currentDays ? `<div class="lag-warning">⚠ lags ~${lag}d</div>` : "";
       html += `
         <div class="layer-card ${isActive ? 'active' : ''}" data-layer-card="${k}">
           <div class="layer-card-label"><span class="layer-swatch" style="background:${layer.color}"></span>${layer.label}</div>
           <div class="layer-card-value">${countDisplay}</div>
           <div class="layer-card-meta">${densityDisplay}</div>
           <div class="layer-card-meta">${deltaBadge(c, prior === undefined ? null : prior, currentDays)}</div>
+          ${lagWarn}
         </div>
       `;
     }
