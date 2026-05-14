@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's happening in my ZIP — New York City</title>
+  <meta name="description" content="A live map of New York City showing what's happening in every ZIP code right now, normalized by neighborhood size so big neighborhoods don't always look loudest.">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #111;
+      --ink-2: #444;
+      --muted: #777;
+      --rule: #d9d9d9;
+      --bg: #fafafa;
+      --paper: #fff;
+      --accent: #b00020;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; height: 100%; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      font-size: 15px;
+      line-height: 1.45;
+    }
+    .serif { font-family: 'Source Serif 4', Georgia, serif; }
+    header.top {
+      padding: 18px 22px 14px;
+      border-bottom: 1px solid var(--rule);
+      background: var(--paper);
+    }
+    h1 {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 700;
+      font-size: 26px;
+      margin: 0 0 4px;
+      letter-spacing: -0.01em;
+    }
+    .sub {
+      color: var(--ink-2);
+      font-size: 14px;
+      max-width: 720px;
+    }
+    main {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      height: calc(100vh - 78px);
+    }
+    @media (max-width: 880px) {
+      main { grid-template-columns: 1fr; height: auto; }
+      #map { height: 60vh; }
+      aside { border-left: none; border-top: 1px solid var(--rule); }
+    }
+    #map { position: absolute; inset: 0; background: #eee; }
+    .map-wrap { position: relative; min-height: 0; height: 100%; }
+    aside {
+      border-left: 1px solid var(--rule);
+      background: var(--paper);
+      overflow-y: auto;
+      padding: 18px 20px;
+    }
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 10px 22px;
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+      align-items: center;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      background: #fff;
+      font-size: 13px;
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      font-weight: 500;
+      color: var(--ink-2);
+    }
+    .pill:hover { background: #f3f3f3; }
+    .pill.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: #fff;
+    }
+    .group-label {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-right: 4px;
+      font-weight: 600;
+    }
+    .zip-search {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .zip-search input {
+      width: 100px;
+      padding: 6px 10px;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 13px;
+    }
+    .zip-search button {
+      padding: 6px 12px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: #fff;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .panel-empty {
+      color: var(--muted);
+      font-size: 14px;
+      padding: 30px 0;
+      text-align: center;
+    }
+    .zip-big {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 700;
+      font-size: 44px;
+      letter-spacing: -0.02em;
+      margin: 0;
+      line-height: 1;
+    }
+    .zip-meta {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin: 4px 0 18px;
+    }
+    .stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 14px 0 18px;
+      padding: 14px;
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+    }
+    .stat-label {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+    .stat-value {
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-weight: 600;
+      font-size: 26px;
+      line-height: 1;
+    }
+    .rank-line {
+      font-size: 13px;
+      color: var(--ink-2);
+      margin: 0 0 18px;
+    }
+    .rank-line strong { color: var(--ink); }
+    h3.section {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 600;
+      margin: 22px 0 8px;
+      border-top: 1px solid var(--rule);
+      padding-top: 14px;
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 0;
+      font-size: 13px;
+    }
+    .bar-name { color: var(--ink); }
+    .bar-bg {
+      grid-column: 1 / 3;
+      height: 4px;
+      background: #ececec;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 6px;
+    }
+    .bar-fill { height: 100%; background: var(--ink); }
+    .bar-count {
+      font-variant-numeric: tabular-nums;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .legend {
+      position: absolute;
+      bottom: 18px;
+      left: 18px;
+      background: rgba(255,255,255,0.95);
+      border: 1px solid var(--rule);
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      z-index: 500;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .legend-title {
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .legend-row { display: flex; align-items: center; gap: 6px; margin: 2px 0; }
+    .swatch { width: 18px; height: 12px; border: 1px solid rgba(0,0,0,0.1); }
+    /* .map-wrap defined above */
+    .loading {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--ink);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      z-index: 500;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    footer.foot {
+      padding: 14px 22px;
+      border-top: 1px solid var(--rule);
+      font-size: 12px;
+      color: var(--muted);
+      background: var(--paper);
+    }
+    footer.foot a { color: var(--ink-2); }
+    .updated {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-left: 8px;
+    }
+    .leaflet-container { font-family: inherit; }
+    .tip {
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .tip b { font-family: 'Source Serif 4', Georgia, serif; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <h1>What's happening in my ZIP</h1>
+    <div class="sub">A live look at New York City by ZIP code, normalized per square mile of land so dense neighborhoods don't automatically dominate. Pick a layer, type your ZIP, or click the map.</div>
+  </header>
+
+  <div class="controls">
+    <span class="group-label">Show</span>
+    <button class="pill active" data-layer="311">311 complaints</button>
+    <button class="pill" data-layer="evictions">Marshal evictions</button>
+    <button class="pill" data-layer="crashes">Traffic crashes</button>
+    <button class="pill" data-layer="closures">Restaurant closures</button>
+    <button class="pill" data-layer="hpd">HPD violations</button>
+    <button class="pill" data-layer="oath">OATH summonses</button>
+    <button class="pill" data-layer="rats">Rat sightings</button>
+
+    <span class="group-label" style="margin-left:14px">Window</span>
+    <button class="pill window-pill" data-days="7">7 days</button>
+    <button class="pill window-pill active" data-days="30">30 days</button>
+    <button class="pill window-pill" data-days="90">90 days</button>
+
+    <div class="zip-search">
+      <input type="text" id="zip-input" placeholder="ZIP" maxlength="5" inputmode="numeric" pattern="[0-9]*">
+      <button id="zip-go">Find</button>
+    </div>
+  </div>
+
+  <main>
+    <div class="map-wrap">
+      <div id="map"></div>
+      <div id="loading" class="loading" style="display:none">Loading</div>
+      <div class="legend">
+        <div class="legend-title" id="legend-title">Per square mile</div>
+        <div id="legend-body"></div>
+      </div>
+    </div>
+    <aside id="side">
+      <div class="panel-empty">Click a ZIP on the map, or type one above, to see what's happening there.</div>
+    </aside>
+  </main>
+
+  <footer class="foot">
+    Data: <a href="https://data.cityofnewyork.us/" target="_blank" rel="noopener">NYC Open Data</a> — 311, marshal evictions, motor vehicle collisions, DOHMH restaurant inspections, and ZIP Code Tabulation Areas (35j5-n34v).
+    <a href="methodology.md" target="_blank" rel="noopener">Methodology</a>.
+    <span class="updated" id="updated"></span>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+  // ---- Config ----
+  const SODA = "https://data.cityofnewyork.us/resource";
+  const M2_PER_SQMI = 2589988.11;
+
+  const LAYERS = {
+    "311": {
+      label: "311 complaints",
+      legend: "311 complaints per sq mi",
+      endpoint: `${SODA}/erm2-nwe9.json`,
+      zipField: "incident_zip",
+      dateField: "created_date",
+      typeField: "complaint_type",
+      extraWhere: null,
+      color: "#1f3a93",
+    },
+    evictions: {
+      label: "Marshal evictions",
+      legend: "Evictions per sq mi",
+      endpoint: `${SODA}/6z8x-wfk4.json`,
+      zipField: "eviction_zip",
+      dateField: "executed_date",
+      typeField: null,
+      extraWhere: null,
+      color: "#7a1f1f",
+    },
+    crashes: {
+      label: "Traffic crashes",
+      legend: "Crashes per sq mi",
+      endpoint: `${SODA}/h9gi-nx95.json`,
+      zipField: "zip_code",
+      dateField: "crash_date",
+      typeField: null,
+      extraWhere: "zip_code IS NOT NULL",
+      color: "#0a6e3b",
+    },
+    closures: {
+      label: "Restaurant closures",
+      legend: "Closure inspections per sq mi",
+      endpoint: `${SODA}/43nn-pn8j.json`,
+      zipField: "zipcode",
+      dateField: "inspection_date",
+      typeField: null,
+      extraWhere: "action like '%Closed%'",
+      color: "#7a5a00",
+    },
+    hpd: {
+      label: "HPD housing violations",
+      legend: "HPD violations per sq mi",
+      endpoint: `${SODA}/wvxf-dwi5.json`,
+      zipField: "zip",
+      dateField: "novissueddate",
+      typeField: null,
+      extraWhere: null,
+      color: "#5e2a8f",
+    },
+    oath: {
+      label: "OATH / DOB summonses",
+      legend: "Summonses per sq mi",
+      endpoint: `${SODA}/6bgk-3dad.json`,
+      zipField: "respondent_zip",
+      dateField: "issue_date",
+      typeField: null,
+      extraWhere: null,
+      color: "#a14d00",
+    },
+    rats: {
+      label: "Rat sightings",
+      legend: "Rat-related 311 calls per sq mi",
+      endpoint: `${SODA}/erm2-nwe9.json`,
+      zipField: "incident_zip",
+      dateField: "created_date",
+      typeField: null,
+      extraWhere: "(complaint_type='Rodent' OR descriptor like '%Rat%')",
+      color: "#3a3a3a",
+    },
+  };
+
+  // NYC ZCTAs only: 100xx-104xx (Manhattan/Bronx + a sliver), 11xxx (Brooklyn/Queens/SI)
+  function isNycZip(z) {
+    const n = parseInt(z, 10);
+    if (!Number.isFinite(n)) return false;
+    if (n >= 10001 && n <= 10499) return true;
+    if (n >= 11001 && n <= 11697) return true;
+    return false;
+  }
+
+  // ---- State ----
+  let zctas = null;          // { zip: { feature, sqmi } }
+  let zctaLayer = null;
+  let currentLayer = "311";
+  let currentDays = 30;
+  let counts = {};           // zip -> count for current layer/window
+  let breakdown = {};        // zip -> [{type, n}, ...] (for 311 only)
+  let breaks = [0, 0, 0, 0]; // quantile breaks for color scale
+  let selectedZip = null;
+  const cache = new Map();   // key: layer|days -> { counts, breakdown }
+
+  // ---- Map ----
+  const map = L.map("map", { zoomControl: true, attributionControl: true })
+    .setView([40.7128, -73.96], 11);
+
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+    attribution: '&copy; OpenStreetMap, &copy; CARTO',
+    subdomains: "abcd",
+    maxZoom: 18,
+  }).addTo(map);
+
+  // ---- Helpers ----
+  function setLoading(on, text) {
+    const el = document.getElementById("loading");
+    el.style.display = on ? "block" : "none";
+    if (text) el.textContent = text;
+  }
+
+  function isoDaysAgo(days) {
+    const d = new Date();
+    d.setUTCDate(d.getUTCDate() - days);
+    return d.toISOString().split(".")[0];
+  }
+
+  function fmt(n) {
+    if (n === null || n === undefined || isNaN(n)) return "—";
+    if (Number.isInteger(n)) return n.toLocaleString("en-US");
+    if (n >= 1000) return n.toLocaleString("en-US", { maximumFractionDigits: 0 });
+    if (n >= 100) return n.toFixed(0);
+    if (n >= 10) return n.toFixed(1);
+    return n.toFixed(2);
+  }
+
+  function quantileBreaks(values, n) {
+    if (!values.length) return Array(n - 1).fill(0);
+    const sorted = [...values].sort((a, b) => a - b);
+    const out = [];
+    for (let i = 1; i < n; i++) {
+      const idx = Math.floor((i / n) * sorted.length);
+      out.push(sorted[Math.min(idx, sorted.length - 1)]);
+    }
+    return out;
+  }
+
+  function shadeFor(rate, baseHex) {
+    if (rate === 0 || rate === undefined) return "#f2f2f2";
+    let cls = 0;
+    for (let i = 0; i < breaks.length; i++) {
+      if (rate > breaks[i]) cls = i + 1;
+    }
+    // 5 classes (0-4): light to dark mix toward base color
+    const mix = 0.18 + 0.18 * cls; // 0.18, 0.36, 0.54, 0.72, 0.90
+    return mixWithWhite(baseHex, mix);
+  }
+
+  function mixWithWhite(hex, t) {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    const mr = Math.round(255 + (r - 255) * t);
+    const mg = Math.round(255 + (g - 255) * t);
+    const mb = Math.round(255 + (b - 255) * t);
+    return `rgb(${mr},${mg},${mb})`;
+  }
+
+  // ---- ZCTA load ----
+  async function loadZctas() {
+    setLoading(true, "Loading neighborhoods");
+    const url = `${SODA}/35j5-n34v.geojson?$limit=500`;
+    const r = await fetch(url);
+    const gj = await r.json();
+    const out = {};
+    const feats = [];
+    for (const f of gj.features) {
+      const z = f.properties.zcta5;
+      if (!isNycZip(z)) continue;
+      const sqmi = parseFloat(f.properties.arealand) / M2_PER_SQMI;
+      if (!sqmi || !isFinite(sqmi)) continue;
+      out[z] = { feature: f, sqmi };
+      feats.push(f);
+    }
+    zctas = out;
+    zctaLayer = L.geoJSON(feats, {
+      style: () => ({ color: "#444", weight: 0.6, fillColor: "#f2f2f2", fillOpacity: 0.85 }),
+      onEachFeature: (feat, lyr) => {
+        const z = feat.properties.zcta5;
+        lyr.on("click", () => selectZip(z));
+        lyr.on("mouseover", function () { this.setStyle({ weight: 2, color: "#000" }); });
+        lyr.on("mouseout", function () { this.setStyle({ weight: 0.6, color: "#444" }); });
+        lyr.bindTooltip(() => tooltipFor(z), { sticky: true, className: "tip" });
+      },
+    }).addTo(map);
+    const fitToCity = () => {
+      map.invalidateSize();
+      map.fitBounds(zctaLayer.getBounds(), { padding: [10, 10] });
+    };
+    fitToCity();
+    requestAnimationFrame(fitToCity);
+    setTimeout(fitToCity, 250);
+    setLoading(false);
+  }
+
+  function tooltipFor(z) {
+    const c = counts[z] || 0;
+    const sqmi = zctas[z]?.sqmi || 0;
+    const rate = sqmi ? c / sqmi : 0;
+    return `<b>ZIP ${z}</b><br>${fmt(c)} ${LAYERS[currentLayer].label.toLowerCase()} (${currentDays}d)<br>${fmt(rate)} per sq mi`;
+  }
+
+  // ---- Data fetch ----
+  async function fetchLayer(layerKey, days) {
+    const cacheKey = `${layerKey}|${days}`;
+    if (cache.has(cacheKey)) return cache.get(cacheKey);
+    const L = LAYERS[layerKey];
+
+    // Try precomputed snapshot first (fast). Falls back to live SODA query.
+    let cMap = await tryLoadSnapshot(layerKey, days);
+    let bdMap = {};
+    let fromSnapshot = cMap !== null;
+
+    if (!fromSnapshot) {
+      setLoading(true, "Fetching data");
+      cMap = await fetchCountsLive(layerKey, days);
+    } else {
+      // Snapshot loaded; also try snapshot breakdown for 311.
+      if (L.typeField) {
+        const snap = await tryLoadBreakdownSnapshot(layerKey, days);
+        if (snap) bdMap = snap;
+      }
+    }
+
+    const result = { counts: cMap, breakdown: bdMap };
+    cache.set(cacheKey, result);
+
+    // Always fetch live counts in the background to refresh the snapshot.
+    if (fromSnapshot) {
+      refreshLive(layerKey, days, result);
+    } else if (L.typeField) {
+      loadBreakdown(layerKey, days, buildWhere(layerKey, days), result);
+    }
+
+    return result;
+  }
+
+  function buildWhere(layerKey, days) {
+    const L = LAYERS[layerKey];
+    const since = isoDaysAgo(days);
+    const parts = [`${L.dateField} > '${since}'`, `${L.zipField} IS NOT NULL`];
+    if (L.extraWhere) parts.push(L.extraWhere);
+    return parts.join(" AND ");
+  }
+
+  async function fetchCountsLive(layerKey, days) {
+    const L = LAYERS[layerKey];
+    const params = new URLSearchParams({
+      "$select": `${L.zipField} as zip, count(*) as n`,
+      "$where": buildWhere(layerKey, days),
+      "$group": L.zipField,
+      "$limit": "2000",
+    });
+    const r = await fetch(`${L.endpoint}?${params}`);
+    const rows = await r.json();
+    const cMap = {};
+    for (const row of rows) {
+      const z = (row.zip || "").trim();
+      if (!isNycZip(z)) continue;
+      cMap[z] = (cMap[z] || 0) + parseInt(row.n, 10);
+    }
+    return cMap;
+  }
+
+  async function tryLoadSnapshot(layerKey, days) {
+    try {
+      const r = await fetch(`data/${layerKey}-${days}-counts.json`);
+      if (!r.ok) return null;
+      const rows = await r.json();
+      const cMap = {};
+      for (const row of rows) {
+        const z = (row.zip || "").trim();
+        if (!isNycZip(z)) continue;
+        cMap[z] = (cMap[z] || 0) + parseInt(row.n, 10);
+      }
+      return Object.keys(cMap).length ? cMap : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async function tryLoadBreakdownSnapshot(layerKey, days) {
+    try {
+      const r = await fetch(`data/${layerKey}-${days}-breakdown.json`);
+      if (!r.ok) return null;
+      const rows = await r.json();
+      const bdMap = {};
+      for (const row of rows) {
+        const z = (row.zip || "").trim();
+        if (!isNycZip(z)) continue;
+        if (!bdMap[z]) bdMap[z] = [];
+        bdMap[z].push({ type: row.t || "(unspecified)", n: parseInt(row.n, 10) });
+      }
+      return bdMap;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  async function refreshLive(layerKey, days, resultRef) {
+    try {
+      const live = await fetchCountsLive(layerKey, days);
+      if (Object.keys(live).length) {
+        resultRef.counts = live;
+        if (currentLayer === layerKey && currentDays === days) {
+          counts = live;
+          restyle();
+          if (selectedZip) renderSide(selectedZip);
+        }
+      }
+      const L = LAYERS[layerKey];
+      if (L.typeField) loadBreakdown(layerKey, days, buildWhere(layerKey, days), resultRef);
+    } catch (e) {
+      console.warn("live refresh failed", e);
+    }
+  }
+
+  function restyle() {
+    const rates = [];
+    for (const z in zctas) {
+      const c = counts[z] || 0;
+      const sqmi = zctas[z].sqmi;
+      if (sqmi > 0) rates.push(c / sqmi);
+    }
+    const nonZero = rates.filter(r => r > 0);
+    breaks = quantileBreaks(nonZero, 5);
+    const base = LAYERS[currentLayer].color;
+    zctaLayer.eachLayer(lyr => {
+      const z = lyr.feature.properties.zcta5;
+      const c = counts[z] || 0;
+      const sqmi = zctas[z]?.sqmi || 0;
+      const rate = sqmi ? c / sqmi : 0;
+      lyr.setStyle({ fillColor: shadeFor(rate, base), fillOpacity: 0.85 });
+    });
+    renderLegend();
+  }
+
+  async function loadBreakdown(layerKey, days, where, resultRef) {
+    const L = LAYERS[layerKey];
+    const p2 = new URLSearchParams({
+      "$select": `${L.zipField} as zip, ${L.typeField} as t, count(*) as n`,
+      "$where": where,
+      "$group": `${L.zipField}, ${L.typeField}`,
+      "$order": "n desc",
+      "$limit": "20000",
+    });
+    try {
+      const r2 = await fetch(`${L.endpoint}?${p2}`);
+      const rows2 = await r2.json();
+      const bdMap = {};
+      for (const row of rows2) {
+        const z = (row.zip || "").trim();
+        if (!isNycZip(z)) continue;
+        if (!bdMap[z]) bdMap[z] = [];
+        bdMap[z].push({ type: row.t || "(unspecified)", n: parseInt(row.n, 10) });
+      }
+      resultRef.breakdown = bdMap;
+      // If this is the active layer, update the side panel.
+      if (currentLayer === layerKey) {
+        breakdown = bdMap;
+        if (selectedZip) renderSide(selectedZip);
+      }
+    } catch (e) {
+      console.warn("breakdown fetch failed", e);
+    }
+  }
+
+  async function refresh() {
+    const data = await fetchLayer(currentLayer, currentDays);
+    counts = data.counts;
+    breakdown = data.breakdown;
+    restyle();
+    if (selectedZip) renderSide(selectedZip);
+    document.getElementById("updated").textContent =
+      `Updated ${new Date().toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" })}`;
+    setLoading(false);
+  }
+
+  function renderLegend() {
+    document.getElementById("legend-title").textContent = LAYERS[currentLayer].legend;
+    const body = document.getElementById("legend-body");
+    const base = LAYERS[currentLayer].color;
+    const labels = [
+      ["0", "#f2f2f2"],
+      [`< ${fmt(breaks[0])}`, mixWithWhite(base, 0.18)],
+      [`${fmt(breaks[0])}–${fmt(breaks[1])}`, mixWithWhite(base, 0.36)],
+      [`${fmt(breaks[1])}–${fmt(breaks[2])}`, mixWithWhite(base, 0.54)],
+      [`${fmt(breaks[2])}–${fmt(breaks[3])}`, mixWithWhite(base, 0.72)],
+      [`> ${fmt(breaks[3])}`, mixWithWhite(base, 0.90)],
+    ];
+    body.innerHTML = labels.map(([lbl, col]) =>
+      `<div class="legend-row"><div class="swatch" style="background:${col}"></div>${lbl}</div>`
+    ).join("");
+  }
+
+  // ---- Selection / side panel ----
+  function selectZip(z) {
+    selectedZip = z;
+    document.getElementById("zip-input").value = z;
+    if (zctaLayer && zctas[z]) {
+      map.fitBounds(L.geoJSON(zctas[z].feature).getBounds(), { padding: [40, 40], maxZoom: 13 });
+    }
+    renderSide(z);
+  }
+
+  function renderSide(z) {
+    const side = document.getElementById("side");
+    if (!zctas[z]) {
+      side.innerHTML = `<div class="panel-empty">ZIP ${z} isn't in the New York City ZCTA file. Try another.</div>`;
+      return;
+    }
+    const c = counts[z] || 0;
+    const sqmi = zctas[z].sqmi;
+    const rate = sqmi ? c / sqmi : 0;
+
+    // Rank among NYC ZIPs (by rate)
+    const rates = [];
+    for (const k in zctas) {
+      const cc = counts[k] || 0;
+      const ss = zctas[k].sqmi;
+      rates.push({ zip: k, rate: ss ? cc / ss : 0 });
+    }
+    rates.sort((a, b) => b.rate - a.rate);
+    const rank = rates.findIndex(r => r.zip === z) + 1;
+    const total = rates.length;
+
+    const L = LAYERS[currentLayer];
+    let html = `
+      <p class="zip-big">${z}</p>
+      <p class="zip-meta">${fmt(sqmi)} sq mi land area</p>
+
+      <div class="stat-row">
+        <div>
+          <div class="stat-label">${L.label}</div>
+          <div class="stat-value">${fmt(c)}</div>
+          <div class="zip-meta" style="margin:6px 0 0">in last ${currentDays} days</div>
+        </div>
+        <div>
+          <div class="stat-label">Per sq mi</div>
+          <div class="stat-value">${fmt(rate)}</div>
+          <div class="zip-meta" style="margin:6px 0 0">density-normalized</div>
+        </div>
+      </div>
+
+      <p class="rank-line">Ranks <strong>#${rank} of ${total}</strong> New York City ZIPs by density for this metric.</p>
+    `;
+
+    if (L.typeField && breakdown[z] && breakdown[z].length) {
+      const top = breakdown[z].slice(0, 8);
+      const maxN = top[0].n;
+      html += `<h3 class="section">Top complaint types</h3>`;
+      for (const row of top) {
+        const pct = (row.n / maxN) * 100;
+        html += `
+          <div class="bar-row">
+            <span class="bar-name">${row.type}</span>
+            <span class="bar-count">${fmt(row.n)}</span>
+          </div>
+          <div class="bar-bg"><div class="bar-fill" style="width:${pct}%"></div></div>
+        `;
+      }
+    }
+
+    side.innerHTML = html;
+  }
+
+  // ---- Wiring ----
+  document.querySelectorAll(".pill[data-layer]").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      document.querySelectorAll(".pill[data-layer]").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentLayer = btn.dataset.layer;
+      await refresh();
+    });
+  });
+
+  document.querySelectorAll(".window-pill").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      document.querySelectorAll(".window-pill").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      currentDays = parseInt(btn.dataset.days, 10);
+      await refresh();
+    });
+  });
+
+  document.getElementById("zip-go").addEventListener("click", () => {
+    const z = document.getElementById("zip-input").value.trim();
+    if (z.length === 5) selectZip(z);
+  });
+  document.getElementById("zip-input").addEventListener("keydown", e => {
+    if (e.key === "Enter") document.getElementById("zip-go").click();
+  });
+
+  // ---- Boot ----
+  async function boot() {
+    try {
+      await loadZctas();
+    } catch (e) {
+      document.getElementById("loading").textContent = "Error loading neighborhoods";
+      console.error("loadZctas failed", e);
+      return;
+    }
+    try {
+      await refresh();
+    } catch (e) {
+      console.error("refresh failed", e);
+      await new Promise(r => setTimeout(r, 800));
+      try { await refresh(); } catch (e2) { console.error("retry failed", e2); }
+    }
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+  </script>
+</body>
+</html>
