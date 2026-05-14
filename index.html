@@ -361,6 +361,7 @@
     <button class="pill" data-layer="construction">Construction</button>
     <button class="pill" data-layer="hpd">HPD violations</button>
     <button class="pill" data-layer="oath">OATH summonses</button>
+    <button class="pill" data-layer="sanitation">Sanitation tickets</button>
     <button class="pill" data-layer="rats">Rats (311)</button>
     <button class="pill" data-layer="ratsConfirmed">Rats (DOHMH)</button>
     <button class="pill" data-layer="newBusinesses">New businesses</button>
@@ -525,6 +526,18 @@
       pointFields: "result,inspection_date,house_number,street_name,inspection_type",
       pointLabel: r => `<b>${r.result || "Rat activity"}</b><br>${r.inspection_date ? r.inspection_date.slice(0,10) : ""} — ${r.house_number || ""} ${r.street_name || ""}`,
     },
+    sanitation: {
+      label: "Sanitation tickets",
+      legend: "DSNY summonses per sq mi",
+      endpoint: `${SODA}/jz4z-kudi.json`,
+      zipField: "violation_location_zip_code",
+      dateField: "violation_date",
+      typeField: null,
+      extraWhere: "issuing_agency in('SANITATION OTHERS','DOS - ENFORCEMENT AGENTS','SANITATION DEPT','SANITATION RECYCLING','SANITATION POLICE')",
+      color: "#205e5e",
+      latField: null,
+      lngField: null,
+    },
     newBusinesses: {
       label: "New business applications",
       legend: "DCWP business license applications per sq mi",
@@ -539,7 +552,7 @@
     },
   };
 
-  const LAYER_ORDER = ["311", "rats", "ratsConfirmed", "evictions", "crashes", "closures", "hpd", "oath", "construction", "newBusinesses"];
+  const LAYER_ORDER = ["311", "rats", "ratsConfirmed", "evictions", "crashes", "closures", "hpd", "oath", "sanitation", "construction", "newBusinesses"];
 
   // NYC ZCTAs only: 100xx-104xx (Manhattan/Bronx + a sliver), 11xxx (Brooklyn/Queens/SI)
   function isNycZip(z) {

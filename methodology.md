@@ -33,6 +33,7 @@ All datasets are queried live from the NYC Open Data SODA API, client-side, with
 | Construction (sheds/scaffolds) | DOB NOW: Build — Approved Permits | [rbx6-tga4](https://data.cityofnewyork.us/Housing-Development/DOB-NOW-Build-Approved-Permits/rbx6-tga4) | `issued_date` | `zip_code` | `work_type in('Sidewalk Shed','Supported Scaffold','Suspended Scaffold')` |
 | HPD housing violations | Housing Maintenance Code Violations | [wvxf-dwi5](https://data.cityofnewyork.us/Housing-Development/Housing-Maintenance-Code-Violations/wvxf-dwi5) | `novissueddate` | `zip` | none |
 | OATH summonses | OATH Hearings Division Case Status | [6bgk-3dad](https://data.cityofnewyork.us/City-Government/OATH-Hearings-Division-Case-Status/6bgk-3dad) | `issue_date` | `respondent_zip` | none |
+| Sanitation tickets | OATH Hearings Division Case Status | [jz4z-kudi](https://data.cityofnewyork.us/City-Government/OATH-Hearings-Division-Case-Status/jz4z-kudi) | `violation_date` | `violation_location_zip_code` | `issuing_agency in('SANITATION OTHERS','DOS - ENFORCEMENT AGENTS','SANITATION DEPT','SANITATION RECYCLING','SANITATION POLICE')` — summonses issued by any DSNY enforcement unit. Note: this dataset lags 1-2 weeks, so the 7-day window can be sparse. |
 | Rat sightings | 311 Service Requests (subset) | [erm2-nwe9](https://data.cityofnewyork.us/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9) | `created_date` | `incident_zip` | `complaint_type='Rodent' OR descriptor like '%Rat%'` |
 
 ### Counting rules
