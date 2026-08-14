@@ -355,25 +355,25 @@
 ,{"zip":"11417","t":"Noise - Street/Sidewalk","n":"130"}
 ,{"zip":"10471","t":"Noise - Street/Sidewalk","n":"130"}
 ,{"zip":"11358","t":"Noise - Street/Sidewalk","n":"130"}
+,{"zip":"11427","t":"Noise - Residential","n":"129"}
 ,{"zip":"11105","t":"Noise - Street/Sidewalk","n":"129"}
 ,{"zip":"11206","t":"Noise - Vehicle","n":"129"}
-,{"zip":"11427","t":"Noise - Residential","n":"129"}
-,{"zip":"11105","t":"Noise - Commercial","n":"128"}
 ,{"zip":"10471","t":"Noise - Residential","n":"128"}
-,{"zip":"11368","t":"Noise - Commercial","n":"128"}
 ,{"zip":"10037","t":"Noise - Residential","n":"128"}
+,{"zip":"11368","t":"Noise - Commercial","n":"128"}
+,{"zip":"11105","t":"Noise - Commercial","n":"128"}
 ,{"zip":"10002","t":"Noise","n":"126"}
+,{"zip":"11211","t":"Noise - Vehicle","n":"126"}
 ,{"zip":"11366","t":"Noise - Helicopter","n":"126"}
 ,{"zip":"10470","t":"Noise - Residential","n":"126"}
-,{"zip":"11211","t":"Noise - Vehicle","n":"126"}
 ,{"zip":"11239","t":"Noise - Residential","n":"124"}
 ,{"zip":"11226","t":"Noise - Vehicle","n":"122"}
 ,{"zip":"11229","t":"Noise","n":"122"}
-,{"zip":"11249","t":"Noise","n":"121"}
 ,{"zip":"11223","t":"Noise - Street/Sidewalk","n":"121"}
+,{"zip":"11249","t":"Noise","n":"121"}
 ,{"zip":"11378","t":"Noise - Street/Sidewalk","n":"120"}
-,{"zip":"10024","t":"Noise - Street/Sidewalk","n":"120"}
 ,{"zip":"10040","t":"Noise - Commercial","n":"120"}
+,{"zip":"10024","t":"Noise - Street/Sidewalk","n":"120"}
 ,{"zip":"11212","t":"Noise - Vehicle","n":"119"}
 ,{"zip":"10451","t":"Noise - Vehicle","n":"119"}
 ,{"zip":"10028","t":"Noise","n":"119"}
@@ -1156,8 +1156,8 @@
 ,{"zip":"11413","t":"Noise - Helicopter","n":"1"}
 ,{"zip":"10282","t":"Noise - Residential","n":"1"}
 ,{"zip":"10009","t":"Noise - Helicopter","n":"1"}
-,{"zip":"10002","t":"Noise - House of Worship","n":"1"}
 ,{"zip":"10118","t":"Noise - Helicopter","n":"1"}
+,{"zip":"10002","t":"Noise - House of Worship","n":"1"}
 ,{"zip":"11228","t":"Noise - House of Worship","n":"1"}
 ,{"zip":"10314","t":"Noise - House of Worship","n":"1"}
 ,{"zip":"10020","t":"Noise - Vehicle","n":"1"}
