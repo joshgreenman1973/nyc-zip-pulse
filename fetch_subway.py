@@ -22,6 +22,7 @@ import datetime
 import json
 import os
 import sys
+import time
 import urllib.parse
 import urllib.request
 
@@ -41,9 +42,20 @@ def iso_days_ago(days: int) -> str:
     )
 
 
-def fetch_json(url: str):
-    with urllib.request.urlopen(url, timeout=180) as r:
-        return json.loads(r.read())
+def fetch_json(url: str, attempts: int = 4):
+    """Socrata read timeouts are common on the big MTA table; retry with
+    backoff so one slow response doesn't abort the whole nightly run."""
+    last = None
+    for i in range(attempts):
+        try:
+            with urllib.request.urlopen(url, timeout=180) as r:
+                return json.loads(r.read())
+        except Exception as e:                      # noqa: BLE001 - retry anything
+            last = e
+            wait = 5 * (i + 1)
+            print(f"  retry {i + 1}/{attempts - 1} in {wait}s ({e})")
+            time.sleep(wait)
+    raise RuntimeError(f"giving up after {attempts} attempts: {last}")
 
 
 def load_zctas():

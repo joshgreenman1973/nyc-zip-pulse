@@ -13,21 +13,62 @@ iso_n_days_ago() {
   fi
 }
 
+# Every snapshot is written through this. A throttled, errored or empty
+# response must abort the run -- a half-written data/ directory that still
+# exits 0 is how a map goes stale while looking healthy.
+FAILURES=0
+EMPTY=""
+
+get() {
+  local url=$1 out=$2 label=$3
+  local tmp="${out}.tmp"
+  if ! curl -sS --fail-with-body --retry 3 --retry-delay 5 --max-time 120 "$url" -o "$tmp"; then
+    echo "  FAIL  $label — HTTP error from Socrata" >&2
+    rm -f "$tmp"
+    FAILURES=$((FAILURES + 1))
+    return 1
+  fi
+  # Must be a JSON array. Socrata reports errors as a JSON *object*.
+  local rows
+  if ! rows=$(python3 -c "
+import json, sys
+d = json.load(open(sys.argv[1]))
+if not isinstance(d, list):
+    sys.stderr.write('not a JSON array: %s\n' % str(d)[:200])
+    raise SystemExit(1)
+print(len(d))
+" "$tmp"); then
+    echo "  FAIL  $label — response was not a row array" >&2
+    rm -f "$tmp"
+    FAILURES=$((FAILURES + 1))
+    return 1
+  fi
+  mv "$tmp" "$out"
+  if [ "$rows" -eq 0 ]; then
+    echo "  warn  $label — 0 rows"
+    EMPTY="${EMPTY}${label}\n"
+  else
+    echo "  ok    $label — ${rows} rows"
+  fi
+}
+
+urlencode() {
+  python3 -c "import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1]))" "$1"
+}
+
 fetch() {
   local key=$1 endpoint=$2 zipfield=$3 datefield=$4 extra=$5 days=$6
   local since
   since=$(iso_n_days_ago "$days")
   local where="${datefield} > '${since}' AND ${zipfield} IS NOT NULL"
   if [ -n "$extra" ]; then where="$where AND $extra"; fi
-  local url="${endpoint}?\$select=${zipfield}%20as%20zip,count(*)%20as%20n&\$where=$(python3 -c "import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1]))" "$where")&\$group=${zipfield}&\$limit=2000"
-  echo "  count: $key $days days"
-  curl -sS "$url" > "data/${key}-${days}-counts.json"
+  local url="${endpoint}?\$select=${zipfield}%20as%20zip,count(*)%20as%20n&\$where=$(urlencode "$where")&\$group=${zipfield}&\$limit=2000"
+  get "$url" "data/${key}-${days}-counts.json" "count $key ${days}d" || true
 
   # Type breakdown for 311 and noise (both expose complaint_type)
   if [ "$key" = "311" ] || [ "$key" = "noise" ]; then
-    local urlb="${endpoint}?\$select=${zipfield}%20as%20zip,complaint_type%20as%20t,count(*)%20as%20n&\$where=$(python3 -c "import urllib.parse,sys; print(urllib.parse.quote(sys.argv[1]))" "$where")&\$group=${zipfield},complaint_type&\$order=n%20desc&\$limit=20000"
-    echo "  breakdown: $key $days days"
-    curl -sS "$urlb" > "data/${key}-${days}-breakdown.json"
+    local urlb="${endpoint}?\$select=${zipfield}%20as%20zip,complaint_type%20as%20t,count(*)%20as%20n&\$where=$(urlencode "$where")&\$group=${zipfield},complaint_type&\$order=n%20desc&\$limit=20000"
+    get "$urlb" "data/${key}-${days}-breakdown.json" "breakdown $key ${days}d" || true
   fi
 }
 
@@ -55,10 +96,31 @@ if [ -f fetch_subway.py ]; then
   python3 fetch_subway.py
 fi
 
+# A run that failed any fetch must not stamp a fresh manifest -- the footer
+# dates the numbers off this file, so stamping it after a partial run would
+# relabel stale snapshots as current.
+if [ "$FAILURES" -gt 0 ]; then
+  echo "FAILED: ${FAILURES} fetch(es) errored — manifest not stamped, snapshots left as-is" >&2
+  exit 1
+fi
+
+# The 311 30-day window is the flagship layer. Empty means the query shape or
+# the dataset changed, not that New York stopped complaining.
+if [ ! -s data/311-30-counts.json ] || \
+   [ "$(python3 -c "import json;print(len(json.load(open('data/311-30-counts.json'))))")" -eq 0 ]; then
+  echo "FAILED: 311 30-day snapshot is empty — refusing to publish" >&2
+  exit 1
+fi
+
+if [ -n "$EMPTY" ]; then
+  echo "note: some windows returned 0 rows:"
+  printf "%b" "$EMPTY"
+fi
+
 # Snapshot manifest
 python3 -c "
-import json, os, datetime
-manifest = { 'generated_at': datetime.datetime.utcnow().isoformat() + 'Z' }
+import json, datetime
+manifest = { 'generated_at': datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00','Z') }
 print(json.dumps(manifest))
 " > data/manifest.json
 

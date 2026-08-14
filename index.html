@@ -260,6 +260,26 @@
       text-transform: uppercase;
       margin-left: 8px;
     }
+    .updated.stale {
+      color: #b45309;
+      font-weight: 600;
+    }
+    .layer-notice {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 500;
+      max-width: 420px;
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      color: #78350f;
+      font-size: 12px;
+      line-height: 1.45;
+      padding: 8px 12px;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
     .leaflet-container { font-family: inherit; }
     .tip {
       font-size: 12px;
@@ -407,6 +427,7 @@
     <div class="map-wrap">
       <div id="map"></div>
       <div id="loading" class="loading" style="display:none">Loading</div>
+      <div id="layer-notice" class="layer-notice" style="display:none"></div>
       <div class="legend">
         <div class="legend-title" id="legend-title">Per square mile</div>
         <div id="legend-body"></div>
@@ -682,7 +703,10 @@
   let breakdown = {};        // zip -> [{type, n}, ...] (for 311 only)
   let breaks = [0, 0, 0, 0]; // quantile breaks for color scale
   let selectedZip = null;
-  const cache = new Map();   // key: layer|days -> { counts, breakdown }
+  const cache = new Map();   // key: layer|days -> { counts, breakdown, source }
+  // When the baked snapshots in data/ were built. Read from data/manifest.json
+  // so the footer can date the numbers on screen instead of the page load.
+  let snapshotStamp = null;
   // For the side-panel grid we want counts for every layer at the current window.
   // priorCountCache key: layer|days|zip -> integer (count in PRIOR same-length window)
   const priorCountCache = new Map();
@@ -823,7 +847,9 @@
       cMap = {};  // snapshotOnly with no snapshot — empty
     }
 
-    const result = { counts: cMap, breakdown: bdMap };
+    // Provenance drives the footer stamp: "snapshot" until a live query lands.
+    const result = { counts: cMap, breakdown: bdMap,
+                     source: fromSnapshot ? "snapshot" : "live" };
     cache.set(cacheKey, result);
 
     // Refresh live in background unless this is a snapshot-only layer.
@@ -899,21 +925,27 @@
   }
 
   async function refreshLive(layerKey, days, resultRef) {
+    const isActive = () => currentLayer === layerKey && currentDays === days;
     try {
       const live = await fetchCountsLive(layerKey, days);
-      if (Object.keys(live).length) {
-        resultRef.counts = live;
-        if (currentLayer === layerKey && currentDays === days) {
-          counts = live;
-          restyle();
-          if (selectedZip) renderSide(selectedZip);
-        }
+      // An empty result is a failed refresh, not a city with no complaints.
+      if (!Object.keys(live).length) throw new Error("live query returned no rows");
+      resultRef.counts = live;
+      resultRef.source = "live";
+      resultRef.liveAt = new Date();
+      if (isActive()) {
+        counts = live;
+        restyle();
+        if (selectedZip) renderSide(selectedZip);
       }
       const L = LAYERS[layerKey];
       if (L.typeField) loadBreakdown(layerKey, days, buildWhere(layerKey, days), resultRef);
     } catch (e) {
+      // Leave the snapshot on screen but say so, rather than implying it's live.
+      resultRef.source = "snapshot-only";
       console.warn("live refresh failed", e);
     }
+    if (isActive()) setUpdatedLabel();
   }
 
   function restyle() {
@@ -975,9 +1007,59 @@
       renderSide(selectedZip);
       loadPointsForSelection();
     }
-    document.getElementById("updated").textContent =
-      `Updated ${new Date().toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" })}`;
+    setUpdatedLabel();
+    setLayerNotice();
     setLoading(false);
+  }
+
+  // An all-zero layer means the source stopped publishing (or changed its
+  // fields), not that nothing happened. Say which, rather than painting an
+  // empty city and letting the reader assume it's real.
+  function setLayerNotice() {
+    const el = document.getElementById("layer-notice");
+    if (!el) return;
+    const total = Object.values(counts || {}).reduce((a, b) => a + b, 0);
+    if (total > 0) { el.style.display = "none"; return; }
+    const L = LAYERS[currentLayer];
+    el.innerHTML = `<b>No ${L.label.toLowerCase()} in the last ${currentDays} days.</b> ` +
+      `The source dataset has no rows in this window — it may have stopped publishing. ` +
+      `<a href="methodology.md" target="_blank" rel="noopener">Methodology</a>`;
+    el.style.display = "block";
+  }
+
+  // Date the numbers actually on screen. A live query stamps the query time; a
+  // baked snapshot stamps when the snapshot was built (data/manifest.json), so
+  // a silently failed refresh reads as stale instead of reading as current.
+  function setUpdatedLabel() {
+    const el = document.getElementById("updated");
+    if (!el) return;
+    const entry = cache.get(`${currentLayer}|${currentDays}`);
+    const snapText = snapshotStamp
+      ? `Snapshot built ${snapshotStamp.toLocaleDateString("en-US", { dateStyle: "medium" })}`
+      : "Precomputed snapshot";
+    if (!entry) { el.textContent = ""; return; }
+    if (entry.source === "live") {
+      const t = (entry.liveAt || new Date());
+      el.textContent = `Live from NYC Open Data — queried ${t.toLocaleString("en-US", { dateStyle: "medium", timeStyle: "short" })}`;
+      el.classList.remove("stale");
+    } else if (entry.source === "snapshot-only") {
+      el.textContent = `${snapText} — live refresh unavailable, showing snapshot`;
+      el.classList.add("stale");
+    } else {
+      el.textContent = `${snapText} — refreshing from NYC Open Data…`;
+      el.classList.remove("stale");
+    }
+  }
+
+  async function loadSnapshotStamp() {
+    try {
+      const r = await fetch("data/manifest.json");
+      if (!r.ok) return;
+      const j = await r.json();
+      if (j.generated_at) snapshotStamp = new Date(j.generated_at);
+    } catch (e) {
+      console.warn("snapshot manifest unavailable", e);
+    }
   }
 
   // Preload counts for every layer at the current window so the side panel
@@ -1334,6 +1416,7 @@
 
   // ---- Boot ----
   async function boot() {
+    await loadSnapshotStamp();
     try {
       await loadZctas();
     } catch (e) {

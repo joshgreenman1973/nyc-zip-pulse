@@ -1,0 +1,47 @@
+name: Refresh ZIP pulse snapshots
+
+# The heaviest layers (311, HPD, DOB, restaurant inspections) republish daily,
+# so the baked snapshots are rebuilt every morning. fetch_snapshots.sh exits
+# non-zero on an HTTP error or an empty flagship layer, so a throttled run
+# fails the job instead of committing a hollowed-out data/ directory.
+on:
+  schedule:
+    - cron: '20 10 * * *'   # 6:20 AM ET
+  workflow_dispatch:
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install shapely
+
+      - name: Rebuild snapshots
+        run: bash fetch_snapshots.sh
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --staged --quiet; then
+            echo "No snapshot changes -- skipping commit"
+          else
+            git commit -m "Refresh ZIP pulse snapshots: $(date -u +%Y-%m-%d)"
+            pushed=false
+            for attempt in 1 2 3 4 5; do
+              if git push origin main; then pushed=true; break; fi
+              echo "Push rejected (attempt $attempt) — rebasing on latest main…"
+              git pull --rebase --autostash origin main
+            done
+            $pushed || { echo "Push failed after retries"; exit 1; }
+          fi
