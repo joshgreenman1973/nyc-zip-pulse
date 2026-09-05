@@ -1,878 +1,868 @@
-[{"zip":"11214","t":"Noise - Residential","n":"241"}
-,{"zip":"10453","t":"Noise - Street/Sidewalk","n":"223"}
-,{"zip":"10452","t":"Noise - Street/Sidewalk","n":"202"}
-,{"zip":"10457","t":"Noise - Street/Sidewalk","n":"182"}
-,{"zip":"10456","t":"Noise - Residential","n":"180"}
-,{"zip":"10032","t":"Noise - Street/Sidewalk","n":"159"}
-,{"zip":"11226","t":"Noise - Residential","n":"152"}
-,{"zip":"10458","t":"Noise - Street/Sidewalk","n":"148"}
-,{"zip":"11368","t":"Noise - Street/Sidewalk","n":"136"}
-,{"zip":"10034","t":"Noise - Street/Sidewalk","n":"135"}
-,{"zip":"10031","t":"Noise - Street/Sidewalk","n":"131"}
-,{"zip":"10456","t":"Noise - Street/Sidewalk","n":"125"}
-,{"zip":"11419","t":"Noise - Residential","n":"123"}
-,{"zip":"10468","t":"Noise - Residential","n":"120"}
-,{"zip":"11208","t":"Noise - Residential","n":"114"}
-,{"zip":"11207","t":"Noise - Residential","n":"111"}
-,{"zip":"10033","t":"Noise - Street/Sidewalk","n":"109"}
-,{"zip":"10468","t":"Noise - Street/Sidewalk","n":"108"}
-,{"zip":"10457","t":"Noise - Residential","n":"107"}
-,{"zip":"10467","t":"Noise - Residential","n":"106"}
-,{"zip":"10458","t":"Noise - Residential","n":"106"}
-,{"zip":"11420","t":"Noise - Residential","n":"98"}
-,{"zip":"10453","t":"Noise - Residential","n":"97"}
-,{"zip":"10452","t":"Noise - Residential","n":"96"}
-,{"zip":"11201","t":"Noise - Street/Sidewalk","n":"94"}
-,{"zip":"11221","t":"Noise - Residential","n":"94"}
-,{"zip":"11225","t":"Noise - Street/Sidewalk","n":"92"}
-,{"zip":"11213","t":"Noise - Residential","n":"91"}
-,{"zip":"10473","t":"Noise - Residential","n":"90"}
-,{"zip":"11203","t":"Noise - Residential","n":"90"}
+[{"zip":"11214","t":"Noise - Residential","n":"222"}
+,{"zip":"10453","t":"Noise - Street/Sidewalk","n":"213"}
+,{"zip":"10452","t":"Noise - Street/Sidewalk","n":"194"}
+,{"zip":"10456","t":"Noise - Residential","n":"163"}
+,{"zip":"10457","t":"Noise - Street/Sidewalk","n":"159"}
+,{"zip":"11226","t":"Noise - Residential","n":"148"}
+,{"zip":"10032","t":"Noise - Street/Sidewalk","n":"144"}
+,{"zip":"11368","t":"Noise - Street/Sidewalk","n":"134"}
+,{"zip":"10458","t":"Noise - Street/Sidewalk","n":"131"}
+,{"zip":"10456","t":"Noise - Street/Sidewalk","n":"130"}
+,{"zip":"10031","t":"Noise - Street/Sidewalk","n":"123"}
+,{"zip":"10034","t":"Noise - Street/Sidewalk","n":"122"}
+,{"zip":"11208","t":"Noise - Residential","n":"116"}
+,{"zip":"10468","t":"Noise - Residential","n":"113"}
+,{"zip":"10467","t":"Noise - Residential","n":"112"}
+,{"zip":"11419","t":"Noise - Residential","n":"109"}
+,{"zip":"10468","t":"Noise - Street/Sidewalk","n":"107"}
+,{"zip":"10457","t":"Noise - Residential","n":"105"}
+,{"zip":"11420","t":"Noise - Residential","n":"99"}
+,{"zip":"11207","t":"Noise - Residential","n":"97"}
+,{"zip":"10458","t":"Noise - Residential","n":"96"}
+,{"zip":"10033","t":"Noise - Street/Sidewalk","n":"96"}
+,{"zip":"11201","t":"Noise - Street/Sidewalk","n":"96"}
+,{"zip":"11221","t":"Noise - Residential","n":"95"}
+,{"zip":"11213","t":"Noise - Residential","n":"94"}
+,{"zip":"11226","t":"Noise - Street/Sidewalk","n":"92"}
+,{"zip":"10453","t":"Noise - Residential","n":"92"}
+,{"zip":"11225","t":"Noise - Street/Sidewalk","n":"90"}
+,{"zip":"10473","t":"Noise - Residential","n":"89"}
 ,{"zip":"10029","t":"Noise - Residential","n":"89"}
-,{"zip":"10016","t":"Noise - Residential","n":"87"}
-,{"zip":"10460","t":"Noise - Street/Sidewalk","n":"85"}
-,{"zip":"10040","t":"Noise - Street/Sidewalk","n":"83"}
-,{"zip":"11226","t":"Noise - Street/Sidewalk","n":"83"}
-,{"zip":"10459","t":"Noise - Residential","n":"81"}
-,{"zip":"11212","t":"Noise - Residential","n":"79"}
-,{"zip":"11435","t":"Noise - Residential","n":"78"}
-,{"zip":"10451","t":"Noise - Residential","n":"77"}
-,{"zip":"10467","t":"Noise - Street/Sidewalk","n":"75"}
-,{"zip":"11368","t":"Noise - Residential","n":"75"}
-,{"zip":"11101","t":"Noise - Residential","n":"74"}
-,{"zip":"11201","t":"Noise - Residential","n":"74"}
-,{"zip":"10455","t":"Noise - Residential","n":"73"}
-,{"zip":"11206","t":"Noise - Residential","n":"70"}
-,{"zip":"11237","t":"Noise - Street/Sidewalk","n":"67"}
-,{"zip":"11354","t":"Noise - Residential","n":"67"}
-,{"zip":"10033","t":"Noise - Residential","n":"66"}
-,{"zip":"11213","t":"Noise - Street/Sidewalk","n":"65"}
-,{"zip":"11385","t":"Noise - Residential","n":"65"}
-,{"zip":"11210","t":"Noise - Residential","n":"62"}
-,{"zip":"11225","t":"Noise - Residential","n":"62"}
-,{"zip":"11216","t":"Noise - Residential","n":"61"}
-,{"zip":"10462","t":"Noise - Residential","n":"61"}
-,{"zip":"11377","t":"Noise - Residential","n":"61"}
-,{"zip":"11234","t":"Noise - Residential","n":"61"}
-,{"zip":"11223","t":"Noise - Residential","n":"61"}
+,{"zip":"11203","t":"Noise - Residential","n":"85"}
+,{"zip":"10452","t":"Noise - Residential","n":"83"}
+,{"zip":"11435","t":"Noise - Residential","n":"82"}
+,{"zip":"10467","t":"Noise - Street/Sidewalk","n":"81"}
+,{"zip":"10016","t":"Noise - Residential","n":"80"}
+,{"zip":"10451","t":"Noise - Residential","n":"80"}
+,{"zip":"10460","t":"Noise - Street/Sidewalk","n":"75"}
+,{"zip":"11368","t":"Noise - Residential","n":"74"}
+,{"zip":"11201","t":"Noise - Residential","n":"71"}
+,{"zip":"11354","t":"Noise - Residential","n":"71"}
+,{"zip":"10040","t":"Noise - Street/Sidewalk","n":"71"}
+,{"zip":"10455","t":"Noise - Residential","n":"70"}
+,{"zip":"10459","t":"Noise - Residential","n":"70"}
+,{"zip":"10451","t":"Noise - Street/Sidewalk","n":"69"}
+,{"zip":"11101","t":"Noise - Residential","n":"69"}
+,{"zip":"11212","t":"Noise - Residential","n":"69"}
+,{"zip":"11206","t":"Noise - Residential","n":"67"}
+,{"zip":"10454","t":"Noise - Street/Sidewalk","n":"67"}
+,{"zip":"11385","t":"Noise - Residential","n":"63"}
+,{"zip":"10454","t":"Noise - Residential","n":"62"}
+,{"zip":"10033","t":"Noise - Residential","n":"61"}
+,{"zip":"11210","t":"Noise - Residential","n":"61"}
+,{"zip":"11213","t":"Noise - Street/Sidewalk","n":"61"}
+,{"zip":"11225","t":"Noise - Residential","n":"61"}
 ,{"zip":"10027","t":"Noise - Residential","n":"61"}
-,{"zip":"10463","t":"Noise - Residential","n":"61"}
-,{"zip":"10460","t":"Noise - Residential","n":"58"}
-,{"zip":"10029","t":"Noise - Street/Sidewalk","n":"57"}
-,{"zip":"11236","t":"Noise - Residential","n":"57"}
-,{"zip":"11233","t":"Noise - Residential","n":"56"}
-,{"zip":"11372","t":"Noise - Vehicle","n":"55"}
-,{"zip":"10454","t":"Noise - Street/Sidewalk","n":"55"}
-,{"zip":"11691","t":"Noise - Residential","n":"54"}
-,{"zip":"11221","t":"Noise - Street/Sidewalk","n":"53"}
-,{"zip":"10031","t":"Noise - Residential","n":"53"}
-,{"zip":"11220","t":"Noise - Street/Sidewalk","n":"53"}
-,{"zip":"11238","t":"Noise - Street/Sidewalk","n":"53"}
+,{"zip":"11216","t":"Noise - Residential","n":"60"}
+,{"zip":"11237","t":"Noise - Street/Sidewalk","n":"59"}
+,{"zip":"11691","t":"Noise - Residential","n":"59"}
+,{"zip":"11234","t":"Noise - Residential","n":"58"}
+,{"zip":"11223","t":"Noise - Residential","n":"58"}
+,{"zip":"11372","t":"Noise - Vehicle","n":"57"}
+,{"zip":"11377","t":"Noise - Residential","n":"56"}
+,{"zip":"10463","t":"Noise - Residential","n":"55"}
+,{"zip":"10460","t":"Noise - Residential","n":"55"}
+,{"zip":"11238","t":"Noise - Street/Sidewalk","n":"54"}
+,{"zip":"10462","t":"Noise - Residential","n":"54"}
+,{"zip":"10461","t":"Noise - Residential","n":"53"}
+,{"zip":"11233","t":"Noise - Residential","n":"53"}
 ,{"zip":"11212","t":"Noise - Street/Sidewalk","n":"53"}
-,{"zip":"10461","t":"Noise - Residential","n":"52"}
-,{"zip":"10463","t":"Noise - Street/Sidewalk","n":"50"}
-,{"zip":"10459","t":"Noise - Street/Sidewalk","n":"50"}
-,{"zip":"11235","t":"Noise - Residential","n":"49"}
-,{"zip":"10466","t":"Noise - Residential","n":"49"}
-,{"zip":"10030","t":"Noise - Street/Sidewalk","n":"49"}
-,{"zip":"11229","t":"Noise - Residential","n":"49"}
-,{"zip":"10473","t":"Noise - Street/Sidewalk","n":"49"}
-,{"zip":"10025","t":"Noise - Street/Sidewalk","n":"48"}
-,{"zip":"11355","t":"Noise - Residential","n":"48"}
-,{"zip":"11211","t":"Noise - Residential","n":"48"}
-,{"zip":"11385","t":"Noise - Street/Sidewalk","n":"48"}
-,{"zip":"11420","t":"Noise - Street/Sidewalk","n":"48"}
-,{"zip":"10027","t":"Noise - Street/Sidewalk","n":"47"}
-,{"zip":"11237","t":"Noise - Residential","n":"47"}
-,{"zip":"10472","t":"Noise - Street/Sidewalk","n":"47"}
-,{"zip":"11226","t":"Noise - Commercial","n":"47"}
-,{"zip":"11366","t":"Noise - Vehicle","n":"46"}
+,{"zip":"11236","t":"Noise - Residential","n":"52"}
+,{"zip":"11203","t":"Noise - Street/Sidewalk","n":"52"}
+,{"zip":"10029","t":"Noise - Street/Sidewalk","n":"51"}
+,{"zip":"10025","t":"Noise - Street/Sidewalk","n":"51"}
+,{"zip":"11432","t":"Noise - Vehicle","n":"50"}
+,{"zip":"10469","t":"Noise - Residential","n":"50"}
+,{"zip":"10473","t":"Noise - Street/Sidewalk","n":"50"}
+,{"zip":"11235","t":"Noise - Residential","n":"50"}
+,{"zip":"10031","t":"Noise - Residential","n":"49"}
+,{"zip":"11226","t":"Noise - Commercial","n":"48"}
+,{"zip":"10466","t":"Noise - Residential","n":"48"}
+,{"zip":"11366","t":"Noise - Vehicle","n":"47"}
+,{"zip":"11221","t":"Noise - Street/Sidewalk","n":"47"}
+,{"zip":"11224","t":"Noise - Residential","n":"47"}
+,{"zip":"10002","t":"Noise - Commercial","n":"47"}
+,{"zip":"11249","t":"Noise - Residential","n":"47"}
 ,{"zip":"10472","t":"Noise - Residential","n":"46"}
-,{"zip":"10034","t":"Noise - Residential","n":"46"}
-,{"zip":"10040","t":"Noise - Residential","n":"46"}
-,{"zip":"11224","t":"Noise - Residential","n":"45"}
-,{"zip":"10469","t":"Noise - Residential","n":"45"}
-,{"zip":"11206","t":"Noise - Commercial","n":"44"}
-,{"zip":"11436","t":"Noise - Residential","n":"44"}
-,{"zip":"10026","t":"Noise - Street/Sidewalk","n":"44"}
-,{"zip":"10002","t":"Noise - Street/Sidewalk","n":"44"}
-,{"zip":"11432","t":"Noise - Vehicle","n":"43"}
-,{"zip":"11238","t":"Noise - Residential","n":"43"}
-,{"zip":"11432","t":"Noise - Residential","n":"43"}
-,{"zip":"11216","t":"Noise - Commercial","n":"43"}
+,{"zip":"11232","t":"Noise - Commercial","n":"46"}
+,{"zip":"11432","t":"Noise - Residential","n":"45"}
+,{"zip":"10030","t":"Noise - Street/Sidewalk","n":"45"}
+,{"zip":"11237","t":"Noise - Residential","n":"45"}
+,{"zip":"11355","t":"Noise - Residential","n":"45"}
+,{"zip":"10002","t":"Noise - Street/Sidewalk","n":"45"}
+,{"zip":"10463","t":"Noise - Street/Sidewalk","n":"44"}
+,{"zip":"11229","t":"Noise - Residential","n":"44"}
+,{"zip":"11420","t":"Noise - Street/Sidewalk","n":"44"}
+,{"zip":"11220","t":"Noise - Street/Sidewalk","n":"44"}
+,{"zip":"11211","t":"Noise - Residential","n":"44"}
+,{"zip":"11418","t":"Noise - Residential","n":"43"}
+,{"zip":"11218","t":"Noise - Residential","n":"43"}
+,{"zip":"11433","t":"Noise - Residential","n":"43"}
+,{"zip":"10026","t":"Noise - Street/Sidewalk","n":"43"}
+,{"zip":"11385","t":"Noise - Street/Sidewalk","n":"43"}
+,{"zip":"10040","t":"Noise - Residential","n":"43"}
+,{"zip":"10027","t":"Noise - Street/Sidewalk","n":"43"}
+,{"zip":"10034","t":"Noise - Residential","n":"43"}
 ,{"zip":"10465","t":"Noise - Residential","n":"43"}
-,{"zip":"11230","t":"Noise - Residential","n":"41"}
-,{"zip":"11249","t":"Noise - Residential","n":"41"}
-,{"zip":"10451","t":"Noise - Street/Sidewalk","n":"41"}
-,{"zip":"10002","t":"Noise - Commercial","n":"40"}
-,{"zip":"11222","t":"Noise - Residential","n":"40"}
-,{"zip":"10452","t":"Noise - Vehicle","n":"40"}
+,{"zip":"11238","t":"Noise - Residential","n":"42"}
+,{"zip":"10472","t":"Noise - Street/Sidewalk","n":"41"}
+,{"zip":"10459","t":"Noise - Street/Sidewalk","n":"41"}
+,{"zip":"10452","t":"Noise - Commercial","n":"41"}
 ,{"zip":"10002","t":"Noise - Residential","n":"40"}
-,{"zip":"11215","t":"Noise","n":"40"}
-,{"zip":"11211","t":"Noise - Commercial","n":"39"}
-,{"zip":"11207","t":"Noise - Street/Sidewalk","n":"39"}
-,{"zip":"11232","t":"Noise - Street/Sidewalk","n":"39"}
-,{"zip":"10452","t":"Noise - Commercial","n":"39"}
-,{"zip":"11218","t":"Noise - Residential","n":"38"}
-,{"zip":"10454","t":"Noise - Residential","n":"38"}
-,{"zip":"11373","t":"Noise - Residential","n":"38"}
-,{"zip":"10455","t":"Noise - Street/Sidewalk","n":"38"}
-,{"zip":"11217","t":"Noise - Residential","n":"38"}
-,{"zip":"11418","t":"Noise - Residential","n":"38"}
-,{"zip":"10025","t":"Noise - Residential","n":"37"}
-,{"zip":"11106","t":"Noise - Residential","n":"37"}
-,{"zip":"11691","t":"Noise - Street/Sidewalk","n":"37"}
-,{"zip":"11433","t":"Noise - Residential","n":"37"}
-,{"zip":"11422","t":"Noise - Residential","n":"37"}
-,{"zip":"11101","t":"Noise - Street/Sidewalk","n":"37"}
-,{"zip":"11372","t":"Noise - Street/Sidewalk","n":"37"}
+,{"zip":"11101","t":"Noise - Street/Sidewalk","n":"40"}
+,{"zip":"11216","t":"Noise - Commercial","n":"40"}
+,{"zip":"11217","t":"Noise - Residential","n":"40"}
+,{"zip":"11211","t":"Noise - Commercial","n":"40"}
+,{"zip":"11206","t":"Noise - Commercial","n":"40"}
+,{"zip":"11372","t":"Noise - Residential","n":"39"}
+,{"zip":"11230","t":"Noise - Residential","n":"38"}
+,{"zip":"10452","t":"Noise - Vehicle","n":"38"}
+,{"zip":"10003","t":"Noise - Residential","n":"38"}
+,{"zip":"11232","t":"Noise - Street/Sidewalk","n":"38"}
+,{"zip":"11215","t":"Noise","n":"38"}
+,{"zip":"10025","t":"Noise - Residential","n":"38"}
 ,{"zip":"11421","t":"Noise - Residential","n":"37"}
-,{"zip":"11226","t":"Noise","n":"36"}
-,{"zip":"11232","t":"Noise - Commercial","n":"35"}
-,{"zip":"10462","t":"Noise - Street/Sidewalk","n":"35"}
-,{"zip":"11372","t":"Noise - Residential","n":"35"}
-,{"zip":"10032","t":"Noise - Residential","n":"35"}
+,{"zip":"11436","t":"Noise - Residential","n":"37"}
+,{"zip":"10032","t":"Noise - Residential","n":"37"}
+,{"zip":"11216","t":"Noise - Street/Sidewalk","n":"36"}
+,{"zip":"11106","t":"Noise - Residential","n":"36"}
+,{"zip":"11207","t":"Noise - Street/Sidewalk","n":"35"}
+,{"zip":"11373","t":"Noise - Residential","n":"35"}
+,{"zip":"11416","t":"Noise - Residential","n":"34"}
 ,{"zip":"11206","t":"Noise - Street/Sidewalk","n":"34"}
-,{"zip":"11419","t":"Noise - Street/Sidewalk","n":"34"}
-,{"zip":"10009","t":"Noise - Residential","n":"34"}
-,{"zip":"11203","t":"Noise - Street/Sidewalk","n":"34"}
-,{"zip":"10472","t":"Noise - Vehicle","n":"34"}
-,{"zip":"11211","t":"Noise - Street/Sidewalk","n":"33"}
-,{"zip":"10003","t":"Noise - Residential","n":"33"}
-,{"zip":"11416","t":"Noise - Residential","n":"33"}
-,{"zip":"11201","t":"Noise","n":"32"}
-,{"zip":"10305","t":"Noise - Residential","n":"32"}
-,{"zip":"11103","t":"Noise - Residential","n":"32"}
-,{"zip":"11216","t":"Noise - Street/Sidewalk","n":"32"}
-,{"zip":"11413","t":"Noise - Residential","n":"31"}
-,{"zip":"10469","t":"Noise - Street/Sidewalk","n":"30"}
-,{"zip":"11106","t":"Noise - Park","n":"30"}
-,{"zip":"10035","t":"Noise - Street/Sidewalk","n":"30"}
-,{"zip":"10301","t":"Noise - Street/Sidewalk","n":"30"}
-,{"zip":"10025","t":"Noise","n":"29"}
-,{"zip":"11101","t":"Noise - Commercial","n":"29"}
-,{"zip":"11434","t":"Noise - Residential","n":"29"}
-,{"zip":"11417","t":"Noise - Residential","n":"29"}
-,{"zip":"10301","t":"Noise - Residential","n":"28"}
-,{"zip":"11205","t":"Noise - Residential","n":"28"}
-,{"zip":"11434","t":"Noise - Street/Sidewalk","n":"28"}
-,{"zip":"11369","t":"Noise - Residential","n":"28"}
-,{"zip":"10003","t":"Noise - Commercial","n":"27"}
-,{"zip":"11217","t":"Noise - Street/Sidewalk","n":"27"}
-,{"zip":"11375","t":"Noise - Commercial","n":"27"}
-,{"zip":"11209","t":"Noise - Residential","n":"27"}
-,{"zip":"10030","t":"Noise - Residential","n":"27"}
-,{"zip":"11694","t":"Noise - Street/Sidewalk","n":"26"}
-,{"zip":"11102","t":"Noise - Residential","n":"26"}
-,{"zip":"11236","t":"Noise - Street/Sidewalk","n":"26"}
+,{"zip":"11385","t":"Noise - Commercial","n":"33"}
+,{"zip":"11201","t":"Noise","n":"33"}
+,{"zip":"10462","t":"Noise - Street/Sidewalk","n":"32"}
+,{"zip":"11691","t":"Noise - Street/Sidewalk","n":"32"}
+,{"zip":"11419","t":"Noise - Street/Sidewalk","n":"32"}
+,{"zip":"11372","t":"Noise - Street/Sidewalk","n":"31"}
+,{"zip":"10305","t":"Noise - Residential","n":"31"}
+,{"zip":"10455","t":"Noise - Street/Sidewalk","n":"30"}
+,{"zip":"10009","t":"Noise - Residential","n":"30"}
+,{"zip":"11375","t":"Noise - Residential","n":"30"}
+,{"zip":"10469","t":"Noise - Street/Sidewalk","n":"29"}
+,{"zip":"11422","t":"Noise - Residential","n":"29"}
+,{"zip":"11211","t":"Noise - Street/Sidewalk","n":"29"}
+,{"zip":"11413","t":"Noise - Residential","n":"29"}
+,{"zip":"10003","t":"Noise - Commercial","n":"29"}
+,{"zip":"10472","t":"Noise - Vehicle","n":"29"}
+,{"zip":"11106","t":"Noise - Park","n":"29"}
+,{"zip":"10465","t":"Noise - Street/Sidewalk","n":"28"}
+,{"zip":"11103","t":"Noise - Residential","n":"28"}
+,{"zip":"11101","t":"Noise - Commercial","n":"28"}
+,{"zip":"10025","t":"Noise","n":"28"}
+,{"zip":"11224","t":"Noise - Street/Sidewalk","n":"27"}
+,{"zip":"11238","t":"Noise - Helicopter","n":"27"}
+,{"zip":"10301","t":"Noise - Residential","n":"26"}
+,{"zip":"11205","t":"Noise - Residential","n":"26"}
 ,{"zip":"10001","t":"Noise - Residential","n":"26"}
-,{"zip":"11365","t":"Noise - Residential","n":"26"}
-,{"zip":"11373","t":"Noise - Street/Sidewalk","n":"26"}
-,{"zip":"11224","t":"Noise - Street/Sidewalk","n":"26"}
-,{"zip":"10026","t":"Noise - Commercial","n":"25"}
-,{"zip":"10306","t":"Noise - Residential","n":"25"}
-,{"zip":"11374","t":"Noise - Residential","n":"25"}
-,{"zip":"10019","t":"Noise - Street/Sidewalk","n":"25"}
-,{"zip":"11358","t":"Noise - Residential","n":"25"}
-,{"zip":"10036","t":"Noise - Residential","n":"25"}
-,{"zip":"11235","t":"Noise - Street/Sidewalk","n":"24"}
-,{"zip":"11237","t":"Noise - Commercial","n":"24"}
-,{"zip":"11385","t":"Noise - Commercial","n":"23"}
-,{"zip":"11232","t":"Noise - Residential","n":"23"}
-,{"zip":"11220","t":"Noise - Residential","n":"23"}
-,{"zip":"11366","t":"Noise - Residential","n":"23"}
-,{"zip":"10039","t":"Noise - Street/Sidewalk","n":"23"}
-,{"zip":"11423","t":"Noise - Residential","n":"23"}
-,{"zip":"11208","t":"Noise - Street/Sidewalk","n":"23"}
-,{"zip":"10038","t":"Noise","n":"23"}
+,{"zip":"10035","t":"Noise - Street/Sidewalk","n":"26"}
+,{"zip":"10026","t":"Noise - Residential","n":"26"}
+,{"zip":"11236","t":"Noise - Street/Sidewalk","n":"26"}
+,{"zip":"11369","t":"Noise - Residential","n":"26"}
+,{"zip":"11226","t":"Noise","n":"25"}
+,{"zip":"10038","t":"Noise","n":"25"}
+,{"zip":"11102","t":"Noise - Residential","n":"25"}
+,{"zip":"11434","t":"Noise - Residential","n":"25"}
+,{"zip":"11209","t":"Noise - Residential","n":"24"}
+,{"zip":"10036","t":"Noise - Residential","n":"24"}
+,{"zip":"11417","t":"Noise - Residential","n":"24"}
 ,{"zip":"10033","t":"Noise - Commercial","n":"23"}
-,{"zip":"10026","t":"Noise - Residential","n":"22"}
-,{"zip":"11221","t":"Noise","n":"22"}
-,{"zip":"11433","t":"Noise - Street/Sidewalk","n":"22"}
-,{"zip":"10466","t":"Noise - Street/Sidewalk","n":"22"}
-,{"zip":"10034","t":"Noise - Vehicle","n":"22"}
-,{"zip":"10467","t":"Noise - Vehicle","n":"21"}
-,{"zip":"10302","t":"Noise - Residential","n":"21"}
-,{"zip":"10453","t":"Noise - Vehicle","n":"21"}
-,{"zip":"10017","t":"Noise - Street/Sidewalk","n":"21"}
+,{"zip":"10024","t":"Noise","n":"23"}
+,{"zip":"11375","t":"Noise - Commercial","n":"23"}
+,{"zip":"11374","t":"Noise - Residential","n":"23"}
+,{"zip":"11217","t":"Noise - Street/Sidewalk","n":"23"}
+,{"zip":"10306","t":"Noise - Residential","n":"23"}
+,{"zip":"11238","t":"Noise - Commercial","n":"22"}
+,{"zip":"11366","t":"Noise - Residential","n":"22"}
+,{"zip":"11208","t":"Noise - Street/Sidewalk","n":"22"}
+,{"zip":"11358","t":"Noise - Residential","n":"22"}
+,{"zip":"11249","t":"Noise - Street/Sidewalk","n":"22"}
+,{"zip":"11232","t":"Noise - Residential","n":"22"}
+,{"zip":"11365","t":"Noise - Residential","n":"21"}
+,{"zip":"10019","t":"Noise - Street/Sidewalk","n":"21"}
 ,{"zip":"11370","t":"Noise - Residential","n":"21"}
-,{"zip":"11238","t":"Noise - Helicopter","n":"21"}
-,{"zip":"10014","t":"Noise","n":"20"}
-,{"zip":"10024","t":"Noise","n":"20"}
-,{"zip":"10011","t":"Noise - Residential","n":"20"}
-,{"zip":"11210","t":"Noise - Street/Sidewalk","n":"20"}
-,{"zip":"11238","t":"Noise - Commercial","n":"20"}
-,{"zip":"10304","t":"Noise - Residential","n":"20"}
-,{"zip":"11231","t":"Noise - Residential","n":"20"}
-,{"zip":"11206","t":"Noise","n":"20"}
-,{"zip":"10465","t":"Noise - Street/Sidewalk","n":"19"}
-,{"zip":"11435","t":"Noise - Street/Sidewalk","n":"19"}
-,{"zip":"11219","t":"Noise - Residential","n":"19"}
-,{"zip":"11249","t":"Noise","n":"19"}
-,{"zip":"11375","t":"Noise - Residential","n":"19"}
-,{"zip":"10003","t":"Noise - Street/Sidewalk","n":"19"}
-,{"zip":"10013","t":"Noise - Street/Sidewalk","n":"19"}
-,{"zip":"11372","t":"Noise - Park","n":"19"}
+,{"zip":"11694","t":"Noise - Street/Sidewalk","n":"21"}
+,{"zip":"10466","t":"Noise - Street/Sidewalk","n":"21"}
+,{"zip":"11423","t":"Noise - Residential","n":"21"}
+,{"zip":"11221","t":"Noise","n":"21"}
+,{"zip":"10013","t":"Noise - Street/Sidewalk","n":"21"}
+,{"zip":"10030","t":"Noise - Residential","n":"20"}
+,{"zip":"11373","t":"Noise - Street/Sidewalk","n":"20"}
+,{"zip":"11434","t":"Noise - Street/Sidewalk","n":"20"}
+,{"zip":"10009","t":"Noise - Street/Sidewalk","n":"20"}
+,{"zip":"11433","t":"Noise - Street/Sidewalk","n":"19"}
+,{"zip":"10453","t":"Noise - Vehicle","n":"19"}
+,{"zip":"11428","t":"Noise - Residential","n":"19"}
+,{"zip":"10467","t":"Noise - Vehicle","n":"19"}
+,{"zip":"10026","t":"Noise - Commercial","n":"19"}
+,{"zip":"11206","t":"Noise","n":"19"}
+,{"zip":"11234","t":"Noise - Street/Sidewalk","n":"19"}
+,{"zip":"10301","t":"Noise - Street/Sidewalk","n":"19"}
 ,{"zip":"11106","t":"Noise - Street/Sidewalk","n":"19"}
-,{"zip":"10032","t":"Noise - Vehicle","n":"19"}
-,{"zip":"11249","t":"Noise - Street/Sidewalk","n":"19"}
-,{"zip":"10474","t":"Noise - Street/Sidewalk","n":"18"}
+,{"zip":"10014","t":"Noise","n":"19"}
+,{"zip":"11249","t":"Noise","n":"19"}
+,{"zip":"11235","t":"Noise - Street/Sidewalk","n":"18"}
+,{"zip":"11372","t":"Noise - Park","n":"18"}
 ,{"zip":"11412","t":"Noise - Residential","n":"18"}
+,{"zip":"10474","t":"Noise - Street/Sidewalk","n":"18"}
+,{"zip":"10017","t":"Noise - Street/Sidewalk","n":"18"}
+,{"zip":"10011","t":"Noise - Residential","n":"18"}
+,{"zip":"11210","t":"Noise - Street/Sidewalk","n":"18"}
 ,{"zip":"11215","t":"Noise - Residential","n":"18"}
-,{"zip":"10009","t":"Noise - Street/Sidewalk","n":"18"}
-,{"zip":"10314","t":"Noise - Residential","n":"18"}
-,{"zip":"11356","t":"Noise - Residential","n":"18"}
-,{"zip":"11233","t":"Noise - Street/Sidewalk","n":"18"}
-,{"zip":"10465","t":"Noise - Commercial","n":"18"}
-,{"zip":"11428","t":"Noise - Residential","n":"17"}
-,{"zip":"11222","t":"Noise - Street/Sidewalk","n":"17"}
-,{"zip":"11234","t":"Noise - Street/Sidewalk","n":"17"}
+,{"zip":"11377","t":"Noise - Street/Sidewalk","n":"18"}
+,{"zip":"10302","t":"Noise - Residential","n":"18"}
+,{"zip":"11219","t":"Noise - Residential","n":"17"}
+,{"zip":"10017","t":"Noise","n":"17"}
+,{"zip":"10013","t":"Noise","n":"17"}
+,{"zip":"10039","t":"Noise - Street/Sidewalk","n":"17"}
+,{"zip":"10014","t":"Noise - Residential","n":"17"}
+,{"zip":"11368","t":"Noise - Park","n":"17"}
+,{"zip":"11375","t":"Noise - Street/Sidewalk","n":"17"}
 ,{"zip":"10016","t":"Noise","n":"17"}
-,{"zip":"10128","t":"Noise - Residential","n":"16"}
-,{"zip":"11375","t":"Noise - Street/Sidewalk","n":"16"}
-,{"zip":"11212","t":"Noise - Vehicle","n":"16"}
-,{"zip":"10012","t":"Noise - Street/Sidewalk","n":"16"}
-,{"zip":"11207","t":"Noise - Commercial","n":"16"}
-,{"zip":"10303","t":"Noise - Residential","n":"16"}
-,{"zip":"10013","t":"Noise","n":"16"}
-,{"zip":"10014","t":"Noise - Residential","n":"16"}
-,{"zip":"10035","t":"Noise - Residential","n":"16"}
-,{"zip":"10468","t":"Noise - Vehicle","n":"16"}
-,{"zip":"10002","t":"Noise","n":"16"}
-,{"zip":"10032","t":"Noise","n":"16"}
-,{"zip":"11377","t":"Noise - Street/Sidewalk","n":"16"}
-,{"zip":"11230","t":"Noise - Street/Sidewalk","n":"16"}
-,{"zip":"10029","t":"Noise","n":"16"}
-,{"zip":"10019","t":"Noise - Residential","n":"16"}
+,{"zip":"11356","t":"Noise - Residential","n":"17"}
+,{"zip":"11231","t":"Noise - Residential","n":"17"}
+,{"zip":"11220","t":"Noise - Residential","n":"17"}
+,{"zip":"10002","t":"Noise","n":"17"}
+,{"zip":"11215","t":"Noise - Street/Sidewalk","n":"16"}
 ,{"zip":"10467","t":"Noise - Park","n":"16"}
-,{"zip":"11205","t":"Noise","n":"16"}
-,{"zip":"11692","t":"Noise - Residential","n":"16"}
-,{"zip":"10017","t":"Noise","n":"16"}
-,{"zip":"11432","t":"Noise - Street/Sidewalk","n":"15"}
-,{"zip":"11215","t":"Noise - Street/Sidewalk","n":"15"}
-,{"zip":"11354","t":"Noise - Street/Sidewalk","n":"15"}
-,{"zip":"11426","t":"Noise - Residential","n":"15"}
-,{"zip":"11103","t":"Noise - Street/Sidewalk","n":"15"}
-,{"zip":"11204","t":"Noise - Residential","n":"15"}
-,{"zip":"11225","t":"Noise - Commercial","n":"15"}
-,{"zip":"11236","t":"Noise - Commercial","n":"15"}
-,{"zip":"10312","t":"Noise - Residential","n":"15"}
-,{"zip":"11368","t":"Noise - Park","n":"15"}
+,{"zip":"10031","t":"Noise","n":"16"}
+,{"zip":"11224","t":"Noise - Commercial","n":"16"}
+,{"zip":"10465","t":"Noise - Commercial","n":"16"}
+,{"zip":"11226","t":"Noise - Vehicle","n":"16"}
+,{"zip":"10034","t":"Noise - Vehicle","n":"16"}
+,{"zip":"11222","t":"Noise - Street/Sidewalk","n":"16"}
+,{"zip":"10458","t":"Noise - Commercial","n":"16"}
+,{"zip":"11435","t":"Noise - Street/Sidewalk","n":"16"}
+,{"zip":"10304","t":"Noise - Residential","n":"16"}
+,{"zip":"10012","t":"Noise - Commercial","n":"15"}
+,{"zip":"10457","t":"Noise - Vehicle","n":"15"}
+,{"zip":"11212","t":"Noise - Vehicle","n":"15"}
 ,{"zip":"10460","t":"Noise - Vehicle","n":"15"}
+,{"zip":"11230","t":"Noise - Street/Sidewalk","n":"15"}
+,{"zip":"10314","t":"Noise - Residential","n":"15"}
+,{"zip":"10032","t":"Noise - Vehicle","n":"15"}
+,{"zip":"11238","t":"Noise","n":"15"}
+,{"zip":"11237","t":"Noise - Commercial","n":"15"}
+,{"zip":"11204","t":"Noise - Residential","n":"15"}
+,{"zip":"11222","t":"Noise - Residential","n":"15"}
+,{"zip":"10037","t":"Noise - Street/Sidewalk","n":"15"}
 ,{"zip":"10013","t":"Noise - Commercial","n":"15"}
-,{"zip":"10023","t":"Noise - Residential","n":"15"}
-,{"zip":"10457","t":"Noise - Vehicle","n":"14"}
-,{"zip":"11226","t":"Noise - Vehicle","n":"14"}
-,{"zip":"10024","t":"Noise - Residential","n":"14"}
-,{"zip":"10035","t":"Noise - Vehicle","n":"14"}
-,{"zip":"10469","t":"Noise - Vehicle","n":"14"}
-,{"zip":"10463","t":"Noise","n":"14"}
-,{"zip":"11217","t":"Noise","n":"14"}
-,{"zip":"11415","t":"Noise - Residential","n":"14"}
-,{"zip":"10458","t":"Noise - Vehicle","n":"14"}
-,{"zip":"11420","t":"Noise - Commercial","n":"14"}
-,{"zip":"10037","t":"Noise - Street/Sidewalk","n":"14"}
+,{"zip":"11426","t":"Noise - Residential","n":"15"}
+,{"zip":"11355","t":"Noise - Street/Sidewalk","n":"15"}
+,{"zip":"11217","t":"Noise","n":"15"}
+,{"zip":"11367","t":"Noise - Residential","n":"15"}
+,{"zip":"10307","t":"Noise - Commercial","n":"15"}
+,{"zip":"10009","t":"Noise - Commercial","n":"15"}
+,{"zip":"10035","t":"Noise - Vehicle","n":"15"}
 ,{"zip":"10473","t":"Noise - Vehicle","n":"14"}
-,{"zip":"11209","t":"Noise - Street/Sidewalk","n":"14"}
-,{"zip":"11385","t":"Noise","n":"14"}
-,{"zip":"11416","t":"Noise - Street/Sidewalk","n":"13"}
-,{"zip":"11221","t":"Noise - Commercial","n":"13"}
-,{"zip":"11211","t":"Noise","n":"13"}
-,{"zip":"11218","t":"Noise - Street/Sidewalk","n":"13"}
+,{"zip":"10036","t":"Noise - Street/Sidewalk","n":"14"}
+,{"zip":"11420","t":"Noise - Commercial","n":"14"}
+,{"zip":"10035","t":"Noise - Residential","n":"14"}
+,{"zip":"10024","t":"Noise - Park","n":"14"}
+,{"zip":"11211","t":"Noise","n":"14"}
+,{"zip":"11207","t":"Noise - Commercial","n":"14"}
+,{"zip":"11385","t":"Noise - Park","n":"14"}
+,{"zip":"11354","t":"Noise - Street/Sidewalk","n":"14"}
+,{"zip":"10468","t":"Noise - Vehicle","n":"14"}
+,{"zip":"10023","t":"Noise - Residential","n":"14"}
+,{"zip":"11205","t":"Noise - Street/Sidewalk","n":"14"}
+,{"zip":"11420","t":"Noise - Vehicle","n":"14"}
+,{"zip":"10019","t":"Noise - Commercial","n":"14"}
+,{"zip":"11233","t":"Noise - Street/Sidewalk","n":"14"}
+,{"zip":"11229","t":"Noise - Street/Sidewalk","n":"13"}
+,{"zip":"10027","t":"Noise","n":"13"}
+,{"zip":"11427","t":"Noise - Residential","n":"13"}
+,{"zip":"11385","t":"Noise","n":"13"}
 ,{"zip":"10013","t":"Noise - Residential","n":"13"}
+,{"zip":"11368","t":"Noise - Vehicle","n":"13"}
 ,{"zip":"10001","t":"Noise - Street/Sidewalk","n":"13"}
-,{"zip":"10461","t":"Noise - Street/Sidewalk","n":"13"}
-,{"zip":"10009","t":"Noise - Commercial","n":"13"}
-,{"zip":"10471","t":"Noise - Vehicle","n":"13"}
-,{"zip":"11385","t":"Noise - Park","n":"13"}
-,{"zip":"10031","t":"Noise","n":"13"}
-,{"zip":"10031","t":"Noise - Commercial","n":"13"}
-,{"zip":"11205","t":"Noise - Street/Sidewalk","n":"13"}
 ,{"zip":"11105","t":"Noise - Commercial","n":"13"}
-,{"zip":"11365","t":"Noise - Vehicle","n":"13"}
-,{"zip":"10458","t":"Noise - Commercial","n":"13"}
-,{"zip":"11355","t":"Noise - Street/Sidewalk","n":"13"}
-,{"zip":"10009","t":"Noise","n":"13"}
-,{"zip":"10310","t":"Noise - Residential","n":"12"}
-,{"zip":"11105","t":"Noise - Street/Sidewalk","n":"12"}
-,{"zip":"10001","t":"Noise","n":"12"}
-,{"zip":"11368","t":"Noise - Commercial","n":"12"}
-,{"zip":"11355","t":"Noise - Park","n":"12"}
-,{"zip":"11224","t":"Noise - Commercial","n":"12"}
+,{"zip":"10019","t":"Noise - Residential","n":"13"}
+,{"zip":"10029","t":"Noise","n":"13"}
+,{"zip":"11692","t":"Noise - Commercial","n":"13"}
+,{"zip":"11236","t":"Noise - Commercial","n":"13"}
+,{"zip":"11233","t":"Noise","n":"13"}
+,{"zip":"10024","t":"Noise - Residential","n":"13"}
+,{"zip":"10303","t":"Noise - Residential","n":"13"}
+,{"zip":"10461","t":"Noise - Street/Sidewalk","n":"13"}
+,{"zip":"11225","t":"Noise - Commercial","n":"12"}
+,{"zip":"11103","t":"Noise - Street/Sidewalk","n":"12"}
+,{"zip":"10314","t":"Noise","n":"12"}
 ,{"zip":"10024","t":"Noise - Street/Sidewalk","n":"12"}
-,{"zip":"11692","t":"Noise - Commercial","n":"12"}
-,{"zip":"11213","t":"Noise - Vehicle","n":"12"}
-,{"zip":"11420","t":"Noise - Vehicle","n":"12"}
-,{"zip":"10459","t":"Noise - Commercial","n":"12"}
-,{"zip":"10036","t":"Noise - Street/Sidewalk","n":"12"}
-,{"zip":"11367","t":"Noise - Residential","n":"12"}
-,{"zip":"11238","t":"Noise","n":"12"}
+,{"zip":"11416","t":"Noise - Street/Sidewalk","n":"12"}
+,{"zip":"11216","t":"Noise","n":"12"}
+,{"zip":"10469","t":"Noise - Vehicle","n":"12"}
+,{"zip":"10012","t":"Noise - Street/Sidewalk","n":"12"}
+,{"zip":"11432","t":"Noise - Street/Sidewalk","n":"12"}
+,{"zip":"10310","t":"Noise - Residential","n":"12"}
+,{"zip":"10025","t":"Noise - Commercial","n":"12"}
+,{"zip":"10003","t":"Noise - Street/Sidewalk","n":"12"}
+,{"zip":"10458","t":"Noise - Vehicle","n":"12"}
+,{"zip":"10009","t":"Noise","n":"12"}
+,{"zip":"10471","t":"Noise - Vehicle","n":"12"}
+,{"zip":"11368","t":"Noise - Commercial","n":"12"}
+,{"zip":"11231","t":"Noise","n":"11"}
+,{"zip":"11203","t":"Noise - Commercial","n":"11"}
+,{"zip":"10307","t":"Noise - Residential","n":"11"}
+,{"zip":"11225","t":"Noise","n":"11"}
+,{"zip":"11218","t":"Noise - Street/Sidewalk","n":"11"}
+,{"zip":"11205","t":"Noise","n":"11"}
 ,{"zip":"10309","t":"Noise - Residential","n":"11"}
-,{"zip":"11223","t":"Noise","n":"11"}
-,{"zip":"10467","t":"Noise","n":"11"}
-,{"zip":"10012","t":"Noise - Commercial","n":"11"}
-,{"zip":"11427","t":"Noise - Residential","n":"11"}
-,{"zip":"10457","t":"Noise - Commercial","n":"11"}
-,{"zip":"11211","t":"Noise - Vehicle","n":"11"}
-,{"zip":"11229","t":"Noise - Street/Sidewalk","n":"11"}
-,{"zip":"10016","t":"Noise - Street/Sidewalk","n":"11"}
-,{"zip":"10034","t":"Noise - Commercial","n":"11"}
 ,{"zip":"10039","t":"Noise - Residential","n":"11"}
-,{"zip":"10314","t":"Noise","n":"11"}
-,{"zip":"11368","t":"Noise - Vehicle","n":"11"}
-,{"zip":"10031","t":"Noise - Vehicle","n":"11"}
-,{"zip":"11419","t":"Noise - Vehicle","n":"11"}
-,{"zip":"10462","t":"Noise - Commercial","n":"10"}
+,{"zip":"10021","t":"Noise","n":"11"}
+,{"zip":"11221","t":"Noise - Commercial","n":"11"}
+,{"zip":"10459","t":"Noise - Commercial","n":"11"}
+,{"zip":"11355","t":"Noise - Park","n":"11"}
+,{"zip":"11692","t":"Noise - Residential","n":"11"}
+,{"zip":"11222","t":"Noise - Commercial","n":"11"}
+,{"zip":"11418","t":"Noise - Street/Sidewalk","n":"11"}
+,{"zip":"10463","t":"Noise","n":"11"}
+,{"zip":"10128","t":"Noise - Residential","n":"11"}
+,{"zip":"10037","t":"Noise - Residential","n":"10"}
+,{"zip":"11211","t":"Noise - Vehicle","n":"10"}
+,{"zip":"11229","t":"Noise","n":"10"}
+,{"zip":"10001","t":"Noise","n":"10"}
+,{"zip":"11419","t":"Noise - Vehicle","n":"10"}
+,{"zip":"10012","t":"Noise - Vehicle","n":"10"}
+,{"zip":"10003","t":"Noise","n":"10"}
+,{"zip":"11218","t":"Noise","n":"10"}
+,{"zip":"11106","t":"Noise - Vehicle","n":"10"}
 ,{"zip":"11434","t":"Noise - Park","n":"10"}
-,{"zip":"10027","t":"Noise","n":"10"}
-,{"zip":"10461","t":"Noise","n":"10"}
+,{"zip":"11104","t":"Noise - Residential","n":"10"}
 ,{"zip":"11222","t":"Noise","n":"10"}
-,{"zip":"11225","t":"Noise","n":"10"}
-,{"zip":"10029","t":"Noise - Commercial","n":"10"}
-,{"zip":"10040","t":"Noise - Commercial","n":"10"}
+,{"zip":"10454","t":"Noise - Vehicle","n":"10"}
+,{"zip":"11105","t":"Noise - Street/Sidewalk","n":"10"}
+,{"zip":"11213","t":"Noise - Vehicle","n":"10"}
 ,{"zip":"11429","t":"Noise - Residential","n":"10"}
-,{"zip":"11203","t":"Noise - Commercial","n":"10"}
-,{"zip":"10307","t":"Noise - Residential","n":"10"}
-,{"zip":"11220","t":"Noise","n":"10"}
-,{"zip":"11216","t":"Noise","n":"10"}
-,{"zip":"10463","t":"Noise - Vehicle","n":"10"}
-,{"zip":"10024","t":"Noise - Park","n":"10"}
-,{"zip":"11231","t":"Noise","n":"10"}
-,{"zip":"11222","t":"Noise - Commercial","n":"10"}
-,{"zip":"11233","t":"Noise","n":"10"}
-,{"zip":"11375","t":"Noise","n":"10"}
-,{"zip":"11208","t":"Noise","n":"10"}
-,{"zip":"11207","t":"Noise - Park","n":"9"}
-,{"zip":"11385","t":"Noise - Vehicle","n":"9"}
-,{"zip":"10454","t":"Noise - Vehicle","n":"9"}
-,{"zip":"11104","t":"Noise - Residential","n":"9"}
-,{"zip":"11378","t":"Noise - Residential","n":"9"}
+,{"zip":"10040","t":"Noise - Commercial","n":"10"}
+,{"zip":"11365","t":"Noise - Vehicle","n":"10"}
+,{"zip":"11421","t":"Noise - Street/Sidewalk","n":"10"}
+,{"zip":"10461","t":"Noise","n":"10"}
+,{"zip":"11412","t":"Noise - Commercial","n":"9"}
+,{"zip":"10032","t":"Noise","n":"9"}
 ,{"zip":"11366","t":"Noise","n":"9"}
-,{"zip":"11693","t":"Noise - Residential","n":"9"}
-,{"zip":"11372","t":"Noise - Commercial","n":"9"}
-,{"zip":"10019","t":"Noise - Commercial","n":"9"}
-,{"zip":"10037","t":"Noise - Residential","n":"9"}
-,{"zip":"11694","t":"Noise - Residential","n":"9"}
-,{"zip":"10029","t":"Noise - Park","n":"9"}
-,{"zip":"11106","t":"Noise - Vehicle","n":"9"}
-,{"zip":"11249","t":"Noise - Commercial","n":"9"}
-,{"zip":"11421","t":"Noise - Street/Sidewalk","n":"9"}
-,{"zip":"10012","t":"Noise - Residential","n":"9"}
-,{"zip":"11207","t":"Noise - Vehicle","n":"9"}
+,{"zip":"10308","t":"Noise - Residential","n":"9"}
+,{"zip":"11354","t":"Noise - Commercial","n":"9"}
+,{"zip":"10457","t":"Noise - Commercial","n":"9"}
+,{"zip":"10016","t":"Noise - Street/Sidewalk","n":"9"}
+,{"zip":"11415","t":"Noise - Residential","n":"9"}
+,{"zip":"11237","t":"Noise","n":"9"}
+,{"zip":"11103","t":"Noise - Commercial","n":"9"}
 ,{"zip":"11361","t":"Noise - Commercial","n":"9"}
-,{"zip":"10025","t":"Noise - Commercial","n":"9"}
-,{"zip":"10019","t":"Noise","n":"9"}
-,{"zip":"10470","t":"Noise - Residential","n":"9"}
-,{"zip":"11105","t":"Noise - Residential","n":"9"}
-,{"zip":"11361","t":"Noise - Residential","n":"8"}
-,{"zip":"11418","t":"Noise - Street/Sidewalk","n":"8"}
-,{"zip":"11217","t":"Noise - Commercial","n":"8"}
-,{"zip":"11229","t":"Noise - Commercial","n":"8"}
-,{"zip":"11228","t":"Noise - Park","n":"8"}
+,{"zip":"11385","t":"Noise - Vehicle","n":"9"}
+,{"zip":"10301","t":"Noise","n":"9"}
+,{"zip":"10467","t":"Noise","n":"9"}
+,{"zip":"10031","t":"Noise - Vehicle","n":"9"}
+,{"zip":"11207","t":"Noise - Park","n":"9"}
+,{"zip":"10031","t":"Noise - Commercial","n":"9"}
+,{"zip":"11372","t":"Noise - Commercial","n":"9"}
+,{"zip":"11693","t":"Noise - Residential","n":"9"}
+,{"zip":"11208","t":"Noise","n":"9"}
+,{"zip":"10065","t":"Noise","n":"9"}
+,{"zip":"10462","t":"Noise - Commercial","n":"9"}
+,{"zip":"11375","t":"Noise","n":"9"}
+,{"zip":"10312","t":"Noise - Residential","n":"9"}
+,{"zip":"11209","t":"Noise","n":"9"}
+,{"zip":"11249","t":"Noise - Commercial","n":"9"}
+,{"zip":"10451","t":"Noise - Vehicle","n":"9"}
+,{"zip":"10012","t":"Noise - Residential","n":"9"}
+,{"zip":"11209","t":"Noise - Street/Sidewalk","n":"8"}
 ,{"zip":"10007","t":"Noise","n":"8"}
-,{"zip":"11210","t":"Noise - Commercial","n":"8"}
-,{"zip":"10308","t":"Noise - Residential","n":"8"}
-,{"zip":"11203","t":"Noise - Vehicle","n":"8"}
-,{"zip":"11210","t":"Noise","n":"8"}
-,{"zip":"11231","t":"Noise - Commercial","n":"8"}
-,{"zip":"10030","t":"Noise - Commercial","n":"8"}
-,{"zip":"10034","t":"Noise - Park","n":"8"}
-,{"zip":"10021","t":"Noise","n":"8"}
-,{"zip":"11366","t":"Noise - House of Worship","n":"8"}
-,{"zip":"10456","t":"Noise - Commercial","n":"8"}
-,{"zip":"10022","t":"Noise","n":"8"}
-,{"zip":"10016","t":"Noise - Commercial","n":"8"}
-,{"zip":"10474","t":"Noise - Residential","n":"8"}
-,{"zip":"10035","t":"Noise","n":"8"}
-,{"zip":"11362","t":"Noise - Residential","n":"8"}
-,{"zip":"11229","t":"Noise","n":"8"}
-,{"zip":"11218","t":"Noise","n":"8"}
-,{"zip":"11354","t":"Noise - Commercial","n":"8"}
-,{"zip":"11204","t":"Noise - Street/Sidewalk","n":"8"}
-,{"zip":"11235","t":"Noise","n":"8"}
-,{"zip":"10301","t":"Noise","n":"8"}
 ,{"zip":"11228","t":"Noise - Street/Sidewalk","n":"8"}
-,{"zip":"11365","t":"Noise","n":"8"}
-,{"zip":"10040","t":"Noise - Vehicle","n":"8"}
+,{"zip":"10075","t":"Noise","n":"8"}
+,{"zip":"11220","t":"Noise","n":"8"}
+,{"zip":"10019","t":"Noise - Vehicle","n":"8"}
+,{"zip":"10306","t":"Noise","n":"8"}
+,{"zip":"11209","t":"Noise - Vehicle","n":"8"}
+,{"zip":"11105","t":"Noise - Residential","n":"8"}
+,{"zip":"11101","t":"Noise","n":"8"}
+,{"zip":"10034","t":"Noise - Commercial","n":"8"}
+,{"zip":"10030","t":"Noise - Commercial","n":"8"}
+,{"zip":"11203","t":"Noise - Vehicle","n":"8"}
+,{"zip":"11694","t":"Noise - Residential","n":"8"}
+,{"zip":"11366","t":"Noise - House of Worship","n":"8"}
+,{"zip":"10036","t":"Noise","n":"8"}
+,{"zip":"11378","t":"Noise - Residential","n":"8"}
+,{"zip":"11223","t":"Noise","n":"8"}
+,{"zip":"10034","t":"Noise - Park","n":"8"}
+,{"zip":"11210","t":"Noise - Commercial","n":"8"}
+,{"zip":"10467","t":"Noise - Commercial","n":"8"}
+,{"zip":"10019","t":"Noise","n":"8"}
+,{"zip":"11228","t":"Noise","n":"8"}
+,{"zip":"11102","t":"Noise - Street/Sidewalk","n":"8"}
+,{"zip":"10022","t":"Noise","n":"8"}
+,{"zip":"10029","t":"Noise - Commercial","n":"8"}
+,{"zip":"10470","t":"Noise - Residential","n":"8"}
+,{"zip":"11207","t":"Noise - Vehicle","n":"8"}
 ,{"zip":"10038","t":"Noise - Residential","n":"8"}
-,{"zip":"11228","t":"Noise","n":"7"}
-,{"zip":"11102","t":"Noise - Street/Sidewalk","n":"7"}
-,{"zip":"11106","t":"Noise","n":"7"}
-,{"zip":"10467","t":"Noise - Commercial","n":"7"}
-,{"zip":"10314","t":"Noise - Street/Sidewalk","n":"7"}
-,{"zip":"11103","t":"Noise","n":"7"}
-,{"zip":"11413","t":"Noise - Vehicle","n":"7"}
-,{"zip":"11209","t":"Noise - Vehicle","n":"7"}
-,{"zip":"10306","t":"Noise","n":"7"}
-,{"zip":"10019","t":"Noise - Vehicle","n":"7"}
-,{"zip":"11220","t":"Noise - Vehicle","n":"7"}
-,{"zip":"10014","t":"Noise - Commercial","n":"7"}
-,{"zip":"11209","t":"Noise","n":"7"}
+,{"zip":"11207","t":"Noise","n":"8"}
+,{"zip":"10040","t":"Noise - Vehicle","n":"8"}
+,{"zip":"10018","t":"Noise","n":"8"}
+,{"zip":"10011","t":"Noise - Street/Sidewalk","n":"8"}
+,{"zip":"11235","t":"Noise","n":"7"}
+,{"zip":"10011","t":"Noise - Vehicle","n":"7"}
+,{"zip":"10456","t":"Noise - Vehicle","n":"7"}
 ,{"zip":"10471","t":"Noise - Residential","n":"7"}
-,{"zip":"11366","t":"Noise - Helicopter","n":"7"}
-,{"zip":"11235","t":"Noise - Vehicle","n":"7"}
-,{"zip":"10075","t":"Noise","n":"7"}
-,{"zip":"10023","t":"Noise - Street/Sidewalk","n":"7"}
+,{"zip":"11362","t":"Noise - Residential","n":"7"}
+,{"zip":"10023","t":"Noise","n":"7"}
+,{"zip":"11215","t":"Noise - Park","n":"7"}
 ,{"zip":"11215","t":"Noise - Vehicle","n":"7"}
-,{"zip":"10036","t":"Noise","n":"7"}
-,{"zip":"11417","t":"Noise - Street/Sidewalk","n":"7"}
-,{"zip":"11207","t":"Noise","n":"7"}
-,{"zip":"10003","t":"Noise","n":"7"}
-,{"zip":"11109","t":"Noise","n":"7"}
-,{"zip":"11377","t":"Noise","n":"7"}
-,{"zip":"10014","t":"Noise - Street/Sidewalk","n":"7"}
-,{"zip":"10017","t":"Noise - Residential","n":"7"}
-,{"zip":"10002","t":"Noise - Park","n":"7"}
-,{"zip":"11354","t":"Noise - Vehicle","n":"6"}
-,{"zip":"10458","t":"Noise","n":"6"}
-,{"zip":"11412","t":"Noise - Commercial","n":"6"}
-,{"zip":"10451","t":"Noise - Vehicle","n":"6"}
-,{"zip":"11223","t":"Noise - Street/Sidewalk","n":"6"}
-,{"zip":"10456","t":"Noise - Vehicle","n":"6"}
-,{"zip":"10461","t":"Noise - Vehicle","n":"6"}
-,{"zip":"11692","t":"Noise - Street/Sidewalk","n":"6"}
-,{"zip":"10475","t":"Noise - Residential","n":"6"}
-,{"zip":"11433","t":"Noise - Commercial","n":"6"}
-,{"zip":"11412","t":"Noise - Street/Sidewalk","n":"6"}
-,{"zip":"11213","t":"Noise","n":"6"}
-,{"zip":"11217","t":"Noise - Vehicle","n":"6"}
-,{"zip":"10038","t":"Noise - Street/Sidewalk","n":"6"}
-,{"zip":"11233","t":"Noise - Commercial","n":"6"}
-,{"zip":"10465","t":"Noise","n":"6"}
-,{"zip":"10462","t":"Noise - Vehicle","n":"6"}
-,{"zip":"10011","t":"Noise - Vehicle","n":"6"}
-,{"zip":"11435","t":"Noise - Vehicle","n":"6"}
-,{"zip":"10018","t":"Noise - Commercial","n":"6"}
-,{"zip":"11691","t":"Noise","n":"6"}
-,{"zip":"10033","t":"Noise - Vehicle","n":"6"}
-,{"zip":"11101","t":"Noise - Park","n":"6"}
+,{"zip":"10463","t":"Noise - Vehicle","n":"7"}
+,{"zip":"11361","t":"Noise - Residential","n":"7"}
+,{"zip":"10465","t":"Noise","n":"7"}
+,{"zip":"11223","t":"Noise - Street/Sidewalk","n":"7"}
+,{"zip":"11235","t":"Noise - Vehicle","n":"7"}
+,{"zip":"11210","t":"Noise","n":"7"}
+,{"zip":"11365","t":"Noise","n":"7"}
+,{"zip":"10466","t":"Noise - Commercial","n":"7"}
+,{"zip":"11106","t":"Noise","n":"7"}
+,{"zip":"10016","t":"Noise - Commercial","n":"7"}
+,{"zip":"10023","t":"Noise - Street/Sidewalk","n":"7"}
+,{"zip":"11222","t":"Noise - Vehicle","n":"7"}
+,{"zip":"10028","t":"Noise - Residential","n":"6"}
+,{"zip":"10011","t":"Noise","n":"6"}
+,{"zip":"10459","t":"Noise - Vehicle","n":"6"}
+,{"zip":"10314","t":"Noise - Street/Sidewalk","n":"6"}
+,{"zip":"10314","t":"Noise - Vehicle","n":"6"}
+,{"zip":"11414","t":"Noise - Residential","n":"6"}
+,{"zip":"11423","t":"Noise - Vehicle","n":"6"}
+,{"zip":"11217","t":"Noise - Commercial","n":"6"}
+,{"zip":"11249","t":"Noise - Vehicle","n":"6"}
 ,{"zip":"10128","t":"Noise","n":"6"}
-,{"zip":"10012","t":"Noise - Vehicle","n":"6"}
-,{"zip":"11378","t":"Noise - Street/Sidewalk","n":"6"}
-,{"zip":"11201","t":"Noise - Commercial","n":"6"}
-,{"zip":"10023","t":"Noise","n":"6"}
-,{"zip":"10002","t":"Noise - Vehicle","n":"6"}
-,{"zip":"11231","t":"Noise - Street/Sidewalk","n":"6"}
-,{"zip":"11434","t":"Noise - Vehicle","n":"6"}
-,{"zip":"11215","t":"Noise - Park","n":"6"}
-,{"zip":"11228","t":"Noise - Residential","n":"6"}
-,{"zip":"10003","t":"Noise - Vehicle","n":"6"}
-,{"zip":"10022","t":"Noise - Residential","n":"6"}
-,{"zip":"11411","t":"Noise - Residential","n":"6"}
-,{"zip":"10011","t":"Noise - Commercial","n":"6"}
-,{"zip":"10026","t":"Noise - Park","n":"6"}
-,{"zip":"10024","t":"Noise - Vehicle","n":"6"}
-,{"zip":"10463","t":"Noise - Commercial","n":"6"}
-,{"zip":"10464","t":"Noise - Street/Sidewalk","n":"6"}
 ,{"zip":"11415","t":"Noise - Park","n":"6"}
+,{"zip":"11213","t":"Noise","n":"6"}
+,{"zip":"11366","t":"Noise - Helicopter","n":"6"}
+,{"zip":"11361","t":"Noise - Street/Sidewalk","n":"6"}
+,{"zip":"11231","t":"Noise - Street/Sidewalk","n":"6"}
+,{"zip":"11379","t":"Noise - Residential","n":"6"}
+,{"zip":"11219","t":"Noise","n":"6"}
+,{"zip":"11231","t":"Noise - Commercial","n":"6"}
+,{"zip":"11101","t":"Noise - Park","n":"6"}
+,{"zip":"10014","t":"Noise - Commercial","n":"6"}
+,{"zip":"11233","t":"Noise - Commercial","n":"6"}
+,{"zip":"10460","t":"Noise - Commercial","n":"6"}
+,{"zip":"11204","t":"Noise","n":"6"}
 ,{"zip":"10280","t":"Noise - Helicopter","n":"6"}
-,{"zip":"10035","t":"Noise - Commercial","n":"5"}
-,{"zip":"10016","t":"Noise - Vehicle","n":"5"}
-,{"zip":"10065","t":"Noise","n":"5"}
-,{"zip":"10471","t":"Noise - Street/Sidewalk","n":"5"}
-,{"zip":"11221","t":"Noise - Vehicle","n":"5"}
-,{"zip":"11212","t":"Noise","n":"5"}
-,{"zip":"10463","t":"Noise - Park","n":"5"}
-,{"zip":"10460","t":"Noise - Park","n":"5"}
-,{"zip":"11691","t":"Noise - Commercial","n":"5"}
-,{"zip":"11358","t":"Noise - Street/Sidewalk","n":"5"}
-,{"zip":"11364","t":"Noise - Street/Sidewalk","n":"5"}
-,{"zip":"11436","t":"Noise - Street/Sidewalk","n":"5"}
-,{"zip":"11208","t":"Noise - Vehicle","n":"5"}
-,{"zip":"11106","t":"Noise - Commercial","n":"5"}
-,{"zip":"10009","t":"Noise - Vehicle","n":"5"}
-,{"zip":"10453","t":"Noise","n":"5"}
-,{"zip":"10314","t":"Noise - Vehicle","n":"5"}
-,{"zip":"10025","t":"Noise - Vehicle","n":"5"}
-,{"zip":"10033","t":"Noise","n":"5"}
-,{"zip":"10021","t":"Noise - Vehicle","n":"5"}
-,{"zip":"11375","t":"Noise - Vehicle","n":"5"}
-,{"zip":"11361","t":"Noise - Street/Sidewalk","n":"5"}
-,{"zip":"11414","t":"Noise - Residential","n":"5"}
-,{"zip":"11364","t":"Noise - Residential","n":"5"}
-,{"zip":"11104","t":"Noise","n":"5"}
-,{"zip":"10455","t":"Noise - Vehicle","n":"5"}
-,{"zip":"11102","t":"Noise","n":"5"}
-,{"zip":"11369","t":"Noise - Street/Sidewalk","n":"5"}
-,{"zip":"11357","t":"Noise","n":"5"}
-,{"zip":"11379","t":"Noise - Residential","n":"5"}
-,{"zip":"10460","t":"Noise - Commercial","n":"5"}
-,{"zip":"11004","t":"Noise - Park","n":"5"}
-,{"zip":"10010","t":"Noise - Residential","n":"5"}
-,{"zip":"10028","t":"Noise - Residential","n":"5"}
-,{"zip":"11237","t":"Noise","n":"5"}
-,{"zip":"10453","t":"Noise - Commercial","n":"5"}
-,{"zip":"11101","t":"Noise - Vehicle","n":"5"}
-,{"zip":"11413","t":"Noise - Street/Sidewalk","n":"5"}
-,{"zip":"11101","t":"Noise","n":"5"}
-,{"zip":"11234","t":"Noise","n":"5"}
-,{"zip":"11103","t":"Noise - Commercial","n":"5"}
-,{"zip":"11379","t":"Noise - Street/Sidewalk","n":"5"}
+,{"zip":"10016","t":"Noise - Helicopter","n":"6"}
+,{"zip":"10018","t":"Noise - Commercial","n":"6"}
+,{"zip":"10463","t":"Noise - Commercial","n":"6"}
+,{"zip":"11412","t":"Noise - Street/Sidewalk","n":"6"}
+,{"zip":"10024","t":"Noise - Vehicle","n":"6"}
+,{"zip":"10463","t":"Noise - Park","n":"6"}
+,{"zip":"11435","t":"Noise - Vehicle","n":"6"}
+,{"zip":"11103","t":"Noise","n":"6"}
+,{"zip":"11692","t":"Noise - Street/Sidewalk","n":"6"}
+,{"zip":"11358","t":"Noise - Street/Sidewalk","n":"6"}
+,{"zip":"11201","t":"Noise - Commercial","n":"6"}
+,{"zip":"11229","t":"Noise - Commercial","n":"6"}
+,{"zip":"10026","t":"Noise - Park","n":"6"}
+,{"zip":"11213","t":"Noise - Commercial","n":"6"}
+,{"zip":"11216","t":"Noise - Vehicle","n":"6"}
+,{"zip":"10035","t":"Noise","n":"6"}
+,{"zip":"10033","t":"Noise","n":"6"}
+,{"zip":"11354","t":"Noise - Vehicle","n":"6"}
+,{"zip":"10002","t":"Noise - Park","n":"6"}
+,{"zip":"11357","t":"Noise - Residential","n":"6"}
+,{"zip":"10014","t":"Noise - Street/Sidewalk","n":"6"}
+,{"zip":"10474","t":"Noise - Residential","n":"6"}
+,{"zip":"10017","t":"Noise - Residential","n":"6"}
+,{"zip":"11106","t":"Noise - Commercial","n":"6"}
+,{"zip":"10016","t":"Noise - Vehicle","n":"6"}
+,{"zip":"10002","t":"Noise - Vehicle","n":"6"}
+,{"zip":"10017","t":"Noise - Vehicle","n":"5"}
+,{"zip":"11434","t":"Noise - Vehicle","n":"5"}
 ,{"zip":"10005","t":"Noise","n":"5"}
-,{"zip":"11423","t":"Noise - Vehicle","n":"4"}
-,{"zip":"11414","t":"Noise - Street/Sidewalk","n":"4"}
-,{"zip":"10044","t":"Noise - Commercial","n":"4"}
-,{"zip":"10459","t":"Noise - Vehicle","n":"4"}
-,{"zip":"11235","t":"Noise - Commercial","n":"4"}
-,{"zip":"11357","t":"Noise - Vehicle","n":"4"}
-,{"zip":"11370","t":"Noise - Commercial","n":"4"}
-,{"zip":"10451","t":"Noise - Commercial","n":"4"}
-,{"zip":"10010","t":"Noise - Commercial","n":"4"}
-,{"zip":"10065","t":"Noise - Residential","n":"4"}
-,{"zip":"10307","t":"Noise - Commercial","n":"4"}
-,{"zip":"11230","t":"Noise - Commercial","n":"4"}
-,{"zip":"10018","t":"Noise","n":"4"}
-,{"zip":"11421","t":"Noise - Vehicle","n":"4"}
-,{"zip":"11360","t":"Noise - Residential","n":"4"}
-,{"zip":"10128","t":"Noise - Street/Sidewalk","n":"4"}
-,{"zip":"11109","t":"Noise - Street/Sidewalk","n":"4"}
-,{"zip":"10451","t":"Noise","n":"4"}
-,{"zip":"11369","t":"Noise - Vehicle","n":"4"}
-,{"zip":"10464","t":"Noise","n":"4"}
-,{"zip":"11216","t":"Noise - Vehicle","n":"4"}
-,{"zip":"10011","t":"Noise - Street/Sidewalk","n":"4"}
-,{"zip":"11418","t":"Noise - Commercial","n":"4"}
-,{"zip":"11355","t":"Noise","n":"4"}
-,{"zip":"10305","t":"Noise","n":"4"}
-,{"zip":"10463","t":"Noise - Helicopter","n":"4"}
-,{"zip":"10004","t":"Noise - Street/Sidewalk","n":"4"}
-,{"zip":"11356","t":"Noise - Street/Sidewalk","n":"4"}
-,{"zip":"11412","t":"Noise - Vehicle","n":"4"}
-,{"zip":"11236","t":"Noise - Park","n":"4"}
-,{"zip":"10452","t":"Noise","n":"4"}
-,{"zip":"10466","t":"Noise - Commercial","n":"4"}
-,{"zip":"10021","t":"Noise - Residential","n":"4"}
-,{"zip":"10022","t":"Noise - Street/Sidewalk","n":"4"}
-,{"zip":"10036","t":"Noise - Commercial","n":"4"}
-,{"zip":"10452","t":"Noise - Park","n":"4"}
-,{"zip":"11357","t":"Noise - Residential","n":"4"}
-,{"zip":"11428","t":"Noise - Street/Sidewalk","n":"4"}
-,{"zip":"10468","t":"Noise - Park","n":"4"}
-,{"zip":"10472","t":"Noise - Commercial","n":"4"}
-,{"zip":"11218","t":"Noise - Commercial","n":"4"}
-,{"zip":"11223","t":"Noise - Vehicle","n":"4"}
-,{"zip":"10010","t":"Noise","n":"4"}
-,{"zip":"11365","t":"Noise - Street/Sidewalk","n":"4"}
-,{"zip":"11213","t":"Noise - Commercial","n":"4"}
-,{"zip":"11365","t":"Noise - Park","n":"4"}
-,{"zip":"10306","t":"Noise - Street/Sidewalk","n":"4"}
-,{"zip":"10454","t":"Noise - Commercial","n":"4"}
-,{"zip":"10004","t":"Noise","n":"4"}
-,{"zip":"11205","t":"Noise - Vehicle","n":"4"}
+,{"zip":"10464","t":"Noise","n":"5"}
+,{"zip":"10024","t":"Noise - Commercial","n":"5"}
+,{"zip":"10463","t":"Noise - Helicopter","n":"5"}
+,{"zip":"11369","t":"Noise - Street/Sidewalk","n":"5"}
+,{"zip":"11205","t":"Noise - Commercial","n":"5"}
+,{"zip":"11357","t":"Noise","n":"5"}
+,{"zip":"11360","t":"Noise - Residential","n":"5"}
+,{"zip":"11204","t":"Noise - Street/Sidewalk","n":"5"}
+,{"zip":"10464","t":"Noise - Street/Sidewalk","n":"5"}
+,{"zip":"11228","t":"Noise - Park","n":"5"}
+,{"zip":"11691","t":"Noise","n":"5"}
+,{"zip":"11357","t":"Noise - Vehicle","n":"5"}
+,{"zip":"11224","t":"Noise","n":"5"}
+,{"zip":"11004","t":"Noise - Park","n":"5"}
+,{"zip":"11378","t":"Noise - Street/Sidewalk","n":"5"}
+,{"zip":"11375","t":"Noise - Vehicle","n":"5"}
+,{"zip":"11364","t":"Noise - Street/Sidewalk","n":"5"}
+,{"zip":"10461","t":"Noise - Vehicle","n":"5"}
+,{"zip":"10455","t":"Noise - Vehicle","n":"5"}
+,{"zip":"11417","t":"Noise - Street/Sidewalk","n":"5"}
+,{"zip":"10011","t":"Noise - Commercial","n":"5"}
+,{"zip":"10453","t":"Noise - Commercial","n":"5"}
+,{"zip":"10021","t":"Noise - Vehicle","n":"5"}
+,{"zip":"11414","t":"Noise - Street/Sidewalk","n":"5"}
+,{"zip":"11411","t":"Noise - Residential","n":"5"}
+,{"zip":"11212","t":"Noise","n":"5"}
+,{"zip":"11365","t":"Noise - Street/Sidewalk","n":"5"}
+,{"zip":"10458","t":"Noise","n":"5"}
+,{"zip":"10460","t":"Noise - Park","n":"5"}
+,{"zip":"10453","t":"Noise","n":"5"}
+,{"zip":"10026","t":"Noise","n":"5"}
+,{"zip":"10029","t":"Noise - Park","n":"5"}
+,{"zip":"10471","t":"Noise - Street/Sidewalk","n":"5"}
+,{"zip":"10305","t":"Noise","n":"5"}
+,{"zip":"10038","t":"Noise - Street/Sidewalk","n":"5"}
+,{"zip":"11217","t":"Noise - Vehicle","n":"5"}
+,{"zip":"11220","t":"Noise - Vehicle","n":"5"}
+,{"zip":"10022","t":"Noise - Residential","n":"5"}
+,{"zip":"10065","t":"Noise - Residential","n":"5"}
+,{"zip":"10025","t":"Noise - Helicopter","n":"5"}
+,{"zip":"10003","t":"Noise - Vehicle","n":"5"}
+,{"zip":"10013","t":"Noise - Vehicle","n":"5"}
+,{"zip":"10035","t":"Noise - Commercial","n":"5"}
+,{"zip":"10456","t":"Noise - Commercial","n":"4"}
+,{"zip":"11355","t":"Noise - Vehicle","n":"4"}
 ,{"zip":"11234","t":"Noise - Commercial","n":"4"}
-,{"zip":"11370","t":"Noise","n":"4"}
-,{"zip":"11102","t":"Noise - House of Worship","n":"4"}
-,{"zip":"10029","t":"Noise - Vehicle","n":"4"}
-,{"zip":"10014","t":"Noise - Vehicle","n":"4"}
-,{"zip":"11219","t":"Noise","n":"4"}
-,{"zip":"11208","t":"Noise - Commercial","n":"4"}
-,{"zip":"10038","t":"Noise - Commercial","n":"4"}
+,{"zip":"10452","t":"Noise - Park","n":"4"}
+,{"zip":"11372","t":"Noise","n":"4"}
+,{"zip":"10468","t":"Noise - Park","n":"4"}
+,{"zip":"11413","t":"Noise - Street/Sidewalk","n":"4"}
+,{"zip":"10451","t":"Noise","n":"4"}
+,{"zip":"11365","t":"Noise - Park","n":"4"}
+,{"zip":"11691","t":"Noise - Commercial","n":"4"}
+,{"zip":"11232","t":"Noise","n":"4"}
+,{"zip":"10026","t":"Noise - Vehicle","n":"4"}
+,{"zip":"10128","t":"Noise - Street/Sidewalk","n":"4"}
+,{"zip":"10037","t":"Noise","n":"4"}
+,{"zip":"11433","t":"Noise - Commercial","n":"4"}
+,{"zip":"10457","t":"Noise","n":"4"}
+,{"zip":"11109","t":"Noise - Street/Sidewalk","n":"4"}
+,{"zip":"11693","t":"Noise - Park","n":"4"}
+,{"zip":"11228","t":"Noise - Residential","n":"4"}
+,{"zip":"11368","t":"Noise","n":"4"}
+,{"zip":"10025","t":"Noise - Vehicle","n":"4"}
+,{"zip":"11369","t":"Noise - Vehicle","n":"4"}
+,{"zip":"11234","t":"Noise - Vehicle","n":"4"}
+,{"zip":"11421","t":"Noise - Vehicle","n":"4"}
+,{"zip":"11413","t":"Noise - Vehicle","n":"4"}
+,{"zip":"11214","t":"Noise - Commercial","n":"4"}
+,{"zip":"11237","t":"Noise - Park","n":"4"}
+,{"zip":"11234","t":"Noise","n":"4"}
+,{"zip":"10036","t":"Noise - Commercial","n":"4"}
+,{"zip":"11693","t":"Noise - Street/Sidewalk","n":"4"}
+,{"zip":"11236","t":"Noise - Park","n":"4"}
+,{"zip":"11215","t":"Noise - Commercial","n":"4"}
+,{"zip":"11412","t":"Noise - Vehicle","n":"4"}
+,{"zip":"11208","t":"Noise - Vehicle","n":"4"}
+,{"zip":"10468","t":"Noise","n":"4"}
+,{"zip":"10462","t":"Noise - Vehicle","n":"4"}
+,{"zip":"10009","t":"Noise - Vehicle","n":"4"}
+,{"zip":"11230","t":"Noise - Commercial","n":"4"}
+,{"zip":"11367","t":"Noise","n":"4"}
+,{"zip":"11377","t":"Noise","n":"4"}
 ,{"zip":"11694","t":"Noise","n":"4"}
-,{"zip":"11693","t":"Noise - Street/Sidewalk","n":"3"}
-,{"zip":"10310","t":"Noise - Street/Sidewalk","n":"3"}
-,{"zip":"11356","t":"Noise - Commercial","n":"3"}
-,{"zip":"11374","t":"Noise","n":"3"}
-,{"zip":"10301","t":"Noise - Commercial","n":"3"}
-,{"zip":"10471","t":"Noise","n":"3"}
-,{"zip":"10457","t":"Noise - Park","n":"3"}
-,{"zip":"10027","t":"Noise - Commercial","n":"3"}
-,{"zip":"10040","t":"Noise","n":"3"}
-,{"zip":"11413","t":"Noise - Commercial","n":"3"}
-,{"zip":"11214","t":"Noise","n":"3"}
-,{"zip":"11423","t":"Noise","n":"3"}
-,{"zip":"10469","t":"Noise","n":"3"}
-,{"zip":"11201","t":"Noise - Vehicle","n":"3"}
-,{"zip":"10457","t":"Noise","n":"3"}
-,{"zip":"11419","t":"Noise - Commercial","n":"3"}
-,{"zip":"11218","t":"Noise - Vehicle","n":"3"}
-,{"zip":"11419","t":"Noise","n":"3"}
-,{"zip":"11358","t":"Noise","n":"3"}
-,{"zip":"10470","t":"Noise - Vehicle","n":"3"}
-,{"zip":"11368","t":"Noise","n":"3"}
-,{"zip":"11224","t":"Noise","n":"3"}
-,{"zip":"10036","t":"Noise - Vehicle","n":"3"}
+,{"zip":"10010","t":"Noise - Residential","n":"4"}
+,{"zip":"10010","t":"Noise - Street/Sidewalk","n":"4"}
+,{"zip":"11418","t":"Noise - Commercial","n":"4"}
+,{"zip":"10454","t":"Noise - Commercial","n":"4"}
+,{"zip":"10038","t":"Noise - Commercial","n":"4"}
+,{"zip":"10023","t":"Noise - Vehicle","n":"4"}
+,{"zip":"11379","t":"Noise - Street/Sidewalk","n":"4"}
+,{"zip":"10472","t":"Noise - Commercial","n":"4"}
+,{"zip":"11102","t":"Noise - House of Worship","n":"4"}
+,{"zip":"10040","t":"Noise","n":"4"}
+,{"zip":"11370","t":"Noise - Commercial","n":"4"}
+,{"zip":"11218","t":"Noise - Commercial","n":"4"}
 ,{"zip":"10039","t":"Noise - Commercial","n":"3"}
-,{"zip":"11423","t":"Noise - Street/Sidewalk","n":"3"}
-,{"zip":"11220","t":"Noise - Commercial","n":"3"}
-,{"zip":"11418","t":"Noise","n":"3"}
-,{"zip":"11434","t":"Noise - Commercial","n":"3"}
-,{"zip":"11205","t":"Noise - Commercial","n":"3"}
-,{"zip":"11416","t":"Noise - Vehicle","n":"3"}
-,{"zip":"11693","t":"Noise - Park","n":"3"}
-,{"zip":"11239","t":"Noise - Residential","n":"3"}
+,{"zip":"10301","t":"Noise - Commercial","n":"3"}
+,{"zip":"10033","t":"Noise - Vehicle","n":"3"}
+,{"zip":"11201","t":"Noise - Vehicle","n":"3"}
+,{"zip":"11434","t":"Noise","n":"3"}
 ,{"zip":"11205","t":"Noise - Park","n":"3"}
+,{"zip":"11416","t":"Noise - Vehicle","n":"3"}
+,{"zip":"11204","t":"Noise - Vehicle","n":"3"}
 ,{"zip":"10027","t":"Noise - Park","n":"3"}
-,{"zip":"10028","t":"Noise","n":"3"}
-,{"zip":"10459","t":"Noise","n":"3"}
 ,{"zip":"11432","t":"Noise","n":"3"}
 ,{"zip":"11229","t":"Noise - Vehicle","n":"3"}
-,{"zip":"10470","t":"Noise","n":"3"}
-,{"zip":"11234","t":"Noise - Vehicle","n":"3"}
-,{"zip":"11104","t":"Noise - Vehicle","n":"3"}
-,{"zip":"10023","t":"Noise - Vehicle","n":"3"}
-,{"zip":"11428","t":"Noise - Commercial","n":"3"}
-,{"zip":"10304","t":"Noise - Vehicle","n":"3"}
-,{"zip":"11377","t":"Noise - Vehicle","n":"3"}
-,{"zip":"11367","t":"Noise","n":"3"}
-,{"zip":"10012","t":"Noise","n":"3"}
-,{"zip":"11372","t":"Noise","n":"3"}
-,{"zip":"11214","t":"Noise - Commercial","n":"3"}
-,{"zip":"10037","t":"Noise","n":"3"}
-,{"zip":"10128","t":"Noise - Vehicle","n":"3"}
-,{"zip":"10018","t":"Noise - Residential","n":"3"}
-,{"zip":"10474","t":"Noise - Vehicle","n":"3"}
-,{"zip":"10039","t":"Noise - Vehicle","n":"3"}
-,{"zip":"11233","t":"Noise - Vehicle","n":"3"}
-,{"zip":"10013","t":"Noise - Vehicle","n":"3"}
-,{"zip":"10024","t":"Noise - Commercial","n":"3"}
-,{"zip":"11204","t":"Noise","n":"3"}
-,{"zip":"11215","t":"Noise - Commercial","n":"3"}
-,{"zip":"11212","t":"Noise - Park","n":"3"}
-,{"zip":"11434","t":"Noise","n":"3"}
+,{"zip":"11223","t":"Noise - Vehicle","n":"3"}
+,{"zip":"11373","t":"Noise - Commercial","n":"3"}
+,{"zip":"11366","t":"Noise - Park","n":"3"}
+,{"zip":"11205","t":"Noise - Vehicle","n":"3"}
 ,{"zip":"11361","t":"Noise","n":"3"}
-,{"zip":"11429","t":"Noise - Vehicle","n":"3"}
-,{"zip":"11378","t":"Noise - Vehicle","n":"3"}
-,{"zip":"10302","t":"Noise","n":"3"}
+,{"zip":"10466","t":"Noise - Vehicle","n":"3"}
+,{"zip":"11233","t":"Noise - Vehicle","n":"3"}
+,{"zip":"11364","t":"Noise - Residential","n":"3"}
+,{"zip":"11378","t":"Noise - Commercial","n":"3"}
+,{"zip":"10128","t":"Noise - Vehicle","n":"3"}
+,{"zip":"11206","t":"Noise - Vehicle","n":"3"}
+,{"zip":"10010","t":"Noise","n":"3"}
+,{"zip":"11422","t":"Noise","n":"3"}
+,{"zip":"10021","t":"Noise - Residential","n":"3"}
+,{"zip":"11358","t":"Noise - Vehicle","n":"3"}
+,{"zip":"10004","t":"Noise - Street/Sidewalk","n":"3"}
+,{"zip":"11414","t":"Noise - Vehicle","n":"3"}
+,{"zip":"11428","t":"Noise - Street/Sidewalk","n":"3"}
+,{"zip":"10030","t":"Noise - Vehicle","n":"3"}
+,{"zip":"11354","t":"Noise - Park","n":"3"}
+,{"zip":"11436","t":"Noise - Street/Sidewalk","n":"3"}
+,{"zip":"11428","t":"Noise - Commercial","n":"3"}
+,{"zip":"10452","t":"Noise","n":"3"}
+,{"zip":"10012","t":"Noise","n":"3"}
 ,{"zip":"10464","t":"Noise - Commercial","n":"3"}
-,{"zip":"11379","t":"Noise - Vehicle","n":"3"}
-,{"zip":"10016","t":"Noise - Helicopter","n":"3"}
-,{"zip":"10026","t":"Noise - Vehicle","n":"3"}
-,{"zip":"11209","t":"Noise - Commercial","n":"3"}
-,{"zip":"11237","t":"Noise - Park","n":"3"}
+,{"zip":"10474","t":"Noise - Vehicle","n":"3"}
+,{"zip":"11374","t":"Noise","n":"3"}
+,{"zip":"10464","t":"Noise - Residential","n":"3"}
 ,{"zip":"11436","t":"Noise","n":"3"}
+,{"zip":"11212","t":"Noise - Park","n":"3"}
+,{"zip":"10075","t":"Noise - Vehicle","n":"3"}
 ,{"zip":"11219","t":"Noise - Vehicle","n":"3"}
 ,{"zip":"11219","t":"Noise - Park","n":"3"}
-,{"zip":"11422","t":"Noise","n":"3"}
-,{"zip":"11204","t":"Noise - Vehicle","n":"3"}
-,{"zip":"11358","t":"Noise - Vehicle","n":"3"}
-,{"zip":"11232","t":"Noise","n":"3"}
-,{"zip":"10026","t":"Noise","n":"3"}
-,{"zip":"11105","t":"Noise","n":"2"}
-,{"zip":"11377","t":"Noise - Commercial","n":"2"}
-,{"zip":"10017","t":"Noise - Commercial","n":"2"}
-,{"zip":"11365","t":"Noise - Commercial","n":"2"}
-,{"zip":"11414","t":"Noise - Vehicle","n":"2"}
-,{"zip":"10302","t":"Noise - Street/Sidewalk","n":"2"}
-,{"zip":"11417","t":"Noise - Vehicle","n":"2"}
-,{"zip":"11417","t":"Noise","n":"2"}
-,{"zip":"10466","t":"Noise - Vehicle","n":"2"}
-,{"zip":"10028","t":"Noise - Street/Sidewalk","n":"2"}
-,{"zip":"10065","t":"Noise - Commercial","n":"2"}
-,{"zip":"11106","t":"Noise - House of Worship","n":"2"}
-,{"zip":"10304","t":"Noise - Street/Sidewalk","n":"2"}
-,{"zip":"10308","t":"Noise","n":"2"}
+,{"zip":"11429","t":"Noise - Vehicle","n":"3"}
+,{"zip":"11379","t":"Noise - Vehicle","n":"3"}
+,{"zip":"11230","t":"Noise","n":"3"}
+,{"zip":"10475","t":"Noise - Residential","n":"3"}
+,{"zip":"10310","t":"Noise - Street/Sidewalk","n":"3"}
+,{"zip":"10004","t":"Noise","n":"3"}
+,{"zip":"11101","t":"Noise - Vehicle","n":"3"}
+,{"zip":"11212","t":"Noise - Commercial","n":"3"}
+,{"zip":"11367","t":"Noise - Street/Sidewalk","n":"3"}
+,{"zip":"10470","t":"Noise - Street/Sidewalk","n":"3"}
+,{"zip":"10010","t":"Noise - Commercial","n":"3"}
+,{"zip":"10022","t":"Noise - Street/Sidewalk","n":"3"}
+,{"zip":"11418","t":"Noise - Vehicle","n":"3"}
+,{"zip":"10469","t":"Noise","n":"3"}
+,{"zip":"11370","t":"Noise","n":"3"}
+,{"zip":"10306","t":"Noise - Street/Sidewalk","n":"3"}
+,{"zip":"11419","t":"Noise","n":"3"}
+,{"zip":"11104","t":"Noise","n":"3"}
+,{"zip":"10470","t":"Noise - Vehicle","n":"3"}
+,{"zip":"11423","t":"Noise - Street/Sidewalk","n":"3"}
+,{"zip":"10464","t":"Noise - Vehicle","n":"3"}
+,{"zip":"10460","t":"Noise","n":"3"}
+,{"zip":"11355","t":"Noise","n":"3"}
+,{"zip":"11434","t":"Noise - Commercial","n":"3"}
+,{"zip":"10044","t":"Noise - Commercial","n":"3"}
+,{"zip":"10307","t":"Noise - Street/Sidewalk","n":"3"}
+,{"zip":"10304","t":"Noise - Vehicle","n":"3"}
+,{"zip":"11377","t":"Noise - Vehicle","n":"3"}
 ,{"zip":"10469","t":"Noise - Commercial","n":"2"}
-,{"zip":"11222","t":"Noise - Vehicle","n":"2"}
-,{"zip":"10473","t":"Noise - Park","n":"2"}
-,{"zip":"11373","t":"Noise","n":"2"}
-,{"zip":"11418","t":"Noise - Vehicle","n":"2"}
-,{"zip":"11354","t":"Noise","n":"2"}
-,{"zip":"11214","t":"Noise - Street/Sidewalk","n":"2"}
-,{"zip":"11224","t":"Noise - Vehicle","n":"2"}
-,{"zip":"10454","t":"Noise","n":"2"}
-,{"zip":"10469","t":"Noise - Park","n":"2"}
-,{"zip":"10464","t":"Noise - Park","n":"2"}
-,{"zip":"10314","t":"Noise - Commercial","n":"2"}
-,{"zip":"10017","t":"Noise - Vehicle","n":"2"}
-,{"zip":"10309","t":"Noise - House of Worship","n":"2"}
+,{"zip":"10457","t":"Noise - Park","n":"2"}
+,{"zip":"10029","t":"Noise - Vehicle","n":"2"}
 ,{"zip":"11238","t":"Noise - Vehicle","n":"2"}
-,{"zip":"11235","t":"Noise - Park","n":"2"}
-,{"zip":"10030","t":"Noise - Vehicle","n":"2"}
-,{"zip":"11415","t":"Noise - Vehicle","n":"2"}
-,{"zip":"10004","t":"Noise - Commercial","n":"2"}
-,{"zip":"11435","t":"Noise","n":"2"}
-,{"zip":"11422","t":"Noise - Street/Sidewalk","n":"2"}
-,{"zip":"10075","t":"Noise - Vehicle","n":"2"}
-,{"zip":"11432","t":"Noise - Commercial","n":"2"}
-,{"zip":"11426","t":"Noise - Street/Sidewalk","n":"2"}
-,{"zip":"10075","t":"Noise - Park","n":"2"}
-,{"zip":"10472","t":"Noise - Park","n":"2"}
-,{"zip":"10312","t":"Noise - Vehicle","n":"2"}
-,{"zip":"11219","t":"Noise - Street/Sidewalk","n":"2"}
-,{"zip":"11415","t":"Noise - Street/Sidewalk","n":"2"}
-,{"zip":"10034","t":"Noise","n":"2"}
-,{"zip":"10456","t":"Noise","n":"2"}
-,{"zip":"11104","t":"Noise - Street/Sidewalk","n":"2"}
-,{"zip":"10022","t":"Noise - Vehicle","n":"2"}
-,{"zip":"11230","t":"Noise","n":"2"}
-,{"zip":"11366","t":"Noise - Park","n":"2"}
-,{"zip":"11212","t":"Noise - Commercial","n":"2"}
-,{"zip":"11367","t":"Noise - Street/Sidewalk","n":"2"}
-,{"zip":"11422","t":"Noise - Commercial","n":"2"}
 ,{"zip":"11413","t":"Noise","n":"2"}
-,{"zip":"11201","t":"Noise - Park","n":"2"}
-,{"zip":"10007","t":"Noise - Vehicle","n":"2"}
-,{"zip":"10030","t":"Noise","n":"2"}
-,{"zip":"11356","t":"Noise - Park","n":"2"}
-,{"zip":"11236","t":"Noise - Vehicle","n":"2"}
-,{"zip":"11206","t":"Noise - Vehicle","n":"2"}
-,{"zip":"10011","t":"Noise","n":"2"}
-,{"zip":"11370","t":"Noise - Street/Sidewalk","n":"2"}
-,{"zip":"11354","t":"Noise - Park","n":"2"}
-,{"zip":"10032","t":"Noise - Commercial","n":"2"}
-,{"zip":"10452","t":"Noise - House of Worship","n":"2"}
-,{"zip":"10468","t":"Noise","n":"2"}
-,{"zip":"10007","t":"Noise - Street/Sidewalk","n":"2"}
-,{"zip":"11219","t":"Noise - Commercial","n":"2"}
-,{"zip":"11420","t":"Noise - Park","n":"2"}
-,{"zip":"11216","t":"Noise - Park","n":"2"}
-,{"zip":"11355","t":"Noise - Vehicle","n":"2"}
-,{"zip":"11693","t":"Noise - Vehicle","n":"2"}
-,{"zip":"10075","t":"Noise - Residential","n":"2"}
-,{"zip":"10306","t":"Noise - Vehicle","n":"2"}
-,{"zip":"11694","t":"Noise - Park","n":"2"}
-,{"zip":"11232","t":"Noise - Park","n":"2"}
+,{"zip":"11365","t":"Noise - Commercial","n":"2"}
+,{"zip":"10304","t":"Noise - Street/Sidewalk","n":"2"}
+,{"zip":"11419","t":"Noise - Commercial","n":"2"}
 ,{"zip":"11360","t":"Noise - Street/Sidewalk","n":"2"}
+,{"zip":"10031","t":"Noise - Park","n":"2"}
+,{"zip":"11216","t":"Noise - Park","n":"2"}
+,{"zip":"11104","t":"Noise - Street/Sidewalk","n":"2"}
+,{"zip":"11218","t":"Noise - Vehicle","n":"2"}
+,{"zip":"10302","t":"Noise - Street/Sidewalk","n":"2"}
+,{"zip":"11379","t":"Noise","n":"2"}
+,{"zip":"11356","t":"Noise - Commercial","n":"2"}
+,{"zip":"11373","t":"Noise","n":"2"}
+,{"zip":"11235","t":"Noise - Commercial","n":"2"}
 ,{"zip":"11231","t":"Noise - Park","n":"2"}
+,{"zip":"11356","t":"Noise - Park","n":"2"}
+,{"zip":"11422","t":"Noise - Street/Sidewalk","n":"2"}
+,{"zip":"10030","t":"Noise","n":"2"}
+,{"zip":"11426","t":"Noise - Street/Sidewalk","n":"2"}
+,{"zip":"10004","t":"Noise - Commercial","n":"2"}
+,{"zip":"10021","t":"Noise - Street/Sidewalk","n":"2"}
+,{"zip":"11206","t":"Noise - Park","n":"2"}
+,{"zip":"10473","t":"Noise","n":"2"}
+,{"zip":"11418","t":"Noise","n":"2"}
+,{"zip":"11214","t":"Noise - Street/Sidewalk","n":"2"}
+,{"zip":"10312","t":"Noise - Vehicle","n":"2"}
+,{"zip":"11235","t":"Noise - Park","n":"2"}
+,{"zip":"10309","t":"Noise - House of Worship","n":"2"}
+,{"zip":"10451","t":"Noise - Commercial","n":"2"}
 ,{"zip":"11377","t":"Noise - Park","n":"2"}
-,{"zip":"11109","t":"Noise - Residential","n":"2"}
-,{"zip":"10003","t":"Noise - Park","n":"2"}
-,{"zip":"10466","t":"Noise","n":"2"}
-,{"zip":"11374","t":"Noise - Street/Sidewalk","n":"2"}
-,{"zip":"11223","t":"Noise - Commercial","n":"2"}
-,{"zip":"10464","t":"Noise - Residential","n":"2"}
-,{"zip":"10455","t":"Noise","n":"2"}
-,{"zip":"11225","t":"Noise - Vehicle","n":"2"}
-,{"zip":"10464","t":"Noise - Vehicle","n":"2"}
-,{"zip":"11429","t":"Noise - Street/Sidewalk","n":"2"}
-,{"zip":"11373","t":"Noise - Commercial","n":"2"}
-,{"zip":"11373","t":"Noise - Vehicle","n":"2"}
-,{"zip":"10001","t":"Noise - Commercial","n":"2"}
-,{"zip":"11004","t":"Noise - Vehicle","n":"2"}
-,{"zip":"10310","t":"Noise - Vehicle","n":"2"}
+,{"zip":"10464","t":"Noise - Park","n":"2"}
+,{"zip":"10028","t":"Noise","n":"2"}
+,{"zip":"11417","t":"Noise - Vehicle","n":"2"}
 ,{"zip":"10306","t":"Noise - Commercial","n":"2"}
-,{"zip":"11213","t":"Noise - Park","n":"1"}
-,{"zip":"10279","t":"Noise - Street/Sidewalk","n":"1"}
-,{"zip":"11239","t":"Noise - Commercial","n":"1"}
-,{"zip":"11369","t":"Noise - Commercial","n":"1"}
-,{"zip":"10454","t":"Noise - Park","n":"1"}
-,{"zip":"10303","t":"Noise","n":"1"}
-,{"zip":"10307","t":"Noise - Park","n":"1"}
-,{"zip":"11385","t":"Noise - House of Worship","n":"1"}
-,{"zip":"10471","t":"Noise - House of Worship","n":"1"}
-,{"zip":"10023","t":"Noise - Commercial","n":"1"}
-,{"zip":"10128","t":"Noise - House of Worship","n":"1"}
-,{"zip":"10312","t":"Noise - Commercial","n":"1"}
-,{"zip":"11416","t":"Noise - Commercial","n":"1"}
+,{"zip":"10310","t":"Noise - Vehicle","n":"2"}
+,{"zip":"11374","t":"Noise - Street/Sidewalk","n":"2"}
+,{"zip":"11420","t":"Noise - Park","n":"2"}
+,{"zip":"10007","t":"Noise - Vehicle","n":"2"}
+,{"zip":"11420","t":"Noise","n":"2"}
+,{"zip":"11236","t":"Noise - Vehicle","n":"2"}
+,{"zip":"11208","t":"Noise - Commercial","n":"2"}
+,{"zip":"10023","t":"Noise - Commercial","n":"2"}
+,{"zip":"11415","t":"Noise - Street/Sidewalk","n":"2"}
+,{"zip":"11203","t":"Noise","n":"2"}
+,{"zip":"11357","t":"Noise - Commercial","n":"2"}
+,{"zip":"10452","t":"Noise - House of Worship","n":"2"}
+,{"zip":"11358","t":"Noise","n":"2"}
+,{"zip":"10075","t":"Noise - Park","n":"2"}
+,{"zip":"11224","t":"Noise - Vehicle","n":"2"}
+,{"zip":"10034","t":"Noise","n":"2"}
+,{"zip":"10075","t":"Noise - Residential","n":"2"}
+,{"zip":"11413","t":"Noise - Commercial","n":"2"}
+,{"zip":"10302","t":"Noise","n":"2"}
+,{"zip":"11223","t":"Noise - Commercial","n":"2"}
+,{"zip":"11693","t":"Noise - Vehicle","n":"2"}
+,{"zip":"10456","t":"Noise","n":"2"}
+,{"zip":"11210","t":"Noise - Vehicle","n":"2"}
+,{"zip":"10459","t":"Noise","n":"2"}
+,{"zip":"11435","t":"Noise","n":"2"}
+,{"zip":"10303","t":"Noise - Street/Sidewalk","n":"2"}
+,{"zip":"10032","t":"Noise - Commercial","n":"2"}
+,{"zip":"10003","t":"Noise - Park","n":"2"}
+,{"zip":"10312","t":"Noise","n":"2"}
+,{"zip":"10470","t":"Noise","n":"2"}
+,{"zip":"10001","t":"Noise - Commercial","n":"2"}
+,{"zip":"11106","t":"Noise - House of Worship","n":"2"}
+,{"zip":"10455","t":"Noise","n":"2"}
+,{"zip":"11221","t":"Noise - Vehicle","n":"2"}
+,{"zip":"11429","t":"Noise - Street/Sidewalk","n":"2"}
+,{"zip":"11356","t":"Noise - Street/Sidewalk","n":"2"}
+,{"zip":"11239","t":"Noise - Residential","n":"2"}
+,{"zip":"11373","t":"Noise - Vehicle","n":"2"}
+,{"zip":"11102","t":"Noise - Commercial","n":"2"}
+,{"zip":"11201","t":"Noise - Park","n":"2"}
+,{"zip":"10469","t":"Noise - Park","n":"2"}
+,{"zip":"11102","t":"Noise","n":"2"}
+,{"zip":"11004","t":"Noise - Vehicle","n":"2"}
+,{"zip":"11105","t":"Noise","n":"2"}
+,{"zip":"10027","t":"Noise - Commercial","n":"2"}
+,{"zip":"10474","t":"Noise - Commercial","n":"1"}
 ,{"zip":"10458","t":"Noise - Park","n":"1"}
-,{"zip":"11436","t":"Noise - Vehicle","n":"1"}
-,{"zip":"10472","t":"Noise","n":"1"}
-,{"zip":"10031","t":"Noise - Park","n":"1"}
-,{"zip":"10028","t":"Noise - Vehicle","n":"1"}
-,{"zip":"10029","t":"Noise - House of Worship","n":"1"}
-,{"zip":"10004","t":"Noise - Vehicle","n":"1"}
-,{"zip":"10455","t":"Noise - Commercial","n":"1"}
-,{"zip":"11416","t":"Noise - Park","n":"1"}
-,{"zip":"11363","t":"Noise - Vehicle","n":"1"}
-,{"zip":"11415","t":"Noise","n":"1"}
-,{"zip":"10465","t":"Noise - Vehicle","n":"1"}
-,{"zip":"10312","t":"Noise - Park","n":"1"}
-,{"zip":"10021","t":"Noise - Street/Sidewalk","n":"1"}
-,{"zip":"11203","t":"Noise - House of Worship","n":"1"}
-,{"zip":"10462","t":"Noise","n":"1"}
-,{"zip":"10065","t":"Noise - Vehicle","n":"1"}
+,{"zip":"10307","t":"Noise - Park","n":"1"}
+,{"zip":"10303","t":"Noise","n":"1"}
+,{"zip":"10030","t":"Noise - House of Worship","n":"1"}
+,{"zip":"11416","t":"Noise - Commercial","n":"1"}
+,{"zip":"10014","t":"Noise - Vehicle","n":"1"}
+,{"zip":"11214","t":"Noise - Vehicle","n":"1"}
+,{"zip":"11369","t":"Noise - Commercial","n":"1"}
 ,{"zip":"10475","t":"Noise","n":"1"}
-,{"zip":"10075","t":"Noise - Commercial","n":"1"}
-,{"zip":"10038","t":"Noise - Vehicle","n":"1"}
-,{"zip":"11421","t":"Noise - Commercial","n":"1"}
-,{"zip":"10018","t":"Noise - Vehicle","n":"1"}
-,{"zip":"10305","t":"Noise - Street/Sidewalk","n":"1"}
-,{"zip":"10475","t":"Noise - Street/Sidewalk","n":"1"}
-,{"zip":"11378","t":"Noise - Commercial","n":"1"}
-,{"zip":"10308","t":"Noise - Commercial","n":"1"}
-,{"zip":"10010","t":"Noise - Helicopter","n":"1"}
+,{"zip":"10028","t":"Noise - Street/Sidewalk","n":"1"}
+,{"zip":"11219","t":"Noise - Street/Sidewalk","n":"1"}
+,{"zip":"11004","t":"Noise - Residential","n":"1"}
+,{"zip":"11209","t":"Noise - Park","n":"1"}
+,{"zip":"11416","t":"Noise","n":"1"}
+,{"zip":"11208","t":"Noise - House of Worship","n":"1"}
+,{"zip":"11370","t":"Noise - Street/Sidewalk","n":"1"}
+,{"zip":"11415","t":"Noise - Vehicle","n":"1"}
+,{"zip":"11357","t":"Noise - Street/Sidewalk","n":"1"}
+,{"zip":"10454","t":"Noise - Park","n":"1"}
+,{"zip":"10309","t":"Noise - Vehicle","n":"1"}
+,{"zip":"11104","t":"Noise - Vehicle","n":"1"}
+,{"zip":"10025","t":"Noise - House of Worship","n":"1"}
+,{"zip":"11435","t":"Noise - Commercial","n":"1"}
+,{"zip":"11361","t":"Noise - Vehicle","n":"1"}
+,{"zip":"10033","t":"Noise - Park","n":"1"}
+,{"zip":"11692","t":"Noise","n":"1"}
+,{"zip":"11109","t":"Noise","n":"1"}
+,{"zip":"11412","t":"Noise","n":"1"}
+,{"zip":"10312","t":"Noise - Commercial","n":"1"}
+,{"zip":"11426","t":"Noise","n":"1"}
+,{"zip":"10471","t":"Noise - House of Worship","n":"1"}
+,{"zip":"11362","t":"Noise - Vehicle","n":"1"}
+,{"zip":"10280","t":"Noise - Residential","n":"1"}
+,{"zip":"10309","t":"Noise - Street/Sidewalk","n":"1"}
 ,{"zip":"10027","t":"Noise - Vehicle","n":"1"}
-,{"zip":"11420","t":"Noise","n":"1"}
-,{"zip":"11357","t":"Noise - Park","n":"1"}
+,{"zip":"11432","t":"Noise - Commercial","n":"1"}
+,{"zip":"11411","t":"Noise - Street/Sidewalk","n":"1"}
 ,{"zip":"11239","t":"Noise","n":"1"}
-,{"zip":"11411","t":"Noise - Commercial","n":"1"}
+,{"zip":"10472","t":"Noise - Park","n":"1"}
+,{"zip":"11356","t":"Noise - Vehicle","n":"1"}
+,{"zip":"11237","t":"Noise - Vehicle","n":"1"}
+,{"zip":"10010","t":"Noise - Helicopter","n":"1"}
 ,{"zip":"10459","t":"Noise - Park","n":"1"}
 ,{"zip":"11427","t":"Noise - Street/Sidewalk","n":"1"}
+,{"zip":"11239","t":"Noise - Street/Sidewalk","n":"1"}
+,{"zip":"11694","t":"Noise - Park","n":"1"}
+,{"zip":"10004","t":"Noise - Residential","n":"1"}
+,{"zip":"10022","t":"Noise - Commercial","n":"1"}
 ,{"zip":"10310","t":"Noise","n":"1"}
+,{"zip":"10022","t":"Noise - Vehicle","n":"1"}
 ,{"zip":"11230","t":"Noise - Park","n":"1"}
 ,{"zip":"10007","t":"Noise - Commercial","n":"1"}
-,{"zip":"10017","t":"Noise - House of Worship","n":"1"}
-,{"zip":"11693","t":"Noise - Commercial","n":"1"}
-,{"zip":"11236","t":"Noise","n":"1"}
-,{"zip":"10453","t":"Noise - Park","n":"1"}
-,{"zip":"10065","t":"Noise - Street/Sidewalk","n":"1"}
 ,{"zip":"11103","t":"Noise - Vehicle","n":"1"}
-,{"zip":"10004","t":"Noise - Residential","n":"1"}
+,{"zip":"11102","t":"Noise - Park","n":"1"}
+,{"zip":"11220","t":"Noise - Commercial","n":"1"}
+,{"zip":"11236","t":"Noise","n":"1"}
+,{"zip":"11377","t":"Noise - Commercial","n":"1"}
+,{"zip":"11421","t":"Noise - Commercial","n":"1"}
+,{"zip":"10018","t":"Noise - Vehicle","n":"1"}
+,{"zip":"11216","t":"Noise - House of Worship","n":"1"}
+,{"zip":"10065","t":"Noise - Street/Sidewalk","n":"1"}
+,{"zip":"10018","t":"Noise - Residential","n":"1"}
+,{"zip":"11423","t":"Noise","n":"1"}
+,{"zip":"10307","t":"Noise","n":"1"}
+,{"zip":"11231","t":"Noise - Vehicle","n":"1"}
+,{"zip":"10065","t":"Noise - Commercial","n":"1"}
+,{"zip":"11362","t":"Noise - Street/Sidewalk","n":"1"}
 ,{"zip":"11356","t":"Noise","n":"1"}
 ,{"zip":"10005","t":"Noise - Residential","n":"1"}
 ,{"zip":"10154","t":"Noise - Residential","n":"1"}
-,{"zip":"11221","t":"Noise - Park","n":"1"}
-,{"zip":"11239","t":"Noise - Street/Sidewalk","n":"1"}
-,{"zip":"11109","t":"Noise - Vehicle","n":"1"}
+,{"zip":"11214","t":"Noise","n":"1"}
+,{"zip":"11238","t":"Noise - Park","n":"1"}
+,{"zip":"10075","t":"Noise - Commercial","n":"1"}
+,{"zip":"10453","t":"Noise - Park","n":"1"}
+,{"zip":"10473","t":"Noise - Commercial","n":"1"}
+,{"zip":"10462","t":"Noise","n":"1"}
+,{"zip":"11203","t":"Noise - House of Worship","n":"1"}
+,{"zip":"11693","t":"Noise","n":"1"}
+,{"zip":"11693","t":"Noise - Commercial","n":"1"}
+,{"zip":"10474","t":"Noise","n":"1"}
 ,{"zip":"10025","t":"Noise - Park","n":"1"}
-,{"zip":"11237","t":"Noise - Vehicle","n":"1"}
-,{"zip":"10309","t":"Noise - Street/Sidewalk","n":"1"}
-,{"zip":"11203","t":"Noise","n":"1"}
-,{"zip":"11356","t":"Noise - Vehicle","n":"1"}
-,{"zip":"11249","t":"Noise - Vehicle","n":"1"}
-,{"zip":"11370","t":"Noise - Park","n":"1"}
-,{"zip":"11102","t":"Noise - Commercial","n":"1"}
-,{"zip":"11222","t":"Noise - Park","n":"1"}
-,{"zip":"10280","t":"Noise","n":"1"}
-,{"zip":"10010","t":"Noise - Street/Sidewalk","n":"1"}
-,{"zip":"11429","t":"Noise - Commercial","n":"1"}
-,{"zip":"10028","t":"Noise - Park","n":"1"}
-,{"zip":"10470","t":"Noise - Commercial","n":"1"}
-,{"zip":"10473","t":"Noise","n":"1"}
-,{"zip":"11216","t":"Noise - House of Worship","n":"1"}
+,{"zip":"11004","t":"Noise","n":"1"}
+,{"zip":"10473","t":"Noise - Park","n":"1"}
+,{"zip":"11354","t":"Noise","n":"1"}
+,{"zip":"11213","t":"Noise - Park","n":"1"}
+,{"zip":"11412","t":"Noise - Park","n":"1"}
 ,{"zip":"11379","t":"Noise - Park","n":"1"}
+,{"zip":"11211","t":"Noise - Park","n":"1"}
+,{"zip":"11422","t":"Noise - Commercial","n":"1"}
+,{"zip":"11370","t":"Noise - Park","n":"1"}
+,{"zip":"11219","t":"Noise - Commercial","n":"1"}
+,{"zip":"10005","t":"Noise - Street/Sidewalk","n":"1"}
+,{"zip":"11694","t":"Noise - Commercial","n":"1"}
+,{"zip":"11222","t":"Noise - Park","n":"1"}
+,{"zip":"11417","t":"Noise","n":"1"}
+,{"zip":"11364","t":"Noise","n":"1"}
+,{"zip":"10128","t":"Noise - Commercial","n":"1"}
+,{"zip":"11357","t":"Noise - Park","n":"1"}
+,{"zip":"11209","t":"Noise - Commercial","n":"1"}
+,{"zip":"11429","t":"Noise - Commercial","n":"1"}
+,{"zip":"11221","t":"Noise - House of Worship","n":"1"}
+,{"zip":"10465","t":"Noise - Vehicle","n":"1"}
+,{"zip":"11692","t":"Noise - Vehicle","n":"1"}
+,{"zip":"11230","t":"Noise - Vehicle","n":"1"}
+,{"zip":"11378","t":"Noise - Vehicle","n":"1"}
+,{"zip":"11225","t":"Noise - Vehicle","n":"1"}
+,{"zip":"11239","t":"Noise - Commercial","n":"1"}
+,{"zip":"10466","t":"Noise","n":"1"}
+,{"zip":"10470","t":"Noise - Commercial","n":"1"}
+,{"zip":"10007","t":"Noise - Street/Sidewalk","n":"1"}
+,{"zip":"11415","t":"Noise","n":"1"}
+,{"zip":"10001","t":"Noise - Vehicle","n":"1"}
+,{"zip":"10118","t":"Noise - Street/Sidewalk","n":"1"}
+,{"zip":"10029","t":"Noise - House of Worship","n":"1"}
+,{"zip":"10006","t":"Noise","n":"1"}
 ,{"zip":"11426","t":"Noise - Vehicle","n":"1"}
 ,{"zip":"11224","t":"Noise - Park","n":"1"}
 ,{"zip":"10039","t":"Noise - Park","n":"1"}
-,{"zip":"11211","t":"Noise - Park","n":"1"}
-,{"zip":"10005","t":"Noise - Street/Sidewalk","n":"1"}
-,{"zip":"11692","t":"Noise - Vehicle","n":"1"}
-,{"zip":"10001","t":"Noise - Vehicle","n":"1"}
-,{"zip":"11228","t":"Noise - Vehicle","n":"1"}
-,{"zip":"10312","t":"Noise","n":"1"}
-,{"zip":"10154","t":"Noise - Street/Sidewalk","n":"1"}
-,{"zip":"11206","t":"Noise - Park","n":"1"}
 ,{"zip":"10304","t":"Noise","n":"1"}
-,{"zip":"11232","t":"Noise - Vehicle","n":"1"}
+,{"zip":"10308","t":"Noise","n":"1"}
+,{"zip":"10306","t":"Noise - Vehicle","n":"1"}
 ,{"zip":"11216","t":"Noise - Helicopter","n":"1"}
-,{"zip":"10470","t":"Noise - Street/Sidewalk","n":"1"}
-,{"zip":"11357","t":"Noise - Commercial","n":"1"}
-,{"zip":"10013","t":"Noise - Park","n":"1"}
-,{"zip":"10075","t":"Noise - Street/Sidewalk","n":"1"}
-,{"zip":"11417","t":"Noise - Commercial","n":"1"}
+,{"zip":"11232","t":"Noise - Park","n":"1"}
+,{"zip":"11228","t":"Noise - Vehicle","n":"1"}
+,{"zip":"10472","t":"Noise","n":"1"}
+,{"zip":"10475","t":"Noise - Street/Sidewalk","n":"1"}
+,{"zip":"10471","t":"Noise","n":"1"}
+,{"zip":"10305","t":"Noise - Street/Sidewalk","n":"1"}
+,{"zip":"10065","t":"Noise - Vehicle","n":"1"}
+,{"zip":"10314","t":"Noise - Commercial","n":"1"}
 ,{"zip":"10301","t":"Noise - Vehicle","n":"1"}
-,{"zip":"11691","t":"Noise - Vehicle","n":"1"}
 ,{"zip":"11001","t":"Noise","n":"1"}
-,{"zip":"10128","t":"Noise - Commercial","n":"1"}
-,{"zip":"10037","t":"Noise - Vehicle","n":"1"}
-,{"zip":"10303","t":"Noise - Vehicle","n":"1"}
-,{"zip":"11214","t":"Noise - Vehicle","n":"1"}
-,{"zip":"11414","t":"Noise - Commercial","n":"1"}
-,{"zip":"10030","t":"Noise - House of Worship","n":"1"}
-,{"zip":"10471","t":"Noise - Commercial","n":"1"}
-,{"zip":"11209","t":"Noise - Park","n":"1"}
-,{"zip":"10474","t":"Noise - Commercial","n":"1"}
-,{"zip":"11004","t":"Noise - Residential","n":"1"}
-,{"zip":"11416","t":"Noise","n":"1"}
-,{"zip":"10025","t":"Noise - House of Worship","n":"1"}
-,{"zip":"10309","t":"Noise - Vehicle","n":"1"}
-,{"zip":"10033","t":"Noise - Park","n":"1"}
-,{"zip":"11369","t":"Noise","n":"1"}
-,{"zip":"11426","t":"Noise","n":"1"}
-,{"zip":"10460","t":"Noise","n":"1"}
-,{"zip":"11105","t":"Noise - Vehicle","n":"1"}
-,{"zip":"11238","t":"Noise - Park","n":"1"}
-,{"zip":"10022","t":"Noise - Commercial","n":"1"}
-,{"zip":"11004","t":"Noise","n":"1"}
-,{"zip":"10473","t":"Noise - Commercial","n":"1"}
-,{"zip":"11694","t":"Noise - Commercial","n":"1"}
-,{"zip":"11370","t":"Noise - Vehicle","n":"1"}
-,{"zip":"11412","t":"Noise - Park","n":"1"}
-,{"zip":"10006","t":"Noise","n":"1"}
-,{"zip":"11102","t":"Noise - Park","n":"1"}
-,{"zip":"11411","t":"Noise - Street/Sidewalk","n":"1"}
-,{"zip":"10280","t":"Noise - Residential","n":"1"}
-,{"zip":"11412","t":"Noise","n":"1"}
-,{"zip":"11361","t":"Noise - Vehicle","n":"1"}
+,{"zip":"10013","t":"Noise - Park","n":"1"}
+,{"zip":"10457","t":"Noise - House of Worship","n":"1"}
 ,{"zip":"11433","t":"Noise - Vehicle","n":"1"}
-,{"zip":"11435","t":"Noise - Commercial","n":"1"}]
+,{"zip":"10075","t":"Noise - Street/Sidewalk","n":"1"}
+,{"zip":"11363","t":"Noise - Vehicle","n":"1"}
+,{"zip":"10303","t":"Noise - Vehicle","n":"1"}
+,{"zip":"11414","t":"Noise - Commercial","n":"1"}
+,{"zip":"11691","t":"Noise - Vehicle","n":"1"}
+,{"zip":"11385","t":"Noise - House of Worship","n":"1"}]
