@@ -44,11 +44,13 @@ def iso_days_ago(days: int) -> str:
 
 def fetch_json(url: str, attempts: int = 4):
     """Socrata read timeouts are common on the big MTA table; retry with
-    backoff so one slow response doesn't abort the whole nightly run."""
+    backoff so one slow response doesn't abort the whole nightly run.
+    The 30-day station-list GROUP BY alone takes ~190s as of Oct 2026, so
+    the per-request timeout has to sit well above that."""
     last = None
     for i in range(attempts):
         try:
-            with urllib.request.urlopen(url, timeout=180) as r:
+            with urllib.request.urlopen(url, timeout=420) as r:
                 return json.loads(r.read())
         except Exception as e:                      # noqa: BLE001 - retry anything
             last = e
