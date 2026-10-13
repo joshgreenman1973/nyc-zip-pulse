@@ -80,18 +80,34 @@ def load_zctas():
 
 
 def fetch_station_list(window_days: int = 30):
-    """Distinct station complexes that show up in the recent window."""
+    """Distinct station complexes that show up in the recent window.
+
+    Groups on station_complex_id alone: a four-column GROUP BY over this table
+    stopped finishing inside 420s in Oct 2026 (even on a two-day window), while
+    the one-column version returns in about a minute. Each complex has exactly
+    one name and one coordinate pair, so min() just carries that value through.
+    The aliases can't reuse the column names -- Socrata rejects that."""
     since = iso_days_ago(window_days)
     where = f"transit_timestamp > '{since}'"
     params = {
-        "$select": "station_complex_id, station_complex, latitude, longitude",
+        "$select": "station_complex_id, min(station_complex) as name, "
+                   "min(latitude) as lat, min(longitude) as lng",
         "$where": where,
-        "$group": "station_complex_id, station_complex, latitude, longitude",
+        "$group": "station_complex_id",
         "$limit": "1000",
     }
     url = MTA + "?" + urllib.parse.urlencode(params)
     print(f"Fetching station list (window={window_days}d)...")
-    stations = fetch_json(url)
+    rows = fetch_json(url)
+    stations = [
+        {
+            "station_complex_id": r.get("station_complex_id"),
+            "station_complex": r.get("name"),
+            "latitude": r.get("lat"),
+            "longitude": r.get("lng"),
+        }
+        for r in rows
+    ]
     print(f"  {len(stations)} stations")
     return stations
 
