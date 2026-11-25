@@ -24,7 +24,7 @@ get() {
   local tmp="${out}.tmp"
   # 360s per attempt: the 90-day rats query (leading-wildcard LIKE over all of
   # 311) measured 265s on a slow Socrata day, so 120s failed all four tries.
-  if ! curl -sS --fail-with-body --retry 3 --retry-delay 5 --max-time 360 "$url" -o "$tmp"; then
+  if ! curl -sS --fail-with-body --retry 3 --retry-all-errors --retry-delay 5 --max-time 360 "$url" -o "$tmp"; then
     echo "  FAIL  $label — HTTP error from Socrata" >&2
     rm -f "$tmp"
     FAILURES=$((FAILURES + 1))
